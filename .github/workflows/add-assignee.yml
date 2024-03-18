@@ -1,0 +1,36 @@
+name: 'add assignee to pull request automatically'
+on:
+  pull_request:
+    types: [ opened, ready_for_review, synchronize, reopened ]
+    branches:
+      - '**'
+      - '!main'
+jobs:
+  ADD_ASSIGNEE_TO_PULL_REQUEST:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Assignee to pr
+        uses: actions/github-script@v3
+        with:
+          script: |
+                    try {
+                        const result = await github.pulls.get({
+                            owner: context.repo.owner,
+                            repo: context.repo.repo,
+                            pull_number: context.payload.number,
+                        })
+
+                        console.log(result)
+
+                        if (result.data.assignee === null) {
+                            await github.issues.addAssignees({
+                                owner: context.repo.owner,
+                                repo: context.repo.repo,
+                                issue_number: context.issue.number,
+                                assignees: context.actor,
+                            })
+                        }
+                    } catch (err) {
+                        console.error(`Check Pull Request Error ${err}`)
+                    }
+

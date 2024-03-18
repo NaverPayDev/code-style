@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "target": "ES2015",
+        "outDir": "./dist",
+        "strict": true,
+        "allowJs": true,
+        "incremental": true,
+        "declaration": true
+    },
+    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    "exclude": ["dist"]
+}
