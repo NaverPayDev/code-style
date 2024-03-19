@@ -1,0 +1,11 @@
+{
+    "name": "@naverpay/editorconfig",
+    "version": "0.0.1",
+    "description": "editorconfig for naverpay",
+    "scripts": {
+        "version": "pnpm version",
+        "deploy": "pnpm publish",
+        "postinstall": "node index.js"
+    },
+    "license": "ISC"
+}
