@@ -1,0 +1,11 @@
+{
+    "name": "@naverpay/prettier-config",
+    "version": "0.0.1",
+    "description": "prettier config for naverpay",
+    "main": "index.json",
+    "scripts": {
+        "version": "pnpm version",
+        "deploy": "pnpm publish"
+    },
+    "license": "ISC"
+}
