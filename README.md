@@ -1,1 +1,1 @@
-## ts-monorepo-template
+# @naverpay/code-style

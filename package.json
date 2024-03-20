@@ -1,19 +1,19 @@
 {
-    "name": "ts-monorepo-template",
+    "name": "@naverpay/code-style",
     "author": "@NaverPayDev/frontend",
     "repository": {
         "type": "git",
-        "url": "https://github.com/NaverPayDev/ts-monorepo-template.git"
+        "url": "https://github.com/NaverPayDev/code-style.git"
     },
-    "description": "ts-monorepo-template",
-    "version": "0.0.0",
+    "description": "code-style for naverpay",
+    "version": "0.0.1",
     "scripts": {
         "start": "turbo run start",
         "build": "turbo run build",
         "lint": "turbo run lint",
         "lint:fix": "turbo run lint:fix",
-        "prettier": "turbo run prettier",
-        "prettier:fix": "turbo run prettier:fix",
+        "prettier": "prettier --check '**/*.{ts,tsx,js,mjs,cjs,jsx,json,md}'",
+        "prettier:fix": "prettier --write '**/*.{ts,tsx,js,mjs,cjs,jsx,json,md}'",
         "clean": "turbo run clean && rm -rf ./node_modules && pnpm i",
         "release:canary": "pnpm run build && changeset publish --no-git-tag",
         "release": "pnpm run build && changeset publish"
@@ -23,14 +23,13 @@
         "**/*.{ts,tsx,js,jsx}": "eslint"
     },
     "devDependencies": {
-        "@size-limit/preset-big-lib": "^11.0.2",
         "@changesets/cli": "^2.26.2",
+        "glob": "^9.3.4",
         "husky": "^8.0.3",
         "lint-staged": "^15.0.1",
-        "size-limit": "^11.0.2",
+        "prettier": "^3.2.5",
         "turbo": "^1.10.16",
-        "typescript": "^5.2.2",
-        "glob": "^9.3.4"
+        "typescript": "^5.2.2"
     },
     "packageManager": "pnpm@8.14.3"
 }
