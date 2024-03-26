@@ -1,6 +1,6 @@
 {
     "name": "@naverpay/prettier-config",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "prettier config for naverpay",
     "main": "index.json",
     "scripts": {
