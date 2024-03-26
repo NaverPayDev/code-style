@@ -1,6 +1,6 @@
 {
     "name": "@naverpay/editorconfig",
-    "version": "0.0.2",
+    "version": "0.0.1",
     "description": "editorconfig for naverpay",
     "scripts": {
         "version": "pnpm version",
