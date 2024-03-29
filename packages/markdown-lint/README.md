@@ -24,9 +24,9 @@ npm i @naverpay/markdown-lint -D
 
 ```json
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.markdownlint": true
-  },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.markdownlint": true
+    }
 }
 ```
 
@@ -39,14 +39,14 @@ CHANGELOG.md
 
 ## CLI
 
-`package.json`에 스크립트를 추가하여 CLI 환경에서 사용할 수 있습니다.  
+`package.json`에 스크립트를 추가하여 CLI 환경에서 사용할 수 있습니다.
 
 ```jsonc
 {
-  "scripts": {
-    "markdownlint": "markdownlint '**/*.md'",
-    "markdownlint:fix": "markdownlint --fix '**/*.md'",
-  },
+    "scripts": {
+        "markdownlint": "markdownlint '**/*.md'",
+        "markdownlint:fix": "markdownlint --fix '**/*.md'",
+    },
 }
 ```
 
@@ -55,10 +55,10 @@ CHANGELOG.md
 
 ```jsonc
 {
-  "scripts": {
-    "markdownlint": "markdownlint --config 'config/.markdownlint.jsonc' '**/*.md'",
-    "markdownlint:fix": "markdownlint --config 'config/.markdownlint.jsonc' --fix '**/*.md'",
-  },
+    "scripts": {
+        "markdownlint": "markdownlint --config 'config/.markdownlint.jsonc' '**/*.md'",
+        "markdownlint:fix": "markdownlint --config 'config/.markdownlint.jsonc' --fix '**/*.md'",
+    },
 }
 ```
 
@@ -67,10 +67,10 @@ CHANGELOG.md
 
 ```jsonc
 {
-  "scripts": {
-    "markdownlint": "markdownlint '**/*.md' '#**/CHANGELOG.md'",
-    "markdownlint:fix": "markdownlint --fix '**/*.md' '#**/CHANGELOG.md'",
-  },
+    "scripts": {
+        "markdownlint": "markdownlint '**/*.md' '#**/CHANGELOG.md'",
+        "markdownlint:fix": "markdownlint --fix '**/*.md' '#**/CHANGELOG.md'",
+    },
 }
 ```
 
@@ -85,30 +85,30 @@ CHANGELOG.md
 ```jsonc
 // .markdownlint.jsonc
 {
-  "comment": "Disables rules that may conflict with Prettier",
+    "comment": "Disables rules that may conflict with Prettier",
 
-  "blanks-around-fences": false,
-  "blanks-around-headings": false,
-  "blanks-around-lists": false,
-  "code-fence-style": false,
-  "emphasis-style": false,
-  "heading-start-left": false,
-  "hr-style": false,
-  "line-length": false,
-  "list-indent": false,
-  "list-marker-space": false,
-  "no-blanks-blockquote": false,
-  "no-hard-tabs": false,
-  "no-missing-space-atx": false,
-  "no-missing-space-closed-atx": false,
-  "no-multiple-blanks": false,
-  "no-multiple-space-atx": false,
-  "no-multiple-space-blockquote": false,
-  "no-multiple-space-closed-atx": false,
-  "no-trailing-spaces": false,
-  "ol-prefix": false,
-  "strong-style": false,
-  "ul-indent": false
+    "blanks-around-fences": false,
+    "blanks-around-headings": false,
+    "blanks-around-lists": false,
+    "code-fence-style": false,
+    "emphasis-style": false,
+    "heading-start-left": false,
+    "hr-style": false,
+    "line-length": false,
+    "list-indent": false,
+    "list-marker-space": false,
+    "no-blanks-blockquote": false,
+    "no-hard-tabs": false,
+    "no-missing-space-atx": false,
+    "no-missing-space-closed-atx": false,
+    "no-multiple-blanks": false,
+    "no-multiple-space-atx": false,
+    "no-multiple-space-blockquote": false,
+    "no-multiple-space-closed-atx": false,
+    "no-trailing-spaces": false,
+    "ol-prefix": false,
+    "strong-style": false,
+    "ul-indent": false,
 }
 ```
 
