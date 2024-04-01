@@ -1,2 +1,5 @@
 # changeset 제외
 .changeset
+
+# markdown 포맷팅은 markdown-lint에게 맡깁니다.
+**/*.md
