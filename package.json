@@ -10,6 +10,7 @@
     "scripts": {
         "start": "turbo run start",
         "build": "turbo run build",
+        "test": "turbo run test",
         "lint": "turbo run lint",
         "lint:fix": "turbo run lint:fix",
         "prettier": "prettier --check '**/*.{ts,tsx,js,mjs,cjs,jsx,json,md}'",
@@ -29,7 +30,9 @@
         "lint-staged": "^15.0.1",
         "prettier": "^3.2.5",
         "turbo": "^1.10.16",
-        "typescript": "^5.2.2"
+        "typescript": "^5.2.2",
+        "@naverpay/markdown-lint": "workspace:*",
+        "@naverpay/prettier-config": "workspace:*"
     },
     "packageManager": "pnpm@8.14.3"
 }

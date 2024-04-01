@@ -1,0 +1,171 @@
+{
+    "$schema": "https://json.schemastore.org/markdownlint",
+    "default": false,
+    // MD001: heading levels should only increment by one level at a time
+    "heading-increment": true,
+    // MD003: enforce atx heading style (put 1-6 hash marks (#) at the beginning of the line)
+    "heading-style": {"style": "atx"},
+    // MD004: enforce unordered list symbol style (put dash (-) at the beginning of the line)
+    "ul-style": {"style": "dash"},
+    // MD005: enforce consistent indentation for list items at the same level
+    "list-indent": true,
+    // MD007: enforce indent level
+    "ul-indent": {
+        // Spaces for indent
+        "indent": 2,
+        // Whether to indent the first level of the list
+        "start_indented": false
+    },
+    // MD009: enforce trailing spaces
+    "no-trailing-spaces": {
+        // Spaces for line break
+        "br_spaces": 2, // 0 or 2
+        // Allow spaces for empty lines in list items
+        "list_item_empty_lines": false,
+        // Include unnecessary breaks
+        "strict": false
+    },
+    // MD010: use spaces instead of containing hard tab characters for indentation
+    "no-hard-tabs": {
+        // Include code blocks
+        "code_blocks": true,
+        // Fenced code languages to ignore
+        "ignore_code_languages": [],
+        // Number of spaces for each hard tab
+        "spaces_per_tab": 2
+    },
+    // MD011: disallow reversed link
+    "no-reversed-links": true,
+    // MD012: disallow multiple blank lines
+    "no-multiple-blanks": {
+        "maximum": 1
+    },
+    // MD013: enforce line length
+    "line-length": false,
+    // MD014: allow dollar signs
+    "commands-show-output": false,
+    // MD018: enforce space after hash on atx style heading
+    "no-missing-space-atx": true,
+    // MD019: disallow multiple spaces after hash on atx style heading
+    "no-multiple-space-atx": true,
+    // MD020: enforce space inside hashes on closed atx style heading
+    "no-missing-space-closed-atx": false,
+    // MD021: disallow multiple spaces inside hashes on closed atx style heading
+    "no-multiple-space-closed-atx": false,
+    // MD022: headings should be surrounded by blank lines
+    "blanks-around-headings": {
+        // Blank lines above heading
+        "lines_above": 1,
+        // Blank lines below heading
+        "lines_below": 1
+    },
+    // MD023: headings must start at the beginning of the line
+    "heading-start-left": true,
+    // MD024: disallow multiple headings with the same content
+    "no-duplicate-heading": {
+        // Only check sibling headings
+        "siblings_only": true
+    },
+    // MD025: disallow multiple top-level headings in the same document
+    "single-h1": false,
+    // MD26: allow trailing punctuation in heading
+    "no-trailing-punctuation": false,
+    // MD027: disallow multiple spaces after blockquote symbol
+    "no-multiple-space-blockquote": true,
+    // MD028: disallow blank line inside blockquote
+    "no-blanks-blockquote": true,
+    // MD029: enforce ordered list item prefix
+    "ol-prefix": {
+        "style": "one_or_ordered"
+    },
+    // MD030: enforce spaces after list markers
+    "list-marker-space": {
+        // Spaces for single-line unordered list items
+        "ul_single": 1,
+        // Spaces for single-line ordered list items
+        "ol_single": 1,
+        // Spaces for multi-line unordered list items
+        "ul_multi": 1,
+        // Spaces for multi-line ordered list items
+        "ol_multi": 1
+    },
+    // MD031: fenced code blocks should be surrounded by blank lines
+    "blanks-around-fences": {
+        // Include list items
+        "list_items": true
+    },
+    // MD032: lists should be surrounded by blank lines
+    "blanks-around-lists": true,
+    // MD033: allow inline HTML
+    "no-inline-html": false,
+    // MD034: disallow using bare URL
+    "no-bare-urls": true,
+    // MD035: enforce consistent horizontal rule style
+    "hr-style": {
+        "style": "consistent"
+    },
+    // MD036: allow emphasis used instead of a heading
+    "no-emphasis-as-heading": false,
+    // MD37: disallow spaces inside emphasis markers
+    "no-space-in-emphasis": true,
+    // MD038: disallow spaces inside code span elements
+    "no-space-in-code": true,
+    // MD039: disallow spaces inside link text
+    "no-space-in-links": true,
+    // MD040: fenced code blocks don't have to have a language specified
+    "fenced-code-language": false,
+    // MD041: first line in a file don't have to be a top-level heading
+    "first-line-h1": false,
+    // MD042: no empty links
+    "no-empty-links": true,
+    // MD043: required heading structure
+    "required-headings": false,
+    // MD044: proper names should have the correct capitalization
+    "proper-names": false,
+    // MD045: images should have alternate text (alt text)
+    "no-alt-text": true,
+    // MD046: enforce code block style
+    "code-block-style": {
+        "style": "fenced"
+    },
+    // MD047: files should end with a single newline character
+    "single-trailing-newline": true,
+    // MD048: enforce code fence style
+    "code-fence-style": {
+        "style": "backtick"
+    },
+    // MD049: enforce emphasis style
+    "emphasis-style": {
+        "style": "underscore"
+    },
+    // MD050: enforce strong style
+    "strong-style": {
+        "style": "asterisk"
+    },
+    // MD051: link fragments should be valid
+    "link-fragments": true,
+    // MD052: reference links and images should use a label that is defined
+    "reference-links-images": {
+        "shortcut_syntax": false
+    },
+    // MD053: link and image reference definitions should be needed
+    "link-image-reference-definitions": {
+        // Ignored definitions
+        "ignored_definitions": ["//"]
+    },
+    // MD054: link and image style
+    "link-image-style": {
+        // Allow autolinks
+        "autolink": true,
+        // Allow inline links and images
+        "inline": true,
+        // Allow full reference links and images
+        "full": true,
+        // Allow collapsed reference links and images
+        "collapsed": true,
+        // Allow shortcut reference links and images
+        "shortcut": true,
+        // Allow URLs as inline links
+        "url_inline": true
+    }
+}
