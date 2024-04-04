@@ -30,8 +30,8 @@ jobs:
               id: changesets
               uses: changesets/action@v1
               with:
-                  title: "🚀 version changed packages"
-                  commit: "📦 bump changed packages version"
+                  title: '🚀 version changed packages'
+                  commit: '📦 bump changed packages version'
                   publish: pnpm release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

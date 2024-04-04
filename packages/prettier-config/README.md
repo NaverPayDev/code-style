@@ -42,8 +42,8 @@ package.json에 스크립트를 추가하여 format 검사를 할 수 있습니�
 
 ## Integrating with IDE
 
--   code-style에서는 **Formatting을 위해 Prettier**를, **Code-quality를 위해 ESlint**를 사용하고 있습니다. ([Prettier vs. Linters](https://prettier.io/docs/en/comparison))
--   IDE에서 autofix 하기 위해 아래 설정이 필요합니다.
+- code-style에서는 **Formatting을 위해 Prettier**를, **Code-quality를 위해 ESlint**를 사용하고 있습니다. ([Prettier vs. Linters](https://prettier.io/docs/en/comparison))
+- IDE에서 autofix 하기 위해 아래 설정이 필요합니다.
 
 ### VSCode
 
