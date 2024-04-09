@@ -3,3 +3,6 @@
 
 # markdown 포맷팅은 markdown-lint에게 맡깁니다.
 **/*.md
+
+# pnpm lock yaml 제외
+pnpm-lock.yaml
