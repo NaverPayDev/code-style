@@ -20,7 +20,7 @@
         "@babel/plugin-transform-react-jsx": "^7.14.5",
         "@next/eslint-plugin-next": ">=12",
         "@typescript-eslint/eslint-plugin": "6.10.0",
-        "eslint": ">=8",
+        "eslint": "^8",
         "eslint-config-eslint": "^7.0.0",
         "eslint-config-prettier": "^9.0.0",
         "eslint-config-standard": "^17.1.0",
