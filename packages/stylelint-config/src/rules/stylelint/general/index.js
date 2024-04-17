@@ -2,7 +2,7 @@ module.exports = {
     'no-duplicate-selectors': true,
     'no-empty-source': true,
     indentation: 4,
-    'max-empty-lines': [1, { ignore: ['comments'] }],
+    'max-empty-lines': [1, {ignore: ['comments']}],
     'no-eol-whitespace': [
         true,
         {

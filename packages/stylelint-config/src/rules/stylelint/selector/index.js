@@ -11,5 +11,5 @@ module.exports = {
     'selector-pseudo-element-case': 'lower',
     'selector-type-case': 'lower',
     'selector-list-comma-newline-before': 'never-multi-line',
-    'selector-list-comma-space-before': 'never'
+    'selector-list-comma-space-before': 'never',
 }
