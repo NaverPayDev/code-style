@@ -4,8 +4,6 @@
     "description": "stylelint config for naverpay",
     "main": "index.js",
     "scripts": {
-        "test": "stylelint \"__test__/**/*.{css,scss}\"",
-        "test:fix": "stylelint \"__test__/**/*.{css,scss}\" --fix",
         "version": "pnpm version",
         "deploy": "pnpm publish"
     },

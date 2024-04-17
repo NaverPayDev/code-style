@@ -20,6 +20,9 @@ importers:
       '@naverpay/prettier-config':
         specifier: workspace:*
         version: link:packages/prettier-config
+      '@naverpay/stylelint-config':
+        specifier: workspace:*
+        version: link:packages/stylelint-config
       glob:
         specifier: ^9.3.4
         version: 9.3.5
