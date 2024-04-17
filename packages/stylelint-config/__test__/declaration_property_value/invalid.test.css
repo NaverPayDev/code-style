@@ -1,0 +1,52 @@
+.article {
+    /* ERROR: 중복 선언 */
+    --custom-variable: #000;
+    --custom-variable: #fff;
+
+    /* ERROR: 대문자 사용 */
+    WIDTH: 100%;
+
+    /* ERROR: 없는 속성 사용 */
+    hieght: 100%;
+
+    /* ERROR: 중복 선언 */
+    min-height: 100vh;
+    min-height: 100vh;
+
+    /* 값이 다른 경우 오류로 평가하지 않는다 */
+    min-height: -webkit-fill-avilable;
+
+    /* ERROR: *-top, *-right, *-bottom, *-left "모두" 각각 선언된 경우 오류 */
+    /* ERROR: `;` 문자 앞·뒤 공백 문자 사용 */
+    margin-top: 10px ; 
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
+    /* ERROR: 축약 가능한 속성 (10px 20px) */
+    padding: 10px 20px 10px;
+
+    /* ERROR(2): `:` 앞 공백 사용, `:` 뒤 공백 문자 필요 */
+    border :1px solid #000;
+
+    /* font-* 축약 속성은 오류로 평하가지 않으나 지양 함 */
+    font: normal normal 500 14px/20px sans-serif;
+
+    /* ERROR: 한 줄에 두 가지 속성 선언 */
+    letter-spacing: -0.5px;text-align: center;
+
+
+    /* ERROR: `!` 문자 앞 공백 문자 필요 */
+    /* ERROR: 속성 선언 후 `;` 필요 */
+    color: --custom-variable!important
+}
+.multi-value {
+    /* ERROR: 속성 값 열거 시 `,` 이전 공백 사용 */
+    transition: all 250ms linear 0ms , all 250ms linear 0ms;
+
+    /* ERROR: 속성 값 열거 시 빈 줄 사용 */
+    animation:
+        keyframe 250ms 0ms linear forwards,
+
+        keyframe 250ms 0ms linear forwards;
+}

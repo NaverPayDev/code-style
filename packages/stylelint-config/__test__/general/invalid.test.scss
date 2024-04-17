@@ -1,0 +1,41 @@
+
+/*
+    ↑ ERROR: 파일의 첫 줄에 빈 줄 사용
+
+
+    주석 내 빈 줄에는 제한이 없습니다
+*/
+.article {
+    font-size: 14px;
+
+
+    // ERROR: 빈 줄을 2번 사용
+    .foo {
+        font-size: 14px;
+    }
+    &.type {
+        .foo {
+            // ERROR: 두 번의 `;` 문자 사용
+            font-size: 15px;;
+            // ERROR: `;` 문자 뒤 공백 사용
+            color: #000; 
+        }
+    }
+	.bar {
+        color: #000;
+    } // ERROR: `Tab`을 사용한 들여쓰기
+}
+
+/*
+    .article .foo, .article.type .foo, .foo 는 각각 다른 선택자로 취급합니다
+*/
+.foo {
+    color: #fff;
+}
+
+.article { // ERROR: 중복된 선택자 사용 : .article
+    font-weight: 500;
+    .foo { // ERROR: 중복된 선택자 사용 : .article .foo
+        color: #000;
+    }
+} // ERROR: `EOF`에 개행 문자 누락

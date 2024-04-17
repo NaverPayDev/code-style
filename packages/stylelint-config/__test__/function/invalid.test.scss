@@ -1,0 +1,28 @@
+.article {
+    // ERROR: `+` 앞·뒤 공백 미사용
+    width: calc(1px+1px);
+
+    // ERROR: 함수 이름을 대문자로 사용
+    height: CALC(100% - 50px);
+
+    // ERROR: 구분자 `,` 앞 공백 사용
+    border-color: rgba(0 , 0 , 0 , 0);
+
+    // ERROR: 구분자 `,` 뒤 공백 미사용
+    background-color: rgba(0,0,0,0);
+
+    // ERROR: 표준 방향 값 미사용
+    background-image: linear-gradient(right, #fff, #000);
+
+    // ERROR: 함수를 여러 줄에 걸쳐 선언
+    transform: translate(
+        10px,
+        10px
+    );
+
+    // ERROR: 함수와 함수 사이 공백 미사용
+    transform: translate(10px, 10px)rotate(45deg);
+
+    // ERROR: `(`, `)` 뒤·앞에 공백 사용
+    transform: scale( 2, 2 );
+}

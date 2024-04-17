@@ -1,0 +1,19 @@
+/// @param  {type} ...
+///
+/// @example ...
+// ↑ 내용이 없어도 `///` 주석은 오류로 평가하지 않음
+
+@mixin foo () {} // ERROR: `(` 문자 이전에 공백 사용
+
+@mixin foo() {} // ERROR: 중복된 이름의 @mixin 선언
+
+//
+// ERROR: ↑ 내용이 없는 주석 사용
+
+$foo:#000; // ERROR: `:` 문자 다음에 공백 미사용
+
+$bar : #000; // ERROR: `:` 문자 이전에 공백 사용
+
+.article {
+    @extends %placeholder // ERROR: 정의되지 않은 Sass·Scss @at-rul 사용
+}

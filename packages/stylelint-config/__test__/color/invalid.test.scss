@@ -1,0 +1,13 @@
+.article {
+    // ERROR: 색상 값 예약어(black) 사용
+    $variable: black;
+
+    // ERROR: `,` 문자 미사용
+    background-color: rgba(0 0 0 0.5);
+
+    // ERROR: `#hex` 값에 대문자 사용
+    color: #FFF;
+
+    // ERROR: `%` 단위 투명도 값 사용
+    opacity: 25%;
+}

@@ -1,0 +1,30 @@
+@mixin custom() {
+    @content;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.article {
+    @extend %button_reset;
+    @include flex-container;
+
+    font-size: 16px;
+    font-weight: $font-weight-medium;
+    color: #000;
+    .foo {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        background-color: transparent;
+        &:after {
+            content: '';
+            position: absolute;
+        }
+    }
+    @media (max-width: 320px) {
+        color: #000;
+    }
+}

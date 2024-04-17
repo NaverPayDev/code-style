@@ -1,0 +1,29 @@
+.article {
+    [type='radio'] {
+        color: #000;
+    }
+    [target='_blank'] {
+        color: #000;
+    }
+    .foo + .bar {
+        color: #000;
+    }
+    .foo .bar {
+        color: #000;
+    }
+    a:hover {
+        color: #000;
+    }
+    a::before {
+        color: #000;
+    }
+    .foo:not(:first-child) {
+        color: #000;
+    }
+    li {
+        color: #000;
+    }
+    .foo, .bar {
+        color: #000;
+    }
+}

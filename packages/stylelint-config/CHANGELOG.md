@@ -1,0 +1,1 @@
+# @naverpay/stylelint-config

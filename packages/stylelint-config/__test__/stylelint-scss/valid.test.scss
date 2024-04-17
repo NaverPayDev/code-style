@@ -1,0 +1,19 @@
+/// @param  {type} ...
+/// @param  {type} ...
+/// @example ...
+
+@mixin foo() {
+    color: #000;
+}
+@mixin bar() {
+    color: #000;
+}
+
+// 주석
+$foo: #000;
+
+$bar: #000;
+
+.article {
+    @extend %placeholder;
+}

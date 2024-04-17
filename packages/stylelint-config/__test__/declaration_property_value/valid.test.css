@@ -1,0 +1,22 @@
+.article {
+    --custom-variable: #000;
+
+    min-height: 100vh;
+    min-height: -webkit-fill-avilable; /* 100vh, -webkit-fill-available 서로 값이 달라 오류로 평가하지 않음 */
+    margin: 10px;
+    padding: 10px 20px;
+    border: 1px solid #000;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    text-align: center;
+    white-space: nowrap;
+    color: --custom-variable !important;
+}
+.multi-value {
+    transition: all 250ms linear 0ms, all 250ms linear 0ms;
+    animation:
+        keyframe 250ms 0ms linear forwards,
+        keyframe 250ms 0ms linear forwards;
+}

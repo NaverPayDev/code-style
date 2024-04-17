@@ -1,0 +1,38 @@
+.article {
+    // ERROR: 괄호 사이에 공백 사용
+    [ type="submit" ] {}
+
+    // ERROR: 연산자(=) 다음, 이전에 공백 사용
+    [type = "submit"] {}
+
+    // ERROR: 따옴표 미사용
+    [target=_blank] {}
+
+    // ERROR: 결합자( + , >, ~ ) 다음, 이전에 공백 미사용
+    .foo+ .bar {}
+
+    // ERROR  줄바꿈, 탭, 공백 둘 이상 사용
+    .foo  .bar {}
+    .foo
+    .bar {}
+
+    // ERROR: 대문자 사용
+    a:Hover {}
+    a::Before {}
+
+    // ERROR: 괄호 사이에 공백 사용
+    .foo:not( :first-child ) {}
+
+    // ERROR: 대문자 사용
+    LI {}
+
+    // ERROR: ',' 이전에 공백 사용
+    .foo , .bar {}
+
+    // ERROR: ',' 줄바꿈 사용
+    li
+    , li {}
+    li
+    ,
+    li {}
+}

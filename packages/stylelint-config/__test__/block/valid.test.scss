@@ -1,0 +1,66 @@
+@charset 'UTF-8';
+
+@import 'common/base';
+@import 'common/variables';
+@import 'common/placeholders';
+@import 'common/mixins';
+
+@mixin foo($args) {
+    @if $args {
+        color: #000;
+    } @else {
+        color: #000;
+    }
+}
+@mixin bar($args) {
+    color: #000;
+}
+
+/* 주석 */
+/*
+    여러줄
+    주석
+*/
+
+.article {
+    @extend %button_reset;
+    @include foo();
+    @include bar();
+
+    color: #000;
+    .type-foo {
+        .foo {
+            padding-bottom: 10px;
+            @supports (padding-bottom: env(safe-area-inset-bottom)) {
+                padding-bottom: calc(10px + env(safe-area-inset-bottom));
+            }
+        }
+    }
+    .type-bar {
+        .bar {
+            /* . */
+        }
+    }
+}
+.foo {
+    color: #000;
+}
+// Scss 주석 다음과 이전에 빈 줄 관련 규칙 미적용
+/// Scss 주석 다음과 이전에 빈 줄 관련 규칙 미적용
+/// Scss 주석 다음과 이전에 빈 줄 관련 규칙 미적용
+.bar {
+    /* 스타일 선언 없이 주석만 있다면 오류로 평가하지 않음 */
+}
+
+@media screen and (max-width: 320px) {
+    color: #000;
+}
+@media screen and (orientation: landscape), screen and (orientation: landscape) {
+    color: #000;
+}
+
+@keyframes foo {
+    100% {
+        color: #000;
+    }
+}
