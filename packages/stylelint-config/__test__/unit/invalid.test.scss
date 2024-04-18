@@ -1,0 +1,7 @@
+.article {
+    // ERROR: 대문자 단위 문자 사용
+    border-width: 2PX;
+
+    // ERROR: 알 수 없는 단위 문자 사용
+    border-radius: 2ps;
+}

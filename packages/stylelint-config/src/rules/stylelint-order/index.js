@@ -1,0 +1,187 @@
+module.exports = {
+    'order/order': [
+        'custom-properties',
+        'dollar-variables',
+        {
+            type: 'at-rule',
+            name: 'extend',
+        },
+        {
+            type: 'at-rule',
+            name: 'include',
+        },
+        {
+            type: 'at-rule',
+            name: 'content',
+        },
+        'declarations',
+        'rules',
+        {
+            type: 'at-rule',
+            name: 'media',
+        },
+    ],
+    'order/properties-order': [
+        'content',
+
+        'overflow',
+        'overflow-x',
+        'overflow-y',
+
+        'float',
+
+        'position',
+        'top',
+        'right',
+        'bottom',
+        'left',
+        'z-index',
+
+        'display',
+        'table-layout',
+
+        'clear',
+
+        'flex',
+        'flex-basis',
+        'flex-direction',
+        'flex-flow',
+        'flex-grow',
+        'flex-shrink',
+        'flex-wrap',
+        'align-content',
+        'align-items',
+        'align-self',
+        'justify-content',
+        'order',
+
+        'width',
+        'min-width',
+        'max-width',
+
+        'height',
+        'min-height',
+        'max-height',
+
+        'margin',
+        'margin-top',
+        'margin-right',
+        'margin-bottom',
+        'margin-left',
+
+        'padding',
+        'padding-top',
+        'padding-right',
+        'padding-bottom',
+        'padding-left',
+
+        'border',
+        'border-top',
+        'border-right',
+        'border-bottom',
+        'border-left',
+
+        'border-width',
+        'border-top-width',
+        'border-right-width',
+        'border-bottom-width',
+        'border-left-width',
+
+        'border-style',
+        'border-top-style',
+        'border-right-style',
+        'border-bottom-style',
+        'border-left-style',
+
+        'border-color',
+        'border-top-color',
+        'border-right-color',
+        'border-bottom-color',
+        'border-left-color',
+
+        'border-radius',
+        'border-top-left-radius',
+        'border-top-right-radius',
+        'border-bottom-right-radius',
+        'border-bottom-left-radius',
+
+        'outline',
+        'outline-offset',
+        'outline-width',
+        'outline-style',
+        'outline-color',
+
+        'box-sizing',
+        'box-shadow',
+
+        'background',
+        'background-attachment',
+        'background-clip',
+        'background-color',
+        'background-image',
+        'background-repeat',
+        'background-position',
+        'background-size',
+
+        'font',
+        'font-family',
+        'font-size',
+        'font-smooth',
+        'font-style',
+        'font-variant',
+        'font-weight',
+
+        'line-height',
+        'letter-spacing',
+
+        'text-align',
+        'text-decoration',
+        'text-indent',
+        'text-overflow',
+        'text-rendering',
+        'text-shadow',
+        'text-transform',
+        'text-wrap',
+
+        'white-space',
+        'word-spacing',
+        'word-break',
+        'word-wrap',
+        'vertical-align',
+
+        'color',
+
+        'transform',
+        'transform-box',
+        'transform-origin',
+        'transform-style',
+
+        'transition',
+        'transition-delay',
+        'transition-duration',
+        'transition-property',
+        'transition-timing-function',
+
+        'animation',
+        'animation-name',
+        'animation-duration',
+        'animation-timing-function',
+        'animation-delay',
+        'animation-iteration-count',
+        'animation-direction',
+        'animation-fill-mode',
+        'animation-play-state',
+
+        'list-style',
+        'border-collapse',
+        'border-spacing',
+        'caption-side',
+        'cursor',
+        'empty-cells',
+        'quotes',
+        'speak',
+        'visibility',
+
+        'opacity',
+    ],
+}

@@ -1,0 +1,5 @@
+.article {
+    // ERROR: -apple-system 중복
+    // ERROR: 제네릭 폰트 미선언
+    font-family: -apple-system, -apple-system, BlinkMacSystemFont, helvetica, Apple SD Gothic Neo;
+}

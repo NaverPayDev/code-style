@@ -1,0 +1,90 @@
+// at-rule-no-unknown
+@unknown (max-width: 960px) {
+    /* empty */
+}
+// block-no-empty
+.block1 { }
+.color {
+    // color-no-invalid-hex
+    background--color: #y3;
+    // color-named
+    color: black;
+    // comment-no-empty
+    /* */
+}
+.declaration {
+    // declaration-block-no-duplicate-custom-properties
+    --custom-property: pink;
+    --custom-property: orange;
+    // declaration-block-no-redundant-longhand-properties
+    margin-top: 1px;
+    margin-right: 2px;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    // declaration-block-no-duplicate-properties
+    color: pink;
+    color: orange;
+}
+
+// font-family-no-duplicate-names
+.font1 {
+    font-family: serif, serif;
+}
+// font-family-no-missing-generic-family-keyword
+.font2 {
+    font-family: '나눔고딕';
+}
+.function {
+    // function-linear-gradient-no-nonstandard-direction
+    background: linear-gradient(top, #fff, #000);
+}
+.general {
+    // no-duplicate-selectors
+    .foo {
+        // empty
+    }
+    .foo {
+        // empty
+    }
+    //no-empty-source
+    .bar {
+
+    }
+}
+// media-feature-name-no-unknown
+.media {
+    @media screen and (unknown: 10px) {
+        // empty
+    }
+}
+.property {
+    // property-no-unknown
+    colr: blue;
+}
+.string {
+    // string-no-newline
+    content: 'first
+    second';
+    font-family: 'Times
+    New
+    Roman';
+}
+.unit {
+    // unit-no-unknown
+    width: 10pixels;
+}
+.scss {
+    // scss/at-rule-no-unknown
+    @unknown (max-width: 960px) {
+        //empty
+    }
+    // scss/comment-no-empty
+    /* */
+    // scss/no-duplicate-mixins
+    @mixin font-size-default {
+        font-size: 16px;
+    }
+    @mixin font-size-default {
+        font-size: 18px;
+    }
+}

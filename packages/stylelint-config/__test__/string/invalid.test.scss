@@ -1,0 +1,13 @@
+// ERROR: 큰 따옴표 사용
+@import "$scss/utils";
+
+.article {
+    // ERROR: 문자열 내 줄바꿈 문자 사용
+    font-family: 'Nanum
+    Gothic', sans-serif;
+
+    // ERROR: 큰 따옴표 사용
+    [type="button"] {
+        color: #000;
+    }
+}

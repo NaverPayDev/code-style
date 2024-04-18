@@ -8,6 +8,7 @@
     "description": "code-style for naverpay",
     "version": "0.0.1",
     "scripts": {
+        "prepare": "husky install",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint:fix": "pnpm run lint --fix",
         "prettier": "prettier --check '**/*.{json,yaml,md,ts,tsx,js,jsx}'",
@@ -19,13 +20,15 @@
     },
     "lint-staged": {
         "**/*.{json,yaml,md,ts,tsx,js,jsx}": "prettier --check",
-        "**/*.{ts,tsx,js,jsx}": "eslint"
+        "**/*.{ts,tsx,js,jsx}": "eslint",
+        "**/*.{css,scss}": "stylelint"
     },
     "devDependencies": {
         "@changesets/cli": "^2.26.2",
         "@naverpay/eslint-config": "workspace:*",
         "@naverpay/markdown-lint": "workspace:*",
         "@naverpay/prettier-config": "workspace:*",
+        "@naverpay/stylelint-config": "workspace:*",
         "glob": "^9.3.4",
         "husky": "^8.0.3",
         "jest": "^29.5.0",

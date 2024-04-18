@@ -9,9 +9,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - run: npm i -g pnpm
-            - run: node -v && pnpm -v
-            - run: pnpm install --frozen-lockfile
+            - uses: pnpm/action-setup@v3
+              with:
+                  version: 8
+                  run_install: true
             - run: pnpm run prettier
             - run: pnpm run lint
             - run: pnpm run markdownlint
@@ -20,7 +21,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - run: npm i -g pnpm
-            - run: node -v && pnpm -v
-            - run: pnpm install --frozen-lockfile
+            - uses: pnpm/action-setup@v3
+              with:
+                  version: 8
+                  run_install: true
             - run: pnpm run test

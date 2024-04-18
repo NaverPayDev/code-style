@@ -1,0 +1,10 @@
+.article {
+    width: calc(1px + 1px);
+    height: calc(100% - 50px);
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(to right, #fff, #000);
+    transform: translate(10px, 10px);
+    transform: translate(10px, 10px) rotate(45deg);
+    transform: scale(2, 2);
+}

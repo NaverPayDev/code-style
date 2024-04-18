@@ -1,0 +1,4 @@
+{
+    "extends": "@naverpay/stylelint-config",
+    "defaultSeverity": "error"
+}

@@ -1,0 +1,70 @@
+@charset 'UTF-8';
+
+@import 'common/base';
+@import 'common/variables';
+
+@import 'common/placeholders'; // ↑ ERROR: 동일한 @at-rule 사이 빈 줄 사용
+@import 'common/mixins';
+@mixin foo($args) { // ERROR: ↑ 다른 @at-rule 사이 빈 줄 미사용
+    @if $args {
+        color: #000;
+    } @else {
+        color: #000;
+    }
+}
+@mixin bar($args) {
+    color: #000;
+}
+/*  ERROR: ↑ 주석 이전에 빈 줄 미사용
+    주석
+*/
+/*
+    여러줄
+    주석
+*/
+.article { // ERROR: ↑ 여러 줄 주석과 블록 사이 빈 줄 미사용
+
+    @extend %button_reset; // ERROR: 블록의 첫 선언 위치에 있는 주석은 이전에 빈 줄이 있으면 오류로 평가
+    
+    @include foo(); // ERROR: ↑ 블록 내 다른 @at-rule 사이에 빈 줄 미사용
+    @include bar();
+    color: #000; // @at-rule 과 속성 사이 빈 줄 사용을 지향
+
+    .type-foo { // ERROR: ↑ 블록 내부, 블록 이전에 빈 줄 사용
+        .foo {
+            padding-bottom: 10px;
+
+            @supports (padding-bottom: env(safe-area-inset-bottom)) { // ERROR ↑ 블록 내 @at-rule 이전에 빈 줄 사용
+                padding-bottom: calc(10px + env(safe-area-inset-bottom));
+            }
+        }
+    }
+
+    .type-bar { // ERROR: ↑ 블록 내부, 블록과 블록 사이 빈 줄 사용
+        .bar {
+            /*  */ // ERROR: 내용이 없는 주석 사용
+        }
+    }
+}
+
+.foo { // ERROR: ↑ 1 Depth 블록 사이 빈 줄 사용
+    color: #000;
+}
+// Scss 주석 다음과 이전에 빈 줄 관련 규칙 미적용
+/// Scss 주석 다음과 이전에 빈 줄 관련 규칙 미적용
+/// Scss 주석 다음과 이전에 빈 줄 관련 규칙 미적용
+.bar {} // ERROR: 스타일 선언이 없는 블록 사용
+@media screen and (max-width: 320px) { // ERROR: ↑ 1 Depth @at-rule 이전에 빈 줄 미사용
+    color: #000;
+}
+
+@media screen and (ORIENTATION: landscape), screen and ( orientation :landscape ) { // ↑ ERROR: 동일한 @at-rule 사이 빈 줄 사용
+    // ERROR: ↑ 대문자 사용
+    //                                      ERROR: ↑ `:` 다음에 공백 미사용
+    //                                      ERROR: ↑ `:` 이전에 공백 사용
+    //                                      ERROR: ↑ `(`, `)` 다음과 이전에 공백 사용
+    color: #000;
+}
+@keyframes foo { // ERROR: ↑ 다른 @at-rule 사이 빈 줄 미사용
+    100% {color: #000;} // ERROR: `{`, `}` 다음과 이전에 줄바꿈 미사용
+}

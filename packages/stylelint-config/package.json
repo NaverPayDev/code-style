@@ -1,0 +1,20 @@
+{
+    "name": "@naverpay/stylelint-config",
+    "version": "0.0.1",
+    "description": "stylelint config for naverpay",
+    "main": "index.js",
+    "scripts": {
+        "version": "pnpm version",
+        "deploy": "pnpm publish"
+    },
+    "keywords": [
+        "stylelint"
+    ],
+    "peerDependencies": {
+        "postcss": "^8.4.8",
+        "postcss-scss": "^4.0.3",
+        "stylelint": "^14.2.0",
+        "stylelint-order": "^5.0.0",
+        "stylelint-scss": "^4.1.0"
+    }
+}

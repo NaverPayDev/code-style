@@ -1,0 +1,7 @@
+.article {
+    // ERROR: 소수 자리 마지막 `0` 미생략
+    background-color: rgba(0, 0, 0, 0.50);
+
+    // ERROR: 정수 부위 생략
+    opacity: .25;
+}
