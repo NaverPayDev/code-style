@@ -1,6 +1,7 @@
 const {importOrder} = require('../../custom')
 
 module.exports = {
+    plugins: ['@naverpay/eslint-plugin'],
     rules: {
         /** Enforce a convention in the order of require() / import statements
          @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md */
@@ -9,6 +10,10 @@ module.exports = {
         /** In exporting files, this rule checks if there is default export or not
          @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/prefer-default-export.md */
         'import/prefer-default-export': 'off',
+
+        /**
+         * @see https://github.com/NaverPayDev/code-style/blob/main/packages/eslint-plugin/docs/prevent-default-import.md */
+        '@naverpay/prevent-default-import': ['error', {packages: ['react']}],
 
         /** Disallow specified modules when loaded by import
          @see https://eslint.org/docs/latest/rules/no-restricted-imports */

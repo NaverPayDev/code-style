@@ -1,6 +1,7 @@
 const {typescriptNamingConvention} = require('../../custom')
 
 module.exports = {
+    plugins: ['@naverpay/eslint-plugin'],
     rules: {
         /** Require let or const instead of var
          @see https://eslint.org/docs/latest/rules/no-var */
@@ -70,6 +71,11 @@ module.exports = {
             'error',
             {ignoreRestSiblings: true, argsIgnorePattern: '^_', varsIgnorePattern: '(React|^_)'},
         ],
+
+        /**
+         * @see https://github.com/NaverPayDev/code-style/blob/main/packages/eslint-plugin/docs/prevent-default-import.md */
+        '@naverpay/prevent-default-import': ['off'],
+        '@naverpay/typescript/prevent-default-import': ['error', {packages: ['react']}],
 
         /** Disallow the use of undeclared variables unless mentioned in global comments
          @see https://eslint.org/docs/latest/rules/no-undef */
