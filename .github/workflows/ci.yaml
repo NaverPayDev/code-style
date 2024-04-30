@@ -13,6 +13,7 @@ jobs:
               with:
                   version: 8
                   run_install: true
+            - run: pnpm run build
             - run: pnpm run prettier
             - run: pnpm run lint
             - run: pnpm run markdownlint
