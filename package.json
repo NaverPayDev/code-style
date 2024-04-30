@@ -16,6 +16,7 @@
         "markdownlint": "markdownlint '**/*.md' '#.changeset' '#**/CHANGELOG.md'",
         "markdownlint:fix": "markdownlint --fix '**/*.md' '#.changeset' '#**/CHANGELOG.md'",
         "test": "turbo run test",
+        "build": "turbo run build",
         "release": "changeset publish"
     },
     "lint-staged": {
@@ -26,6 +27,7 @@
     "devDependencies": {
         "@changesets/cli": "^2.26.2",
         "@naverpay/eslint-config": "workspace:*",
+        "@naverpay/eslint-plugin": "workspace:*",
         "@naverpay/markdown-lint": "workspace:*",
         "@naverpay/prettier-config": "workspace:*",
         "@naverpay/stylelint-config": "workspace:*",

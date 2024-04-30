@@ -14,6 +14,9 @@ importers:
       '@naverpay/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
+      '@naverpay/eslint-plugin':
+        specifier: workspace:*
+        version: link:packages/eslint-plugin
       '@naverpay/markdown-lint':
         specifier: workspace:*
         version: link:packages/markdown-lint
@@ -61,6 +64,9 @@ importers:
       '@babel/plugin-transform-react-jsx':
         specifier: ^7.14.5
         version: 7.23.4(@babel/core@7.24.3)
+      '@naverpay/eslint-plugin':
+        specifier: workspace:*
+        version: link:../eslint-plugin
       '@next/eslint-plugin-next':
         specifier: '>=12'
         version: 14.1.4
