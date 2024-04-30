@@ -97,4 +97,31 @@ describe('node', () => {
             expect(checkErrorRule(result, ruleId)).toBe(true)
         })
     })
+    describe('@naverpay/prevent-default-import', function () {
+        const ruleId = '@naverpay/prevent-default-import'
+        const {lintText} = createLinter({ruleId, config})
+
+        test('right', async () => {
+            const result = await lintText(`
+                import {useEffect} from 'react'
+
+                useEffect(() => {
+
+                }, [])
+            `)
+
+            expect(result).toHaveLength(0)
+        })
+        test('wrong', async () => {
+            const result = await lintText(`
+                import React from 'react'
+
+                React.useEffect(() => {
+
+                }, [])
+            `)
+
+            expect(checkErrorRule(result, ruleId)).toBe(true)
+        })
+    })
 })
