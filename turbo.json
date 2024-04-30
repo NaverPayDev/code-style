@@ -2,9 +2,6 @@
     "$schema": "https://turborepo.org/schema.json",
     "pipeline": {
         "build": {"cache": false},
-        "release": {"cache": false, "dependsOn": ["build"]},
-        "test": {"cache": false, "dependsOn": ["build"]},
-        "lint": {"cache": false, "dependsOn": ["build"]},
-        "lint:fix": {"cache": false, "dependsOn": ["build"]}
+        "test": {"cache": false, "dependsOn": ["build"]}
     }
 }
