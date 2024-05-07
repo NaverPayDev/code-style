@@ -16,8 +16,7 @@
         "markdownlint": "markdownlint '**/*.md' '#.changeset' '#**/CHANGELOG.md'",
         "markdownlint:fix": "markdownlint --fix '**/*.md' '#.changeset' '#**/CHANGELOG.md'",
         "test": "turbo run test",
-        "build": "turbo run build",
-        "release": "pnpm run build && changeset publish"
+        "release": "changeset publish"
     },
     "lint-staged": {
         "**/*.{json,yaml,md,ts,tsx,js,jsx}": "prettier --check",
