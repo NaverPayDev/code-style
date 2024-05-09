@@ -1,5 +1,17 @@
 # @naverpay/eslint-config
 
+## 1.0.0
+
+### Major Changes
+
+- d2e94f1: - eslint-config에 plugin을 추가합니다.
+  - plugin babel build 과정을 삭제합니다.
+
+### Patch Changes
+
+- Updated dependencies [d2e94f1]
+  - @naverpay/eslint-plugin@1.0.0
+
 ## 0.2.0
 
 ### Minor Changes
