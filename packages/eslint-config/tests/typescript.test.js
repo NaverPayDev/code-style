@@ -291,4 +291,35 @@ describe('typescript', () => {
             expect(checkErrorRule(result, ruleId)).toBe(true)
         })
     })
+    describe('@naverpay/typescript/prevent-default-import', function () {
+        const ruleId = '@naverpay/typescript/prevent-default-import'
+        const {lintText} = createLinter({ruleId, config})
+
+        test('right', async () => {
+            const result = await lintText(`
+                import {useEffect, ReactNode} from 'react'
+
+                const node: ReactNode | null = null
+
+                useEffect(() => {
+
+                }, [])
+            `)
+
+            expect(result).toHaveLength(0)
+        })
+        test('wrong', async () => {
+            const result = await lintText(`
+                import React from 'react'
+
+                const node: React.ReactNode | null = null
+
+                React.useEffect(() => {
+
+                }, [])
+            `)
+
+            expect(checkErrorRule(result, ruleId)).toBe(true)
+        })
+    })
 })

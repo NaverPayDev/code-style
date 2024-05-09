@@ -8,21 +8,13 @@
         "plugin",
         "eslint-plugin"
     ],
-    "main": "./dist/index.js",
-    "files": [
-        "dist"
-    ],
+    "main": "./lib/index.js",
     "scripts": {
         "test": "jest --config ./jest.config.js",
-        "clean": "rm -rf dist",
-        "build": "npm run clean && babel --quiet --out-dir dist lib",
         "version": "pnpm version",
         "deploy": "pnpm publish"
     },
     "devDependencies": {
-        "@babel/cli": "^7.24.1",
-        "@babel/core": "^7.24.4",
-        "@babel/preset-env": "^7.24.4",
         "@typescript-eslint/parser": "^6.4.1",
         "@typescript-eslint/rule-tester": "^6.4.1",
         "@typescript-eslint/typescript-estree": "^6.4.1",
