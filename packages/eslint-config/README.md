@@ -12,19 +12,19 @@ npm install @naverpay/eslint-config -D
 
 프로젝트 환경에 알맞는 config를 extend 합니다.
 
-- **@naverpay/front**
+- **@naverpay/eslint-config/front**
   - JS로 작성된 react17+ 환경에서 사용합니다.
-- **@naverpay/node**
+- **@naverpay/eslint-config/node**
   - JS로 작성된 node 환경에서 사용합니다.
-- **@naverpay/typescript**
+- **@naverpay/eslint-config/typescript**
   - TS로 작성된 react17+ 환경에서 사용합니다.
-- **@naverpay/typescript/next**
+- **@naverpay/eslint-config/typescript/next**
   - TS로 작성된 Next12+ 환경에서 사용합니다.
 
 ```jsonc
 // .eslintrc
 {
-    "extends": ["@naverpay"]
+    "extends": ["@naverpay/eslint-config/typescript"]
 }
 ```
 
