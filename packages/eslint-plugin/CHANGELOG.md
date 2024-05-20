@@ -1,5 +1,11 @@
 # @naverpay/eslint-plugin
 
+## 1.0.1
+
+### Patch Changes
+
+- 04d855a: [#27] typescript-eslint update
+
 ## 1.0.0
 
 ### Major Changes
