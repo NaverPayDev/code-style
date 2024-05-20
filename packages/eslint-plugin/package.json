@@ -15,9 +15,9 @@
         "deploy": "pnpm publish"
     },
     "devDependencies": {
-        "@typescript-eslint/parser": "^6.4.1",
-        "@typescript-eslint/rule-tester": "^6.4.1",
-        "@typescript-eslint/typescript-estree": "^6.4.1",
+        "@typescript-eslint/parser": "^7.9.0",
+        "@typescript-eslint/rule-tester": "^7.9.0",
+        "@typescript-eslint/typescript-estree": "^7.9.0",
         "minimatch": "^9.0.4"
     },
     "peerDependencies": {
