@@ -2,12 +2,6 @@
     "name": "@naverpay/eslint-plugin",
     "version": "1.0.1",
     "description": "eslint plugin for naverpay",
-    "keywords": [
-        "naverpay",
-        "eslint",
-        "plugin",
-        "eslint-plugin"
-    ],
     "main": "./lib/index.js",
     "scripts": {
         "test": "jest --config ./jest.config.js",
@@ -26,5 +20,18 @@
     "dependencies": {
         "@naverpay/ast-parser": "^0.0.1"
     },
-    "license": "ISC"
+    "author": "@NaverPayDev/frontend",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/eslint-plugin"
+    },
+    "homepage": "https://github.com/NaverPayDev/code-style",
+    "keywords": [
+        "naverpay",
+        "eslint",
+        "plugin",
+        "eslint-plugin"
+    ],
+    "license": "MIT"
 }

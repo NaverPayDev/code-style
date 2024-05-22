@@ -1,12 +1,12 @@
 {
     "name": "@naverpay/code-style",
+    "private": true,
     "author": "@NaverPayDev/frontend",
     "repository": {
         "type": "git",
         "url": "https://github.com/NaverPayDev/code-style.git"
     },
     "description": "code-style for naverpay",
-    "version": "0.0.1",
     "scripts": {
         "prepare": "husky install",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",

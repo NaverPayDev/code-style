@@ -3,10 +3,6 @@
     "version": "1.0.1",
     "description": "eslint config for naverpay",
     "main": "typescript/index.js",
-    "keywords": [
-        "eslint",
-        "eslintconfig"
-    ],
     "scripts": {
         "test": "jest --config ./jest.config.js",
         "version": "pnpm version",
@@ -34,6 +30,17 @@
         "prettier": "^2.8.8",
         "@naverpay/eslint-plugin": "workspace:*"
     },
-    "author": "",
-    "license": "ISC"
+    "author": "@NaverPayDev/frontend",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/eslint-config"
+    },
+    "homepage": "https://github.com/NaverPayDev/code-style",
+    "keywords": [
+        "naverpay",
+        "eslint",
+        "eslintconfig"
+    ],
+    "license": "MIT"
 }

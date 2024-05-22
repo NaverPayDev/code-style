@@ -7,5 +7,15 @@
         "deploy": "pnpm publish",
         "postinstall": "node index.js"
     },
-    "license": "ISC"
+    "author": "@NaverPayDev/frontend",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/editorconfig"
+    },
+    "homepage": "https://github.com/NaverPayDev/code-style",
+    "keywords": [
+        "naverpay"
+    ],
+    "license": "MIT"
 }
