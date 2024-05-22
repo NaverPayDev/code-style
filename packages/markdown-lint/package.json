@@ -3,14 +3,19 @@
     "version": "0.0.2",
     "description": "lint for markdown",
     "main": ".markdownlint.jsonc",
+    "bin": {
+        "markdownlint": "cli.js"
+    },
+    "files": [
+        "cli.js",
+        "postInstall",
+        ".markdownlint.jsonc"
+    ],
     "scripts": {
         "version": "pnpm version",
         "deploy": "pnpm publish",
         "postinstall": "node postInstall/index.js",
         "test": "jest --config jest.config.js"
-    },
-    "bin": {
-        "markdownlint": "cli.js"
     },
     "dependencies": {
         "markdownlint-cli2": "^0.11.0"
@@ -19,10 +24,16 @@
         "jsonc-parser": "^3.2.1",
         "markdownlint": "^0.32.1"
     },
-    "license": "ISC",
-    "files": [
-        "cli.js",
-        "postInstall",
-        ".markdownlint.jsonc"
-    ]
+    "author": "@NaverPayDev/frontend",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/markdown-lint"
+    },
+    "homepage": "https://github.com/NaverPayDev/code-style",
+    "keywords": [
+        "naverpay",
+        "markdownlint"
+    ],
+    "license": "MIT"
 }
