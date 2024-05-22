@@ -1,5 +1,13 @@
 # @naverpay/eslint-config
 
+## 1.0.2
+
+### Patch Changes
+
+- 4c4e207: [#19] 패키지별 메타정보 추가
+- Updated dependencies [4c4e207]
+  - @naverpay/eslint-plugin@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes
