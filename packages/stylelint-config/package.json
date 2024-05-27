@@ -7,14 +7,24 @@
         "version": "pnpm version",
         "deploy": "pnpm publish"
     },
-    "keywords": [
-        "stylelint"
-    ],
     "peerDependencies": {
         "postcss": "^8.4.8",
         "postcss-scss": "^4.0.3",
         "stylelint": "^14.2.0",
         "stylelint-order": "^5.0.0",
         "stylelint-scss": "^4.1.0"
-    }
+    },
+    "author": "@NaverPayDev/frontend",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/stylelint-config"
+    },
+    "homepage": "https://github.com/NaverPayDev/code-style",
+    "keywords": [
+        "naverpay",
+        "stylelint",
+        "stylelint-config"
+    ],
+    "license": "MIT"
 }
