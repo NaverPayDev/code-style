@@ -109,9 +109,6 @@ importers:
       eslint-plugin-unused-imports:
         specifier: ^3.0.0
         version: 3.1.0(@typescript-eslint/eslint-plugin@7.9.0)(eslint@8.57.0)
-      prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
 
   packages/eslint-plugin:
     dependencies:
@@ -148,7 +145,11 @@ importers:
         specifier: ^0.32.1
         version: 0.32.1
 
-  packages/prettier-config: {}
+  packages/prettier-config:
+    dependencies:
+      prettier:
+        specifier: ^2.8.8 || ^3.0.0
+        version: 3.2.5
 
   packages/stylelint-config:
     dependencies:
@@ -4810,12 +4811,12 @@ packages:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
     hasBin: true
+    dev: true
 
   /prettier@3.2.5:
     resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: true
 
   /pretty-format@29.7.0:
     resolution: {integrity: sha512-Pdlw/oPxN+aXdmM9R00JVC9WVFoCLTKJvDVLgmJ+qAffBMxsV85l/Lu7sNx4zSzPyoL2euImuEwHhOXdEgNFZQ==}

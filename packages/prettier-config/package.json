@@ -7,6 +7,9 @@
         "version": "pnpm version",
         "deploy": "pnpm publish"
     },
+    "peerDependencies": {
+        "prettier": "^2.8.8 || ^3.0.0"
+    },
     "author": "@NaverPayDev/frontend",
     "repository": {
         "type": "git",
