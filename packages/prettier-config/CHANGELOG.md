@@ -1,5 +1,11 @@
 # @naverpay/prettier-config
 
+## 1.0.0
+
+### Major Changes
+
+- 2e0d208: [#34] prettier 를 peerDependencies 로 이동합니다
+
 ## 0.0.3
 
 ### Patch Changes
