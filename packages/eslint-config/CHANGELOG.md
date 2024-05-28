@@ -1,5 +1,11 @@
 # @naverpay/eslint-config
 
+## 1.0.3
+
+### Patch Changes
+
+- 2e0d208: [#34] prettier 를 peerDependencies 로 이동합니다
+
 ## 1.0.2
 
 ### Patch Changes
