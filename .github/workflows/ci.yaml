@@ -11,7 +11,7 @@ jobs:
             - uses: actions/checkout@v3
             - uses: pnpm/action-setup@v3
               with:
-                  version: 8
+                  version: 9
                   run_install: true
             - run: pnpm run prettier
             - run: pnpm run lint
@@ -23,6 +23,6 @@ jobs:
             - uses: actions/checkout@v3
             - uses: pnpm/action-setup@v3
               with:
-                  version: 8
+                  version: 9
                   run_install: true
             - run: pnpm run test
