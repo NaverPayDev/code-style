@@ -37,5 +37,7 @@ npm install @naverpay/eslint-plugin -D
 | Name                                                             | Description                                     | 🔧  |
 | :--------------------------------------------------------------- | :---------------------------------------------- | :-- |
 | [memo-react-components](docs/memo-react-components.md)     | 주어진 경로의 React 컴포넌트들을 자동으로 memoize 합니다.             | 🔧  |
+| [optimize-svg-components](docs/optimize-svg-components.md)     | 주어진 경로의 svg 컴포넌트들을 [svgo](https://github.com/svg/svgo) 기반으로 최적화합니다.             | 🔧  |
 | [prevent-default-import](docs/prevent-default-import.md)                       | 패키지 목록을 받아, 해당 패키지 default import를 금지합니다.                      | 🔧  |
 | [sort-exports](docs/sort-exports.md)                       | 파일에 있는 모든 export 문을 정렬합니다.                      | 🔧  |
+| [svg-unique-id](docs/svg-unique-id.md)                       | 주어진 경로의 SVG 컴포넌트들에 고유한 id를 부여하는 HOC를 추가합니다.                     | 🔧  |

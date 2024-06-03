@@ -18,7 +18,8 @@
         "eslint": "^8"
     },
     "dependencies": {
-        "@naverpay/ast-parser": "^0.0.1"
+        "@naverpay/ast-parser": "^0.0.1",
+        "svgo": "^3.3.2"
     },
     "author": "@NaverPayDev/frontend",
     "repository": {
