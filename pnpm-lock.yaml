@@ -118,6 +118,9 @@ importers:
       eslint:
         specifier: ^8
         version: 8.57.0
+      minimatch:
+        specifier: ^9.0.4
+        version: 9.0.4
       svgo:
         specifier: ^3.3.2
         version: 3.3.2
@@ -131,9 +134,6 @@ importers:
       '@typescript-eslint/typescript-estree':
         specifier: ^7.9.0
         version: 7.9.0(typescript@5.3.3)
-      minimatch:
-        specifier: ^9.0.4
-        version: 9.0.4
 
   packages/markdown-lint:
     dependencies:
