@@ -1,5 +1,5 @@
 const {getExportDefaultDeclaration} = require('@naverpay/ast-parser')
-const minimatch = require('minimatch')
+const {minimatch} = require('minimatch')
 
 module.exports = {
     meta: {
