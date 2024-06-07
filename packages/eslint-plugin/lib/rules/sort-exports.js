@@ -1,4 +1,4 @@
-const minimatch = require('minimatch')
+const {minimatch} = require('minimatch')
 
 function getCommentFromNode(context, node) {
     const beforeComments = context.getSourceCode().getCommentsBefore(node)
