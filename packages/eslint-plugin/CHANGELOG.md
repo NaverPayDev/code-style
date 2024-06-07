@@ -4,7 +4,8 @@
 
 ### Minor Changes
 
-- 20133a4: - `@naverpay/svg-manager`와 의존관계가 있는 `optimize-svg-components`, `svg-unique-id` rule 추가
+- 20133a4:
+  - `@naverpay/svg-manager`와 의존관계가 있는 `optimize-svg-components`, `svg-unique-id` rule 추가
   - minimatch 가져오기 누락 수정
 
 ## 1.0.2
