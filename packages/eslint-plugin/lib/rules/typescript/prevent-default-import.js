@@ -1,3 +1,4 @@
+/** @deprecated */
 module.exports = {
     meta: {
         type: 'problem',
