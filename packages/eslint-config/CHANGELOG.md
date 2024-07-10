@@ -1,5 +1,11 @@
 # @naverpay/eslint-config
 
+## 1.0.5
+
+### Patch Changes
+
+- 294f2b7: peer dep 버전 범위 완화
+
 ## 1.0.4
 
 ### Patch Changes
