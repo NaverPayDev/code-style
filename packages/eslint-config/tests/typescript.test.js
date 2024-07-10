@@ -291,8 +291,8 @@ describe('typescript', () => {
             expect(checkErrorRule(result, ruleId)).toBe(true)
         })
     })
-    describe('@naverpay/typescript/prevent-default-import', function () {
-        const ruleId = '@naverpay/typescript/prevent-default-import'
+    describe('@naverpay/prevent-default-import', function () {
+        const ruleId = '@naverpay/prevent-default-import'
         const {lintText} = createLinter({ruleId, config})
 
         test('right', async () => {

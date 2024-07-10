@@ -72,11 +72,6 @@ module.exports = {
             {ignoreRestSiblings: true, argsIgnorePattern: '^_', varsIgnorePattern: '(React|^_)'},
         ],
 
-        /**
-         * @see https://github.com/NaverPayDev/code-style/blob/main/packages/eslint-plugin/docs/prevent-default-import.md */
-        '@naverpay/prevent-default-import': ['off'],
-        '@naverpay/typescript/prevent-default-import': ['error', {packages: ['react']}],
-
         /** Disallow the use of undeclared variables unless mentioned in global comments
          @see https://eslint.org/docs/latest/rules/no-undef */
         'no-undef': 'off',
