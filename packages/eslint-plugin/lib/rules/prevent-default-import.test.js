@@ -1,22 +1,20 @@
 const {RuleTester} = require('eslint')
-RuleTester.setDefaultConfig({
-    parserOptions: {
-        ecmaVersion: 2023,
-        sourceType: 'module',
-    },
-})
 
 const rule = require('./prevent-default-import')
-const ruleTester = new RuleTester()
 
-describe('remove-default-import', () => {
-    ruleTester.run('remove-default-import', rule, {
+describe('prevent-default-import', () => {
+    new RuleTester({
+        parserOptions: {
+            ecmaVersion: 'latest',
+            sourceType: 'module',
+        },
+    }).run('javascript/prevent-default-import', rule, {
         valid: [
             {
                 code: `
-                        import {useEffect} from 'react'
-                        import {eq} from 'lodash'
-                      `,
+                            import {useEffect} from 'react'
+                            import {eq} from 'lodash'
+                          `,
                 options: [{packages: ['react', 'lodash']}],
             },
         ],
@@ -37,11 +35,11 @@ describe('remove-default-import', () => {
                 // DefaultSpecifier 사용처가 없고
                 // ImportSpecifier는 있는 경우
                 code: `
-                import React, {useEffect, useCallback} from 'react'
+                    import React, {useEffect, useCallback} from 'react'
 
-                useEffect(() => {}, [])
-                useCallback(() => {}, [])
-                `,
+                    useEffect(() => {}, [])
+                    useCallback(() => {}, [])
+                    `,
                 options: [{packages: ['react']}],
                 errors: [
                     {
@@ -49,22 +47,22 @@ describe('remove-default-import', () => {
                     },
                 ],
                 output: `
-                import {useEffect, useCallback} from 'react'
+                    import {useEffect, useCallback} from 'react'
 
-                useEffect(() => {}, [])
-                useCallback(() => {}, [])
-                `,
+                    useEffect(() => {}, [])
+                    useCallback(() => {}, [])
+                    `,
             },
             {
                 // DefaultSpecifier를 현재 MemberExpression 외에서 사용하고 있을 경우
                 // 이미 ImportSpecifier가 있다면 안에 추가
                 code: `
-                import React, {memo} from 'react'
+                    import React, {memo} from 'react'
 
-                React.useEffect
-                React.useCallback
-                memo
-                `,
+                    React.useEffect
+                    React.useCallback
+                    memo
+                    `,
                 options: [{packages: ['react']}],
                 errors: [
                     {
@@ -75,22 +73,22 @@ describe('remove-default-import', () => {
                     },
                 ],
                 output: `
-                import React, {memo, useEffect} from 'react'
+                    import React, {memo, useEffect} from 'react'
 
-                useEffect
-                React.useCallback
-                memo
-                `,
+                    useEffect
+                    React.useCallback
+                    memo
+                    `,
             },
             {
                 // DefaultSpecifier를 현재 MemberExpression 외에서 사용하고 있을 경우
                 // 이전에 ImportSpecifier가 없었다면
                 code: `
-                import React from 'react'
+                    import React from 'react'
 
-                React.useEffect
-                React.useCallback
-                `,
+                    React.useEffect
+                    React.useCallback
+                    `,
                 options: [{packages: ['react']}],
                 errors: [
                     {
@@ -101,21 +99,21 @@ describe('remove-default-import', () => {
                     },
                 ],
                 output: `
-                import React, {useEffect} from 'react'
+                    import React, {useEffect} from 'react'
 
-                useEffect
-                React.useCallback
-                `,
+                    useEffect
+                    React.useCallback
+                    `,
             },
             {
                 // DefaultSpecifier를 현재 MemberExpression 외에서 사용하지 않는 경우
                 // 이미 ImportSpecifier가 있다면 안에 추가
                 code: `
-                import React, {memo} from 'react'
+                    import React, {memo} from 'react'
 
-                React.useEffect
-                memo
-                `,
+                    React.useEffect
+                    memo
+                    `,
                 options: [{packages: ['react']}],
                 errors: [
                     {
@@ -123,20 +121,20 @@ describe('remove-default-import', () => {
                     },
                 ],
                 output: `
-                import {memo, useEffect} from 'react'
+                    import {memo, useEffect} from 'react'
 
-                useEffect
-                memo
-                `,
+                    useEffect
+                    memo
+                    `,
             },
             {
                 // DefaultSpecifier를 현재 MemberExpression 외에서 사용하지 않는 경우
                 // ImportSpecifier가 없으면 새로 추가
                 code: `
-                import React from 'react'
+                    import React from 'react'
 
-                React.useEffect
-                `,
+                    React.useEffect
+                    `,
                 options: [{packages: ['react']}],
                 errors: [
                     {
@@ -144,19 +142,19 @@ describe('remove-default-import', () => {
                     },
                 ],
                 output: `
-                import {useEffect} from 'react'
+                    import {useEffect} from 'react'
 
-                useEffect
-                `,
+                    useEffect
+                    `,
             },
             {
                 code: `
-                import React from 'react'
+                    import React from 'react'
 
-                React.useEffect(() => {
-                    console.log(data)
-                }, [data])
-                `,
+                    React.useEffect(() => {
+                        console.log(data)
+                    }, [data])
+                    `,
                 options: [{packages: ['react']}],
                 errors: [
                     {
@@ -164,21 +162,21 @@ describe('remove-default-import', () => {
                     },
                 ],
                 output: `
-                import {useEffect} from 'react'
+                    import {useEffect} from 'react'
 
-                useEffect(() => {
-                    console.log(data)
-                }, [data])
-                `,
+                    useEffect(() => {
+                        console.log(data)
+                    }, [data])
+                    `,
             },
             {
                 code: `
-                import React from 'react'
-                import lodash from 'lodash'
+                    import React from 'react'
+                    import lodash from 'lodash'
 
-                React.useCallback(() => {}, [])
-                lodash.eq()
-                `,
+                    React.useCallback(() => {}, [])
+                    lodash.eq()
+                    `,
                 options: [{packages: ['react', 'lodash']}],
                 errors: [
                     {
@@ -189,20 +187,20 @@ describe('remove-default-import', () => {
                     },
                 ],
                 output: `
-                import {useCallback} from 'react'
-                import lodash from 'lodash'
+                    import {useCallback} from 'react'
+                    import lodash from 'lodash'
 
-                useCallback(() => {}, [])
-                lodash.eq()
-                `,
+                    useCallback(() => {}, [])
+                    lodash.eq()
+                    `,
             },
             {
                 code: `
-                import React, {useEffect} from 'react'
+                    import React, {useEffect} from 'react'
 
-                React.useEffect(() => {}, [])
-                useEffect(() => {}, [])
-                `,
+                    React.useEffect(() => {}, [])
+                    useEffect(() => {}, [])
+                    `,
                 options: [{packages: ['react', 'lodash']}],
                 errors: [
                     {
@@ -210,20 +208,20 @@ describe('remove-default-import', () => {
                     },
                 ],
                 output: `
-                import {useEffect} from 'react'
+                    import {useEffect} from 'react'
 
-                useEffect(() => {}, [])
-                useEffect(() => {}, [])
-                `,
+                    useEffect(() => {}, [])
+                    useEffect(() => {}, [])
+                    `,
             },
             {
                 code: `
-                import React, {useEffect} from 'react'
+                    import React, {useEffect} from 'react'
 
-                React.useEffect(() => {}, [])
-                React.useEffect(() => {}, [])
-                useEffect(() => {}, [])
-                `,
+                    React.useEffect(() => {}, [])
+                    React.useEffect(() => {}, [])
+                    useEffect(() => {}, [])
+                    `,
                 options: [{packages: ['react', 'lodash']}],
                 errors: [
                     {
@@ -234,12 +232,626 @@ describe('remove-default-import', () => {
                     },
                 ],
                 output: `
-                import React, {useEffect} from 'react'
+                    import React, {useEffect} from 'react'
 
-                useEffect(() => {}, [])
-                useEffect(() => {}, [])
-                useEffect(() => {}, [])
+                    useEffect(() => {}, [])
+                    useEffect(() => {}, [])
+                    useEffect(() => {}, [])
+                    `,
+            },
+        ],
+    })
+
+    new RuleTester({
+        parser: require.resolve('@typescript-eslint/parser'),
+    }).run('typescript/prevent-default-import', rule, {
+        valid: [
+            `
+            import {ReactNode} from 'react'
+
+            interface ComponentProps {
+                children: ReactNode
+            }
+
+            const Component = (props: ComponentProps) => {}
+            `,
+        ],
+        invalid: [
+            {
+                // [1]
+                code: `
+                    import React, {FC} from 'react'
+
+                    interface Props {
+                        children: React.ReactNode
+                    }
+
+                    const Component: FC = () => {}
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.ReactNode' should be used as 'ReactNode'",
+                    },
+                ],
+                output: `
+                    import {FC, ReactNode} from 'react'
+
+                    interface Props {
+                        children: ReactNode
+                    }
+
+                    const Component: FC = () => {}
+                    `,
+            },
+            {
+                // [2]
+                code: `
+                    import React from 'react'
+
+                    interface Props {
+                        children: React.ReactNode
+                    }
+
+                    const Component: React.FC = () => {}
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.ReactNode' should be used as 'ReactNode'",
+                    },
+                    {
+                        message: "'React.FC' should be used as 'FC'",
+                    },
+                ],
+                output: `
+                    import React, {ReactNode} from 'react'
+
+                    interface Props {
+                        children: ReactNode
+                    }
+
+                    const Component: React.FC = () => {}
+                    `,
+            },
+            {
+                // [3]
+                code: `
+                    import React, {FC} from 'react'
+
+                    interface Props {
+                        children: React.ReactNode
+                    }
+
+                    const Component: FC = () => {}
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.ReactNode' should be used as 'ReactNode'",
+                    },
+                ],
+                output: `
+                    import {FC, ReactNode} from 'react'
+
+                    interface Props {
+                        children: ReactNode
+                    }
+
+                    const Component: FC = () => {}
+                    `,
+            },
+            {
+                // [4]
+                code: `
+                    import React from 'react'
+
+                    interface Props {
+                        children: React.ReactNode
+                    }
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.ReactNode' should be used as 'ReactNode'",
+                    },
+                ],
+                output: `
+                    import {ReactNode} from 'react'
+
+                    interface Props {
+                        children: ReactNode
+                    }
+                    `,
+            },
+            {
+                code: `
+                    import React, {ReactNode} from 'react'
+
+                    interface Props {
+                        child1: React.ReactNode
+                        child2: ReactNode
+                    }
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.ReactNode' should be used as 'ReactNode'",
+                    },
+                ],
+                output: `
+                    import {ReactNode} from 'react'
+
+                    interface Props {
+                        child1: ReactNode
+                        child2: ReactNode
+                    }
+                    `,
+            },
+            {
+                code: `
+                    import React, {ReactNode} from 'react'
+
+                    interface Props {
+                        child1: React.ReactNode
+                        child2: React.ReactNode
+                        child3: ReactNode
+                    }
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.ReactNode' should be used as 'ReactNode'",
+                    },
+                    {
+                        message: "'React.ReactNode' should be used as 'ReactNode'",
+                    },
+                ],
+                output: `
+                    import React, {ReactNode} from 'react'
+
+                    interface Props {
+                        child1: ReactNode
+                        child2: ReactNode
+                        child3: ReactNode
+                    }
+                    `,
+            },
+            {
+                code: `
+                    import React, {ReactNode, FC} from 'react'
+
+                    interface Props {
+                        child1: React.ReactNode
+                        child2: React.FC
+                        child3: ReactNode
+                        child4: FC
+                    }
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.ReactNode' should be used as 'ReactNode'",
+                    },
+                    {
+                        message: "'React.FC' should be used as 'FC'",
+                    },
+                ],
+                output: `
+                    import React, {ReactNode, FC} from 'react'
+
+                    interface Props {
+                        child1: ReactNode
+                        child2: FC
+                        child3: ReactNode
+                        child4: FC
+                    }
+                    `,
+            },
+        ],
+    })
+
+    new RuleTester({
+        parser: require.resolve('@babel/eslint-parser'),
+        parserOptions: {
+            requireConfigFile: false,
+            babelOptions: {
+                presets: ['@babel/preset-react'],
+            },
+            ecmaFeatures: {
+                jsx: true,
+            },
+            ecmaVersion: 'latest',
+            sourceType: 'module',
+        },
+    }).run('jsx/prevent-default-import', rule, {
+        valid: [
+            {
+                code: `
+                    import {StrictMode} from 'react'
+
+                    const Component = () => {
+                        return <StrictMode></StrictMode>
+                    }
                 `,
+                options: [{packages: ['react']}],
+            },
+            {
+                code: `
+                    import {StrictMode} from 'react'
+
+                    const Component = () => {
+                        return <StrictMode />
+                    }
+                `,
+                options: [{packages: ['react']}],
+            },
+        ],
+        invalid: [
+            {
+                code: `
+                        import React from 'react'
+
+                        const Component = () => {
+                            return <React.StrictMode></React.StrictMode>
+                        }
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.StrictMode' should be used as 'StrictMode'",
+                    },
+                ],
+                output: `
+                        import {StrictMode} from 'react'
+
+                        const Component = () => {
+                            return <StrictMode></StrictMode>
+                        }
+                    `,
+            },
+            {
+                code: `
+                        import React from 'react'
+
+                        const Component = () => {
+                            return <React.StrictMode />
+                        }
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.StrictMode' should be used as 'StrictMode'",
+                    },
+                ],
+                output: `
+                        import {StrictMode} from 'react'
+
+                        const Component = () => {
+                            return <StrictMode />
+                        }
+                    `,
+            },
+            {
+                code: `
+                        import React, {useEffect} from 'react'
+
+                        const Component = () => {
+                            useEffect(() => {
+                                console.log()
+                            }, [])
+
+                            return <React.StrictMode />
+                        }
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.StrictMode' should be used as 'StrictMode'",
+                    },
+                ],
+                output: `
+                        import {useEffect, StrictMode} from 'react'
+
+                        const Component = () => {
+                            useEffect(() => {
+                                console.log()
+                            }, [])
+
+                            return <StrictMode />
+                        }
+                    `,
+            },
+            {
+                code: `
+                    import React from 'react'
+
+                    const Component = () => {
+                        return (
+                            <React.Fragment>
+                                <React.StrictMode />
+                            </React.Fragment>
+                        )
+                    }
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.Fragment' should be used as 'Fragment'",
+                    },
+                    {
+                        message: "'React.StrictMode' should be used as 'StrictMode'",
+                    },
+                ],
+                output: `
+                    import React, {StrictMode} from 'react'
+
+                    const Component = () => {
+                        return (
+                            <React.Fragment>
+                                <StrictMode />
+                            </React.Fragment>
+                        )
+                    }
+                    `,
+            },
+            {
+                code: `
+                    import React, {StrictMode} from 'react'
+
+                    const Component = () => {
+                        return (
+                            <React.Fragment>
+                                <StrictMode />
+                            </React.Fragment>
+                        )
+                    }
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.Fragment' should be used as 'Fragment'",
+                    },
+                ],
+                output: `
+                    import {StrictMode, Fragment} from 'react'
+
+                    const Component = () => {
+                        return (
+                            <Fragment>
+                                <StrictMode />
+                            </Fragment>
+                        )
+                    }
+                    `,
+            },
+            {
+                code: `
+                    import React from 'react'
+                    import ReactBeta from 'react-beta'
+
+                    const Component = () => {
+                        return (
+                            <React.Fragment>
+                                <ReactBeta.StrictMode />
+                            </React.Fragment>
+                        )
+                    }
+                    `,
+                options: [{packages: ['react', 'react-beta']}],
+                errors: [
+                    {
+                        message: "'React.Fragment' should be used as 'Fragment'",
+                    },
+                    {
+                        message: "'ReactBeta.StrictMode' should be used as 'StrictMode'",
+                    },
+                ],
+                output: `
+                    import {Fragment} from 'react'
+                    import ReactBeta from 'react-beta'
+
+                    const Component = () => {
+                        return (
+                            <Fragment>
+                                <ReactBeta.StrictMode />
+                            </Fragment>
+                        )
+                    }
+                    `,
+            },
+            {
+                code: `
+                    import {Fragment} from 'react'
+                    import ReactBeta from 'react-beta'
+
+                    const Component = () => {
+                        return (
+                            <Fragment>
+                                <ReactBeta.StrictMode />
+                            </Fragment>
+                        )
+                    }
+                    `,
+                options: [{packages: ['react', 'react-beta']}],
+                errors: [
+                    {
+                        message: "'ReactBeta.StrictMode' should be used as 'StrictMode'",
+                    },
+                ],
+                output: `
+                    import {Fragment} from 'react'
+                    import {StrictMode} from 'react-beta'
+
+                    const Component = () => {
+                        return (
+                            <Fragment>
+                                <StrictMode />
+                            </Fragment>
+                        )
+                    }
+                    `,
+            },
+            {
+                code: `
+                    import React, {Fragment} from 'react'
+
+                    const Component = () => {
+                        return (
+                            <Fragment>
+                                <React.Fragment />
+                            </Fragment>
+                        )
+                    }
+                    `,
+                options: [{packages: ['react', 'react-beta']}],
+                errors: [
+                    {
+                        message: "'React.Fragment' should be used as 'Fragment'",
+                    },
+                ],
+                output: `
+                    import {Fragment} from 'react'
+
+                    const Component = () => {
+                        return (
+                            <Fragment>
+                                <Fragment />
+                            </Fragment>
+                        )
+                    }
+                    `,
+            },
+        ],
+    })
+
+    new RuleTester({
+        parser: require.resolve('@typescript-eslint/parser'),
+        parserOptions: {
+            requireConfigFile: false,
+            babelOptions: {
+                presets: ['@babel/preset-react'],
+            },
+            ecmaFeatures: {
+                jsx: true,
+            },
+            ecmaVersion: 'latest',
+            sourceType: 'module',
+        },
+    }).run('combined-case/prevent-default-import', rule, {
+        valid: [
+            {
+                code: `
+                    import {FC, StrictMode, useEffect} from 'react'
+
+                    const Component: FC = () => {
+                        useEffect(() => {
+                            console.log()
+                        }, [])
+
+                        return <StrictMode />
+                    }
+                `,
+                options: [{packages: ['react']}],
+            },
+        ],
+        invalid: [
+            {
+                code: `
+                        import React from 'react'
+
+                        const Component: React.FC = () => {
+                            React.useEffect(() => {
+                                console.log()
+                            }, [])
+
+                            return <React.StrictMode></React.StrictMode>
+                        }
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.FC' should be used as 'FC'",
+                    },
+                    {
+                        message: "'React.useEffect' should be used as 'useEffect'",
+                    },
+                    {
+                        message: "'React.StrictMode' should be used as 'StrictMode'",
+                    },
+                ],
+                output: `
+                        import React, {FC} from 'react'
+
+                        const Component: FC = () => {
+                            React.useEffect(() => {
+                                console.log()
+                            }, [])
+
+                            return <React.StrictMode></React.StrictMode>
+                        }
+                    `,
+            },
+            {
+                code: `
+                        import React, {FC} from 'react'
+
+                        const Component: FC = () => {
+                            React.useEffect(() => {
+                                console.log()
+                            }, [])
+
+                            return <React.StrictMode></React.StrictMode>
+                        }
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.useEffect' should be used as 'useEffect'",
+                    },
+                    {
+                        message: "'React.StrictMode' should be used as 'StrictMode'",
+                    },
+                ],
+                output: `
+                        import React, {FC, useEffect} from 'react'
+
+                        const Component: FC = () => {
+                            useEffect(() => {
+                                console.log()
+                            }, [])
+
+                            return <React.StrictMode></React.StrictMode>
+                        }
+                    `,
+            },
+            {
+                code: `
+                        import React, {FC, useEffect} from 'react'
+
+                        const Component: FC = () => {
+                            useEffect(() => {
+                                console.log()
+                            }, [])
+                            return <React.StrictMode></React.StrictMode>
+                        }
+                    `,
+                options: [{packages: ['react']}],
+                errors: [
+                    {
+                        message: "'React.StrictMode' should be used as 'StrictMode'",
+                    },
+                ],
+                output: `
+                        import {FC, useEffect, StrictMode} from 'react'
+
+                        const Component: FC = () => {
+                            useEffect(() => {
+                                console.log()
+                            }, [])
+                            return <StrictMode></StrictMode>
+                        }
+                    `,
             },
         ],
     })
