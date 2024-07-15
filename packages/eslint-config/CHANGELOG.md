@@ -1,5 +1,13 @@
 # @naverpay/eslint-config
 
+## 2.0.0
+
+### Patch Changes
+
+- 662f265: prevent-default-import jsx 문법 지원
+- Updated dependencies [662f265]
+  - @naverpay/eslint-plugin@1.2.0
+
 ## 1.0.5
 
 ### Patch Changes
