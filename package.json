@@ -24,6 +24,7 @@
         "**/*.{css,scss}": "stylelint"
     },
     "devDependencies": {
+        "@babel/preset-react": "^7.24.7",
         "@changesets/cli": "^2.26.2",
         "@naverpay/eslint-config": "workspace:*",
         "@naverpay/eslint-plugin": "workspace:*",

@@ -220,6 +220,44 @@ const getJSXReturnStatement = (globalScope) => {
     }
 }
 
+/** node를 순회해서 examine */
+const traverseNode = (node, examine, results) => {
+    // 조사할 필요 없는 노드
+    if (!node || typeof node !== 'object' || !node.type) {
+        return
+    }
+
+    // 노드를 조사하는 callback 실행
+    const result = examine?.(node)
+    if (result) {
+        results?.push(result)
+    }
+
+    Object.keys(node).forEach((key) => {
+        // 부모는 순회하지 않음
+        if (key === 'parent') {
+            return
+        }
+        const child = node[key]
+        if (Array.isArray(child)) {
+            child.forEach((childNode) => traverseNode(childNode, examine, results))
+        } else {
+            traverseNode(child, examine, results)
+        }
+    })
+}
+
+/** ast의 모든 node를 순회해서 examine */
+const traverseAllNodes = (allNodes, examine) => {
+    const results = []
+
+    allNodes.forEach((node) => {
+        traverseNode(node, examine, results)
+    })
+
+    return results
+}
+
 module.exports = {
     ReactComponentDeclarationType,
     VariableDeclaratorType,
@@ -231,4 +269,6 @@ module.exports = {
     getRangesOfObjectExpressionAttrs,
     getJSXReturnStatement,
     getAllComments,
+    traverseNode,
+    traverseAllNodes,
 }
