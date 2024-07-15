@@ -1,6 +1,6 @@
 {
     "name": "@naverpay/eslint-config",
-    "version": "2.0.0",
+    "version": "1.0.6",
     "description": "eslint config for naverpay",
     "main": "typescript/index.js",
     "scripts": {
