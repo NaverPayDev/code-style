@@ -1,5 +1,11 @@
 # @naverpay/eslint-plugin
 
+## 1.2.0
+
+### Minor Changes
+
+- 662f265: prevent-default-import jsx 문법 지원
+
 ## 1.1.0
 
 ### Minor Changes
