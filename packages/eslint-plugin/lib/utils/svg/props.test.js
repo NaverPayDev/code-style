@@ -9,6 +9,7 @@ const {
     ID_PROPS_있는_컴포넌트,
     STYLE_OBJECT를_포함한_컴포넌트,
     함수형_컴포넌트,
+    EXPORT_DEFAULT_함수형_컴포넌트,
 } = require('../../constants/test-data')
 const {trimAll} = require('../string')
 const {extractPropsFromLiteralCode} = require('./props')
@@ -32,6 +33,7 @@ describe('extractComponentProps', () => {
         [ID_PROPS_있는_컴포넌트.컴포넌트_코드, ID_PROPS_있는_컴포넌트.PROPS],
         [STYLE_OBJECT를_포함한_컴포넌트.컴포넌트_코드, STYLE_OBJECT를_포함한_컴포넌트.PROPS],
         [함수형_컴포넌트.컴포넌트_코드, 함수형_컴포넌트.PROPS],
+        [EXPORT_DEFAULT_함수형_컴포넌트.컴포넌트_코드, EXPORT_DEFAULT_함수형_컴포넌트.PROPS],
     ])('ast tree에서 props를 추출한다.', (code, expectedProps) => {
         const scope = parseCode(code)
 
@@ -78,6 +80,11 @@ describe('replacePropsWithValueInSvgCode', () => {
         ],
         [PROPS_변수_컴포넌트.컴포넌트_코드, PROPS_변수_컴포넌트.PROPS_없는_SVG_코드, PROPS_변수_컴포넌트.PROPS],
         [함수형_컴포넌트.컴포넌트_코드, 함수형_컴포넌트.PROPS_없는_SVG_코드, 함수형_컴포넌트.PROPS],
+        [
+            EXPORT_DEFAULT_함수형_컴포넌트.컴포넌트_코드,
+            EXPORT_DEFAULT_함수형_컴포넌트.PROPS_없는_SVG_코드,
+            EXPORT_DEFAULT_함수형_컴포넌트.PROPS,
+        ],
     ])('react svg code 중 props를 default value로 대체한다.', (contents, expectedSvgCode, expectedProps) => {
         const scope = parseCode(contents)
         const {svgCode, props} = parseSvgComponent({contents, globalScope: scope}, '')

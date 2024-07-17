@@ -6,6 +6,7 @@ const {
     STYLE_OBJECT를_포함한_컴포넌트,
     PROPS_변수_컴포넌트,
     함수형_컴포넌트,
+    EXPORT_DEFAULT_함수형_컴포넌트,
 } = require('../../constants/test-data')
 const {trimAll} = require('../string')
 const {svgoOptimize} = require('./transform')
@@ -45,6 +46,9 @@ describe('transform', () => {
             STYLE_OBJECT를_포함한_컴포넌트.PROPS_없는_SVG_코드,
             STYLE_OBJECT를_포함한_컴포넌트.PROPS,
             STYLE_OBJECT를_포함한_컴포넌트.완료된_SVG_코드,
+            /**
+             * style 객체 변경 용도로 추가된 임시 객체
+             */
             {
                 style0: {
                     from: '0000000000000000000000000000000',
@@ -80,6 +84,13 @@ describe('transform', () => {
             함수형_컴포넌트.PROPS_없는_SVG_코드,
             함수형_컴포넌트.PROPS,
             함수형_컴포넌트.완료된_SVG_코드,
+            undefined,
+        ],
+        [
+            'EXPORT_DEFAULT_함수형_컴포넌트',
+            EXPORT_DEFAULT_함수형_컴포넌트.PROPS_없는_SVG_코드,
+            EXPORT_DEFAULT_함수형_컴포넌트.PROPS,
+            EXPORT_DEFAULT_함수형_컴포넌트.완료된_SVG_코드,
             undefined,
         ],
     ])('[%s] 정상적으로 svg transformation을 수행한다.', (_, svgCode, props, result, exceptAttr) => {
