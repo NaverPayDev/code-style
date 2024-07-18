@@ -1,4 +1,4 @@
-const DEFAULT_CASE = {
+const 메모이제이션_컴포넌트 = {
     컴포넌트_코드: `
     import React, {memo} from 'react'
     import type {SVGStyleProps} from '@naverpay/svg-manager'
@@ -80,7 +80,7 @@ const DEFAULT_CASE = {
     완료된_SVG_코드: '',
 }
 
-const MULTIPLE_FILLES_CASE = {
+const 다수_FILL_PROPS가_존재하는_컴포넌트 = {
     컴포넌트_코드: `
     import React, {memo} from 'react'
     import type {SVGStyleProps} from '@naverpay/svg-manager'
@@ -197,7 +197,7 @@ const MULTIPLE_FILLES_CASE = {
     </svg>`,
 }
 
-const PROPS_VARIABLE_CASE = {
+const PROPS_변수_컴포넌트 = {
     컴포넌트_코드: `
     import React, {memo} from 'react'
     import type {SVGStyleProps} from '@naverpay/svg-manager'
@@ -299,7 +299,7 @@ const PROPS_VARIABLE_CASE = {
     </svg>`,
 }
 
-const COMPLEX_HTML_CASE = {
+const 복잡한_HTML_컴포넌트 = {
     컴포넌트_코드: `
     import React, {memo} from 'react'
     import type {SVGStyleProps} from '@naverpay/svg-manager'
@@ -387,7 +387,7 @@ const COMPLEX_HTML_CASE = {
     </svg>`,
 }
 
-const DIFF_PROPS_NAME_CASE = {
+const STROKE에_FILL이_쓰인_컴포넌트 = {
     컴포넌트_코드: `
     import {memo} from 'react';
     import type {SVGStyleProps} from '@naverpay/svg-manager';
@@ -465,7 +465,7 @@ const DIFF_PROPS_NAME_CASE = {
     </svg>`,
 }
 
-const ID_CASE = {
+const ID_PROPS_있는_컴포넌트 = {
     컴포넌트_코드: `
     import {memo} from 'react';
     import type {SVGStyleProps} from '@naverpay/svg-manager';
@@ -564,7 +564,7 @@ const ID_CASE = {
     </svg>`,
 }
 
-const STYLE_OBJECT_CASE = {
+const STYLE_OBJECT를_포함한_컴포넌트 = {
     컴포넌트_코드: `
     import React, {memo} from 'react'
     import type {SVGStyleProps} from '@naverpay/svg-manager'
@@ -784,7 +784,7 @@ const STYLE_OBJECT_CASE = {
     </svg>`,
 }
 
-const ID_CASE_FUNCTION = {
+const 함수형_컴포넌트 = {
     컴포넌트_코드: `
     import type {SVGStyleProps} from '@naverpay/svg-manager';
     import {getRandomString} from 'getRandomString';
@@ -898,13 +898,73 @@ const ID_CASE_FUNCTION = {
     </svg>`,
 }
 
+const EXPORT_DEFAULT_함수형_컴포넌트 = {
+    컴포넌트_코드: `import React from 'react'
+    import * as CSS from 'csstype'
+    
+    export default function IconExample({
+        fill = '#222',
+        width = '100%',
+        height = '100%',
+        viewBox = '0 0 9 18',
+        style = {},
+    }: Partial<{
+        fill: CSS.Property.Fill
+        width: CSS.Property.Width<string | number>
+        height: CSS.Property.Height<string | number>
+        viewBox: string
+        style: React.CSSProperties
+    }>) {
+        return (
+            <svg width={width} height={height} viewBox={viewBox} style={style}>
+                <path
+                    fill="none"
+                    fillRule="evenodd"
+                    stroke={fill}
+                    strokeLinejoin="round"
+                    d="M8.521 0L0.5 8.021 8.521 16"
+                    transform="translate(0 1)"
+                />
+            </svg>
+        )
+    }`,
+    PROPS: {
+        fill: '#222',
+        width: '100%',
+        height: '100%',
+        viewBox: '0 0 9 18',
+        style: {},
+    },
+    PROPS_없는_SVG_코드: `<svg width="width" height="height" viewBox="viewBox" style="style">
+        <path
+            fill="none"
+            fillRule="evenodd"
+            stroke="fill"
+            strokeLinejoin="round"
+            d="M8.521 0L0.5 8.021 8.521 16"
+            transform="translate(0 1)"
+        />
+    </svg>`,
+    완료된_SVG_코드: `<svg width={width} height={height} viewBox={viewBox} style={style}>
+    <path 
+        fill="none" 
+        fillRule="evenodd" 
+        stroke={fill} 
+        strokeLinejoin="round" 
+        d="M8.521 0L0.5 8.021 8.521 16" 
+        transform="translate(0 1)"
+    />
+</svg>`,
+}
+
 module.exports = {
-    DEFAULT_CASE,
-    MULTIPLE_FILLES_CASE,
-    PROPS_VARIABLE_CASE,
-    COMPLEX_HTML_CASE,
-    DIFF_PROPS_NAME_CASE,
-    ID_CASE,
-    STYLE_OBJECT_CASE,
-    ID_CASE_FUNCTION,
+    메모이제이션_컴포넌트,
+    다수_FILL_PROPS가_존재하는_컴포넌트,
+    PROPS_변수_컴포넌트,
+    복잡한_HTML_컴포넌트,
+    STROKE에_FILL이_쓰인_컴포넌트,
+    ID_PROPS_있는_컴포넌트,
+    STYLE_OBJECT를_포함한_컴포넌트,
+    함수형_컴포넌트,
+    EXPORT_DEFAULT_함수형_컴포넌트,
 }

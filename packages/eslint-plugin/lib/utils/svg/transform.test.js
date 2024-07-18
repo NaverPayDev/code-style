@@ -1,11 +1,12 @@
 const {
-    MULTIPLE_FILLES_CASE,
-    COMPLEX_HTML_CASE,
-    DIFF_PROPS_NAME_CASE,
-    ID_CASE,
-    STYLE_OBJECT_CASE,
-    PROPS_VARIABLE_CASE,
-    ID_CASE_FUNCTION,
+    다수_FILL_PROPS가_존재하는_컴포넌트,
+    복잡한_HTML_컴포넌트,
+    STROKE에_FILL이_쓰인_컴포넌트,
+    ID_PROPS_있는_컴포넌트,
+    STYLE_OBJECT를_포함한_컴포넌트,
+    PROPS_변수_컴포넌트,
+    함수형_컴포넌트,
+    EXPORT_DEFAULT_함수형_컴포넌트,
 } = require('../../constants/test-data')
 const {trimAll} = require('../string')
 const {svgoOptimize} = require('./transform')
@@ -13,32 +14,41 @@ const {svgoOptimize} = require('./transform')
 describe('transform', () => {
     test.each([
         [
-            'MULTIPLE_FILLES_CASE',
-            MULTIPLE_FILLES_CASE.PROPS_없는_SVG_코드,
-            MULTIPLE_FILLES_CASE.PROPS,
-            MULTIPLE_FILLES_CASE.완료된_SVG_코드,
+            '다수_FILL_PROPS가_존재하는_컴포넌트',
+            다수_FILL_PROPS가_존재하는_컴포넌트.PROPS_없는_SVG_코드,
+            다수_FILL_PROPS가_존재하는_컴포넌트.PROPS,
+            다수_FILL_PROPS가_존재하는_컴포넌트.완료된_SVG_코드,
             undefined,
         ],
         [
-            'COMPLEX_HTML_CASE',
-            COMPLEX_HTML_CASE.PROPS_없는_SVG_코드,
-            COMPLEX_HTML_CASE.PROPS,
-            COMPLEX_HTML_CASE.완료된_SVG_코드,
+            '복잡한_HTML_컴포넌트',
+            복잡한_HTML_컴포넌트.PROPS_없는_SVG_코드,
+            복잡한_HTML_컴포넌트.PROPS,
+            복잡한_HTML_컴포넌트.완료된_SVG_코드,
             undefined,
         ],
         [
-            'DIFF_PROPS_NAME_CASE',
-            DIFF_PROPS_NAME_CASE.PROPS_없는_SVG_코드,
-            DIFF_PROPS_NAME_CASE.PROPS,
-            DIFF_PROPS_NAME_CASE.완료된_SVG_코드,
+            'STROKE에_FILL이_쓰인_컴포넌트',
+            STROKE에_FILL이_쓰인_컴포넌트.PROPS_없는_SVG_코드,
+            STROKE에_FILL이_쓰인_컴포넌트.PROPS,
+            STROKE에_FILL이_쓰인_컴포넌트.완료된_SVG_코드,
             undefined,
         ],
-        ['ID_CASE', ID_CASE.PROPS_없는_SVG_코드, ID_CASE.PROPS, ID_CASE.완료된_SVG_코드, undefined],
         [
-            'STYLE_OBJECT_CASE',
-            STYLE_OBJECT_CASE.PROPS_없는_SVG_코드,
-            STYLE_OBJECT_CASE.PROPS,
-            STYLE_OBJECT_CASE.완료된_SVG_코드,
+            'ID_PROPS_있는_컴포넌트',
+            ID_PROPS_있는_컴포넌트.PROPS_없는_SVG_코드,
+            ID_PROPS_있는_컴포넌트.PROPS,
+            ID_PROPS_있는_컴포넌트.완료된_SVG_코드,
+            undefined,
+        ],
+        [
+            'STYLE_OBJECT를_포함한_컴포넌트',
+            STYLE_OBJECT를_포함한_컴포넌트.PROPS_없는_SVG_코드,
+            STYLE_OBJECT를_포함한_컴포넌트.PROPS,
+            STYLE_OBJECT를_포함한_컴포넌트.완료된_SVG_코드,
+            /**
+             * style 객체 변경 용도로 추가된 임시 객체
+             */
             {
                 style0: {
                     from: '0000000000000000000000000000000',
@@ -63,17 +73,24 @@ describe('transform', () => {
             },
         ],
         [
-            'PROPS_VARIABLE_CASE',
-            PROPS_VARIABLE_CASE.PROPS_없는_SVG_코드,
-            PROPS_VARIABLE_CASE.PROPS,
-            PROPS_VARIABLE_CASE.완료된_SVG_코드,
+            'PROPS_변수_컴포넌트',
+            PROPS_변수_컴포넌트.PROPS_없는_SVG_코드,
+            PROPS_변수_컴포넌트.PROPS,
+            PROPS_변수_컴포넌트.완료된_SVG_코드,
             undefined,
         ],
         [
-            'ID_CASE_FUNCTION',
-            ID_CASE_FUNCTION.PROPS_없는_SVG_코드,
-            ID_CASE_FUNCTION.PROPS,
-            ID_CASE_FUNCTION.완료된_SVG_코드,
+            '함수형_컴포넌트',
+            함수형_컴포넌트.PROPS_없는_SVG_코드,
+            함수형_컴포넌트.PROPS,
+            함수형_컴포넌트.완료된_SVG_코드,
+            undefined,
+        ],
+        [
+            'EXPORT_DEFAULT_함수형_컴포넌트',
+            EXPORT_DEFAULT_함수형_컴포넌트.PROPS_없는_SVG_코드,
+            EXPORT_DEFAULT_함수형_컴포넌트.PROPS,
+            EXPORT_DEFAULT_함수형_컴포넌트.완료된_SVG_코드,
             undefined,
         ],
     ])('[%s] 정상적으로 svg transformation을 수행한다.', (_, svgCode, props, result, exceptAttr) => {
