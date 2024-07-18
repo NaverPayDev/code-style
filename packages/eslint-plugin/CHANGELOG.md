@@ -1,5 +1,11 @@
 # @naverpay/eslint-plugin
 
+## 1.2.1
+
+### Patch Changes
+
+- 8ace9da: [@naverpay/eslint-plugin/optimize-svg-components] export default로 작성된 함수형 컴포넌트를 올바르게 린팅하도록 수정합니다.
+
 ## 1.2.0
 
 ### Minor Changes
