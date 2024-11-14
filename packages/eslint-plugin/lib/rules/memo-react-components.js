@@ -1,7 +1,7 @@
-const {getExportDefaultDeclaration} = require('@naverpay/ast-parser')
-const {minimatch} = require('minimatch')
+import {getExportDefaultDeclaration} from '@naverpay/ast-parser'
+import {minimatch} from 'minimatch'
 
-module.exports = {
+const rule = {
     meta: {
         type: 'suggestion',
         docs: {
@@ -191,3 +191,5 @@ module.exports = {
         }
     },
 }
+
+export default rule

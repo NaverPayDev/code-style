@@ -1,8 +1,4 @@
-const {isEmptyObject} = require('./object')
-const {isEmptyString} = require('./string')
+import {isEmptyObject} from './object'
+import {isEmptyString} from './string'
 
-const isEmpty = (value) => isEmptyString(value) || isEmptyObject(value) || !value
-
-module.exports = {
-    isEmpty,
-}
+export const isEmpty = (value) => isEmptyString(value) || isEmptyObject(value) || !value

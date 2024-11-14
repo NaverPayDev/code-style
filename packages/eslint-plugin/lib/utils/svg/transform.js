@@ -1,27 +1,27 @@
-const {
+import {
     getJSXElement,
     getImportDeclarations,
     getReactComponentDeclaration,
     extractComponentProps,
-} = require('@naverpay/ast-parser')
-const {optimize} = require('svgo')
+} from '@naverpay/ast-parser'
+import {optimize} from 'svgo'
 
-const {
+import {
     SVG_OPTIMIZE_COMPLETED_COMMENT,
     PROPS_IDENTIFIER_NAME,
     FIRST_RANGE,
     SVG_OPTIMIZED_COMMENT_CONTENT,
-} = require('../../constants')
-const {
+} from '../../constants'
+import {
     findSpecificImportDeclaration,
     ReactComponentDeclarationType,
     VariableDeclaratorType,
     getTypeAnnotation,
     getRangesOfObjectExpressionAttrs,
     getAllComments,
-} = require('../astParser')
-const {numberReplacer} = require('../string')
-const {extractPropsFromLiteralCode, replacePropsWithValueInSvgCode} = require('./props')
+} from '../astParser'
+import {numberReplacer} from '../string'
+import {extractPropsFromLiteralCode, replacePropsWithValueInSvgCode} from './props'
 
 /**
  * @typedef EslintComponent
@@ -30,7 +30,7 @@ const {extractPropsFromLiteralCode, replacePropsWithValueInSvgCode} = require('.
  * @property {import('eslint').Rule.RuleContext} context
  */
 
-const parseSvgComponent = ({contents, globalScope}, componentName) => {
+export const parseSvgComponent = ({contents, globalScope}, componentName) => {
     try {
         // (1) svg html 코드를 ast tree로부터 조회하여 저장
         const jsxElement = getJSXElement(globalScope.block, 'svg')
@@ -93,7 +93,7 @@ const parseSvgComponent = ({contents, globalScope}, componentName) => {
  * @param {EslintComponent} param1
  * @returns {import('eslint').Rule.Fix[]}
  */
-function insertCustomImport({fixer, scope, context}) {
+export function insertCustomImport({fixer, scope, context}) {
     const comments = getAllComments(context)
 
     if (comments.some(({value}) => value.includes(SVG_OPTIMIZED_COMMENT_CONTENT))) {
@@ -150,7 +150,7 @@ function insertCustomImport({fixer, scope, context}) {
  * @param {NextSvgContent} param0
  * @returns {string}
  */
-const svgoOptimize = ({svgCode, props, exceptAttr}) => {
+export const svgoOptimize = ({svgCode, props, exceptAttr}) => {
     const {data} = optimize(svgCode, {
         plugins: [
             {
@@ -202,7 +202,7 @@ const svgoOptimize = ({svgCode, props, exceptAttr}) => {
  * @param {EslintComponent} param1
  * @returns {import('eslint').Rule.Fix[]}
  */
-const replacePropsTypeDeclaration = ({fixer, scope}) => {
+export const replacePropsTypeDeclaration = ({fixer, scope}) => {
     const getPropsDeclaration = () => {
         const componentDeclaration = getReactComponentDeclaration(scope.block)
 
@@ -242,11 +242,4 @@ const replacePropsTypeDeclaration = ({fixer, scope}) => {
     }
 
     return []
-}
-
-module.exports = {
-    parseSvgComponent,
-    insertCustomImport,
-    svgoOptimize,
-    replacePropsTypeDeclaration,
 }

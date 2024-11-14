@@ -1,15 +1,10 @@
-const {getJSXElement, getImportDeclarations, extractComponentProps} = require('@naverpay/ast-parser')
-const {minimatch} = require('minimatch')
+import {getJSXElement, getImportDeclarations, extractComponentProps} from '@naverpay/ast-parser'
+import {minimatch} from 'minimatch'
 
-const {SVG_OPTIMIZED_COMMENT_CONTENT} = require('../constants')
-const {isEmpty} = require('../utils')
-const {findSpecificImportDeclaration, hasSpecificReturnStatement, getAllComments} = require('../utils/astParser')
-const {
-    insertCustomImport,
-    svgoOptimize,
-    replacePropsTypeDeclaration,
-    parseSvgComponent,
-} = require('../utils/svg/transform')
+import {SVG_OPTIMIZED_COMMENT_CONTENT} from '../constants'
+import {isEmpty} from '../utils'
+import {findSpecificImportDeclaration, hasSpecificReturnStatement, getAllComments} from '../utils/astParser'
+import {insertCustomImport, svgoOptimize, replacePropsTypeDeclaration, parseSvgComponent} from '../utils/svg/transform'
 
 /**
  *
@@ -97,7 +92,7 @@ const properties = {
 /**
  * @type {import('eslint').Rule.RuleModule}
  */
-module.exports = {
+const rule = {
     meta: {
         type: 'suggestion',
         docs: {
@@ -218,3 +213,5 @@ module.exports = {
         }
     },
 }
+
+export default rule

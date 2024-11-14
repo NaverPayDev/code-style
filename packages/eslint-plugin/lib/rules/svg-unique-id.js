@@ -1,10 +1,10 @@
-const {extractComponentProps, getImportDeclarations} = require('@naverpay/ast-parser')
-const {minimatch} = require('minimatch')
+import {minimatch} from 'minimatch'
+import {extractComponentProps, getImportDeclarations} from '@naverpay/ast-parser'
 
-const {FIRST_RANGE} = require('../constants')
-const {findSpecificImportDeclaration, getJSXReturnStatement} = require('../utils/astParser')
-const {isEmptyObject, has} = require('../utils/object')
-const {getLatestRangeOfProps} = require('../utils/svg/props')
+import {FIRST_RANGE} from '../constants'
+import {findSpecificImportDeclaration, getJSXReturnStatement} from '../utils/astParser'
+import {isEmptyObject, has} from '../utils/object'
+import {getLatestRangeOfProps} from '../utils/svg/props'
 
 function insertCustomImport({fixer, scope}) {
     const result = []
@@ -75,7 +75,7 @@ function insertIdProps(props, globalScope, fixer) {
 /**
  * @type {import('eslint').Rule.RuleModule}
  */
-module.exports = {
+const rule = {
     meta: {
         type: 'suggestion',
 
@@ -159,3 +159,5 @@ module.exports = {
         }
     },
 }
+
+export default rule

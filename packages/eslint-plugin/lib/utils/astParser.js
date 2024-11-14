@@ -1,11 +1,11 @@
-const {getReactComponentDeclaration, getImportDeclarations} = require('@naverpay/ast-parser')
+import {getReactComponentDeclaration, getImportDeclarations} from '@naverpay/ast-parser'
 
-const ReactComponentDeclarationType = {
+export const ReactComponentDeclarationType = {
     VariableDeclaration: 'VariableDeclaration',
     FunctionDeclaration: 'FunctionDeclaration',
 }
 
-const VariableDeclaratorType = {
+export const VariableDeclaratorType = {
     CallExpression: 'CallExpression',
     ArrowFunctionExpression: 'ArrowFunctionExpression',
 }
@@ -60,7 +60,7 @@ function getObjectExpressionAttrs(attributes) {
  * @param {import('estree-jsx').JSXElement} jsxElement
  * @returns {[string, {range: [number, number]}][]}
  */
-function getRangesOfObjectExpressionAttrs(jsxElement) {
+export function getRangesOfObjectExpressionAttrs(jsxElement) {
     const {children} = jsxElement
 
     if (children.length === 0) {
@@ -86,7 +86,7 @@ function getRangesOfObjectExpressionAttrs(jsxElement) {
  * @param {import('estree').ImportDeclaration[]} importDeclarations
  * @param {{name?: string; from?: string}} param1
  */
-function findSpecificImportDeclaration(importDeclarations, {name, from} = {}) {
+export function findSpecificImportDeclaration(importDeclarations, {name, from} = {}) {
     const findName = (specifiers) =>
         specifiers.some(
             ({type, local}) => (type === 'ImportSpecifier' || type === 'ImportDefaultSpecifier') && local.name === name,
@@ -107,7 +107,7 @@ function findSpecificImportDeclaration(importDeclarations, {name, from} = {}) {
  * @param {import('estree').FunctionDeclaration} functionDeclaration
  * @param {import('estree').Expression['type']} returnType
  */
-function hasSpecificReturnStatement(functionDeclaration, returnType) {
+export function hasSpecificReturnStatement(functionDeclaration, returnType) {
     return functionDeclaration.body.body.some(
         (item) => item.type === 'ReturnStatement' && item.argument.type === returnType,
     )
@@ -117,7 +117,7 @@ function hasSpecificReturnStatement(functionDeclaration, returnType) {
  *
  * @param {import('eslint').Rule.RuleContext} context
  */
-const getCommentsBeforeImportDeclaration = (context, {name, from}) => {
+export const getCommentsBeforeImportDeclaration = (context, {name, from}) => {
     const globalScope = context.getScope()
     const importDeclarations = getImportDeclarations(globalScope.block)
     const styleImportDeclaration = findSpecificImportDeclaration(importDeclarations, {
@@ -138,7 +138,7 @@ const getCommentsBeforeImportDeclaration = (context, {name, from}) => {
  *
  * @param {import('eslint').Rule.RuleContext} context
  */
-const getAllComments = (context) => {
+export const getAllComments = (context) => {
     const sourceCode = context.getSourceCode()
     return sourceCode.getAllComments()
 }
@@ -148,7 +148,7 @@ const getAllComments = (context) => {
  * @param {import('@babel/types').Node | undefined} node
  * @returns {import('@babel/types').TSTypeReference | import('@babel/types').TSTypeLiteral | undefined}
  */
-const getTypeAnnotation = (node) => {
+export const getTypeAnnotation = (node) => {
     return node?.typeAnnotation?.typeAnnotation
 }
 
@@ -190,7 +190,7 @@ function getReturnTypeOfArrowFunction(arrowFunction) {
  * @param {import('eslint').Scope.Scope} globalScope
  * @returns {import('estree-jsx').JSXElement | undefined}
  */
-const getJSXReturnStatement = (globalScope) => {
+export const getJSXReturnStatement = (globalScope) => {
     const componentDeclaration = getReactComponentDeclaration(globalScope.block)
 
     if (componentDeclaration.type === ReactComponentDeclarationType.FunctionDeclaration) {
@@ -248,7 +248,7 @@ const traverseNode = (node, examine, results) => {
 }
 
 /** ast의 모든 node를 순회해서 examine */
-const traverseAllNodes = (allNodes, examine) => {
+export const traverseAllNodes = (allNodes, examine) => {
     const results = []
 
     allNodes.forEach((node) => {
@@ -256,19 +256,4 @@ const traverseAllNodes = (allNodes, examine) => {
     })
 
     return results
-}
-
-module.exports = {
-    ReactComponentDeclarationType,
-    VariableDeclaratorType,
-    CallExpressionArgumentType,
-    findSpecificImportDeclaration,
-    hasSpecificReturnStatement,
-    getCommentsBeforeImportDeclaration,
-    getTypeAnnotation,
-    getRangesOfObjectExpressionAttrs,
-    getJSXReturnStatement,
-    getAllComments,
-    traverseNode,
-    traverseAllNodes,
 }
