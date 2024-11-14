@@ -1,4 +1,4 @@
-const {
+import {
     다수_FILL_PROPS가_존재하는_컴포넌트,
     복잡한_HTML_컴포넌트,
     STROKE에_FILL이_쓰인_컴포넌트,
@@ -7,12 +7,13 @@ const {
     PROPS_변수_컴포넌트,
     함수형_컴포넌트,
     EXPORT_DEFAULT_함수형_컴포넌트,
-} = require('../../constants/test-data')
-const {trimAll} = require('../string')
-const {svgoOptimize} = require('./transform')
+} from '../../constants/test-data'
+import {trimAll} from '../string'
+import {svgoOptimize} from './transform'
+import {describe, test, expect} from 'vitest'
 
 describe('transform', () => {
-    test.each([
+    test.concurrent.each([
         [
             '다수_FILL_PROPS가_존재하는_컴포넌트',
             다수_FILL_PROPS가_존재하는_컴포넌트.PROPS_없는_SVG_코드,

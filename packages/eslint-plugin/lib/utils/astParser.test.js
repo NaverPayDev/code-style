@@ -1,6 +1,6 @@
-const {parseToAST} = require('@naverpay/ast-parser')
-
-const {getJSXReturnStatement} = require('./astParser')
+import {parseToAST} from '@naverpay/ast-parser'
+import {getJSXReturnStatement} from './astParser'
+import {describe, test, expect} from 'vitest'
 
 function parseCode(code) {
     const ast = parseToAST(code)
@@ -23,7 +23,7 @@ export default AnySvg
 `
 
 describe('extractComponentProps', () => {
-    test.each([[code, 'svg']])('ast tree에서 props를 추출한다.', (reactCode, expected) => {
+    test.concurrent.each([[code, 'svg']])('ast tree에서 props를 추출한다.', (reactCode, expected) => {
         const scope = parseCode(reactCode)
 
         const props = getJSXReturnStatement(scope)

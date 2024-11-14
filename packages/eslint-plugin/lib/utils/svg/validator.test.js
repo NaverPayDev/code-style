@@ -1,8 +1,9 @@
-const {extractComponentProps, parseToAST, getImportDeclarations} = require('@naverpay/ast-parser')
+import {extractComponentProps, parseToAST, getImportDeclarations} from '@naverpay/ast-parser'
 
-const {isEmpty} = require('..')
-const {SVG_OPTIMIZED_COMMENT_CONTENT} = require('../../constants')
-const {findSpecificImportDeclaration} = require('../astParser')
+import {isEmpty} from '..'
+import {SVG_OPTIMIZED_COMMENT_CONTENT} from '../../constants'
+import {findSpecificImportDeclaration} from '../astParser'
+import {describe, test, expect} from 'vitest'
 
 function parseCode(code) {
     const ast = parseToAST(code)

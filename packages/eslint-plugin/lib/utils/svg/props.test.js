@@ -1,6 +1,6 @@
-const {extractComponentProps, parseToAST} = require('@naverpay/ast-parser')
+import {extractComponentProps, parseToAST} from '@naverpay/ast-parser'
 
-const {
+import {
     메모이제이션_컴포넌트,
     다수_FILL_PROPS가_존재하는_컴포넌트,
     PROPS_변수_컴포넌트,
@@ -10,10 +10,11 @@ const {
     STYLE_OBJECT를_포함한_컴포넌트,
     함수형_컴포넌트,
     EXPORT_DEFAULT_함수형_컴포넌트,
-} = require('../../constants/test-data')
-const {trimAll} = require('../string')
-const {extractPropsFromLiteralCode} = require('./props')
-const {parseSvgComponent} = require('./transform')
+} from '../../constants/test-data'
+import {trimAll} from '../string'
+import {extractPropsFromLiteralCode} from './props'
+import {parseSvgComponent} from './transform'
+import {describe, test, expect} from 'vitest'
 
 function parseCode(code) {
     const ast = parseToAST(code)
@@ -24,7 +25,7 @@ function parseCode(code) {
 }
 
 describe('extractComponentProps', () => {
-    test.each([
+    test.concurrent.each([
         [메모이제이션_컴포넌트.컴포넌트_코드, 메모이제이션_컴포넌트.PROPS],
         [다수_FILL_PROPS가_존재하는_컴포넌트.컴포넌트_코드, 다수_FILL_PROPS가_존재하는_컴포넌트.PROPS],
         [PROPS_변수_컴포넌트.컴포넌트_코드, 'props'],
@@ -44,7 +45,7 @@ describe('extractComponentProps', () => {
 })
 
 describe('extractPropsFromLiteralCode', () => {
-    test.each([[PROPS_변수_컴포넌트.컴포넌트_코드, PROPS_변수_컴포넌트.PROPS]])(
+    test.concurrent.each([[PROPS_변수_컴포넌트.컴포넌트_코드, PROPS_변수_컴포넌트.PROPS]])(
         'svg code에서 props를 추출한다.',
         (code, expectedProps) => {
             const props = extractPropsFromLiteralCode(code)
@@ -55,7 +56,7 @@ describe('extractPropsFromLiteralCode', () => {
 })
 
 describe('replacePropsWithValueInSvgCode', () => {
-    test.each([
+    test.concurrent.each([
         [메모이제이션_컴포넌트.컴포넌트_코드, 메모이제이션_컴포넌트.PROPS_없는_SVG_코드, 메모이제이션_컴포넌트.PROPS],
         [
             다수_FILL_PROPS가_존재하는_컴포넌트.컴포넌트_코드,
