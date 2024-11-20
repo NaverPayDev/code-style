@@ -1,6 +1,7 @@
-const {extractComponentProps, parseToAST} = require('@naverpay/ast-parser')
+import {describe, test, expect} from 'vitest'
+import {extractComponentProps, parseToAST} from '@naverpay/ast-parser'
 
-const {
+import {
     메모이제이션_컴포넌트,
     다수_FILL_PROPS가_존재하는_컴포넌트,
     PROPS_변수_컴포넌트,
@@ -10,10 +11,10 @@ const {
     STYLE_OBJECT를_포함한_컴포넌트,
     함수형_컴포넌트,
     EXPORT_DEFAULT_함수형_컴포넌트,
-} = require('../../constants/test-data')
-const {trimAll} = require('../string')
-const {extractPropsFromLiteralCode} = require('./props')
-const {parseSvgComponent} = require('./transform')
+} from '../../constants/test-data'
+import {trimAll} from '../string'
+import {extractPropsFromLiteralCode} from './props'
+import {parseSvgComponent} from './transform'
 
 function parseCode(code) {
     const ast = parseToAST(code)

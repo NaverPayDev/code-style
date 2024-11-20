@@ -1,4 +1,4 @@
-const {traverseAllNodes} = require('../utils/astParser')
+import {traverseAllNodes} from '../utils/astParser.js'
 
 /** 특정 ImportDefaultSpecifier의 멤버변수를 참조하는 노드 목록을 반환 */
 const getImportDefaultSpecifierReferences = (importDefaultSpecifier, allNodes) => {
@@ -88,7 +88,7 @@ const fixDefaultToNamedImport = ({fixer, memberName, importDefaultSpecifier, imp
     return fixed
 }
 
-module.exports = {
+export default {
     meta: {
         type: 'problem',
         docs: {

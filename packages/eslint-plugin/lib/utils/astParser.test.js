@@ -1,6 +1,7 @@
-const {parseToAST} = require('@naverpay/ast-parser')
+import {describe, test, expect} from 'vitest'
+import {parseToAST} from '@naverpay/ast-parser'
 
-const {getJSXReturnStatement} = require('./astParser')
+import {getJSXReturnStatement} from './astParser'
 
 function parseCode(code) {
     const ast = parseToAST(code)
