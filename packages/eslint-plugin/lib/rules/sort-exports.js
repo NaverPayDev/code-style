@@ -1,4 +1,4 @@
-const {minimatch} = require('minimatch')
+import {minimatch} from 'minimatch'
 
 function getCommentFromNode(context, node) {
     const beforeComments = context.getSourceCode().getCommentsBefore(node)
@@ -110,7 +110,7 @@ function getIdentifier(node) {
 /**
  * @type {import('eslint').Rule.RuleModule}
  */
-module.exports = {
+export default {
     meta: {
         type: 'suggestion',
 
