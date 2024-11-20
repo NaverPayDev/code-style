@@ -2,15 +2,17 @@
     "name": "@naverpay/eslint-plugin",
     "version": "1.2.1",
     "description": "eslint plugin for naverpay",
+    "type": "module",
     "main": "./lib/index.js",
     "scripts": {
-        "test": "jest --config ./jest.config.js",
+        "test": "vitest run",
         "version": "pnpm version",
         "deploy": "pnpm publish"
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.24.7",
-        "@typescript-eslint/parser": "^7.9.0"
+        "@typescript-eslint/parser": "^7.9.0",
+        "vitest": "^2.1.5"
     },
     "peerDependencies": {
         "eslint": "^8"

@@ -1,7 +1,7 @@
-const {getExportDefaultDeclaration} = require('@naverpay/ast-parser')
-const {minimatch} = require('minimatch')
+import {getExportDefaultDeclaration} from '@naverpay/ast-parser'
+import {minimatch} from 'minimatch'
 
-module.exports = {
+export default {
     meta: {
         type: 'suggestion',
         docs: {
