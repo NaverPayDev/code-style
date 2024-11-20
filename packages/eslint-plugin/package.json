@@ -10,12 +10,12 @@
         "deploy": "pnpm publish"
     },
     "devDependencies": {
-        "@babel/eslint-parser": "^7.24.7",
-        "@typescript-eslint/parser": "^7.9.0",
+        "@babel/eslint-parser": "^7.25.9",
+        "@typescript-eslint/parser": "^8.15.0",
         "vitest": "^2.1.5"
     },
     "peerDependencies": {
-        "eslint": "^8"
+        "eslint": ">=9"
     },
     "dependencies": {
         "@naverpay/ast-parser": "^0.0.2",
