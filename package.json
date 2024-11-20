@@ -26,8 +26,8 @@
     "devDependencies": {
         "@babel/preset-react": "^7.24.7",
         "@changesets/cli": "^2.26.2",
-        "@naverpay/eslint-config": "workspace:*",
-        "@naverpay/eslint-plugin": "workspace:*",
+        "@naverpay/eslint-config": "^1.0.7",
+        "@naverpay/eslint-plugin": "^1.2.1",
         "@naverpay/markdown-lint": "workspace:*",
         "@naverpay/prettier-config": "workspace:*",
         "@naverpay/stylelint-config": "workspace:*",
