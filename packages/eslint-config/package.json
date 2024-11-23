@@ -2,33 +2,40 @@
     "name": "@naverpay/eslint-config",
     "version": "1.0.7",
     "description": "eslint config for naverpay",
-    "main": "typescript/index.js",
+    "type": "module",
+    "main": "./index.js",
+    "exports": {
+        "import": "./index.js",
+        "default": "./index.js"
+    },
     "scripts": {
-        "test": "jest --config ./jest.config.js",
+        "test": "vitest run",
+        "test:watch": "vitest watch",
         "version": "pnpm version",
         "deploy": "pnpm publish"
     },
-    "dependencies": {
-        "eslint-plugin-import": ">=2.25 <2.27"
-    },
     "peerDependencies": {
-        "@babel/core": "^7.14.6",
-        "@babel/eslint-parser": "^7.14.7",
+        "@babel/core": ">=7.2.0",
+        "@babel/eslint-parser": "^7.25.9",
         "@babel/plugin-proposal-class-properties": "^7.14.5",
         "@babel/plugin-transform-react-jsx": "^7.14.5",
-        "@next/eslint-plugin-next": ">=12",
+        "@eslint/eslintrc": "^3.2.0",
+        "@eslint/js": "^9.15.0",
+        "@naverpay/eslint-plugin": "workspace:*",
         "@typescript-eslint/eslint-plugin": ">=7",
         "@typescript-eslint/parser": ">=7",
-        "eslint": ">=8 <9",
+        "eslint": ">=9",
         "eslint-config-eslint": "^7.0.0",
-        "eslint-config-prettier": "^9.0.0",
+        "eslint-config-prettier": "^9.1.0",
         "eslint-config-standard": "^17.1.0",
+        "eslint-plugin-import": ">=2.31.0",
         "eslint-plugin-jsx-a11y": "^6.7.1",
+        "eslint-plugin-n": "^17.14.0",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-promise": "^6.1.1",
         "eslint-plugin-react": "^7.33.2",
         "eslint-plugin-react-hooks": "^4.6.0",
-        "@naverpay/eslint-plugin": "^1.2.1"
+        "globals": "^15.12.0"
     },
     "author": "@NaverPayDev/frontend",
     "repository": {
@@ -42,5 +49,8 @@
         "eslint",
         "eslintconfig"
     ],
-    "license": "MIT"
+    "license": "MIT",
+    "devDependencies": {
+        "vitest": "^2.1.5"
+    }
 }

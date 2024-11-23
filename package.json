@@ -9,7 +9,7 @@
     "description": "code-style for naverpay",
     "scripts": {
         "prepare": "husky install",
-        "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+        "lint": "eslint",
         "lint:fix": "pnpm run lint --fix",
         "prettier": "prettier --check '**/*.{json,yaml,md,ts,tsx,js,jsx}'",
         "prettier:fix": "prettier --write '**/*.{json,yaml,md,ts,tsx,js,jsx}'",
@@ -27,8 +27,7 @@
     "devDependencies": {
         "@babel/preset-react": "^7.24.7",
         "@changesets/cli": "^2.26.2",
-        "@naverpay/eslint-config": "^1.0.7",
-        "@naverpay/eslint-plugin": "^1.2.1",
+        "@naverpay/eslint-config": "workspace:*",
         "@naverpay/markdown-lint": "workspace:*",
         "@naverpay/prettier-config": "workspace:*",
         "@naverpay/stylelint-config": "workspace:*",

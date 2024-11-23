@@ -1,18 +1,8 @@
-const {ESLint} = require('eslint')
+import {ESLint} from 'eslint'
 
-const baseConfig = {
-    root: true,
-    parser: '@babel/eslint-parser',
-    env: {
-        browser: true,
-        jest: true,
-        es2023: true,
-    },
-}
-
-const createLinter = ({ruleId, config}) => {
+export const createLinter = ({ruleId, config}) => {
     const eslint = new ESLint({
-        baseConfig,
+        overrideConfigFile: true,
         overrideConfig: config,
         ignore: false,
     })
@@ -33,9 +23,7 @@ const createLinter = ({ruleId, config}) => {
     }
 }
 
-const checkErrorRule = (messages, ruleId) => messages.every((message) => message.ruleId === ruleId)
-
-module.exports = {
-    createLinter,
-    checkErrorRule,
-}
+/**
+ * 빈배열이면 문제 있음
+ */
+export const checkErrorRule = (messages, ruleId) => messages.every((message) => message.ruleId === ruleId)

@@ -1,3 +1,4 @@
-module.exports = {
-    extends: ['./style', './variable'].map(require.resolve),
-}
+import style from './style.js'
+import variable from './variable.js'
+
+export default [style, variable]

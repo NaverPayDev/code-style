@@ -1,4 +1,9 @@
-module.exports = {
+import nodePlugin from 'eslint-plugin-n'
+
+export default {
+    plugins: {
+        n: nodePlugin,
+    },
     rules: {
         /** Require the use of === and !==
          @see https://eslint.org/docs/latest/rules/eqeqeq */
@@ -27,6 +32,7 @@ module.exports = {
         /** Enforce dot notation except snakecase
          @see https://eslint.org/docs/latest/rules/dot-notation */
         'dot-notation': ['error', {allowPattern: '^[a-zA-Z]+(_[a-zA-Z]+)+$'}],
+
         /** Require error handling in callbacks
          @see https://eslint.org/docs/latest/rules/handle-callback-err */
         'n/handle-callback-err': ['error', '^(err|error)$'],
