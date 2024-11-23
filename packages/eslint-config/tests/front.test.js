@@ -1,5 +1,6 @@
-const config = require('../front')
-const {checkErrorRule, createLinter} = require('./utils')
+import {describe, test, expect} from 'vitest'
+import config from '../configs/front.js'
+import {checkErrorRule, createLinter} from './utils/index.js'
 
 describe('front', () => {
     describe('jsx-a11y/alt-text', function () {
@@ -138,7 +139,6 @@ describe('front', () => {
         test('right', async () => {
             const result = await lintText(`
                 import {createReactClass} from 'react'
-
                 createReactClass({
                     // displayName: 'Hello',
                     render: function () {

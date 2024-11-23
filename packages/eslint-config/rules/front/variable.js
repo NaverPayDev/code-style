@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     rules: {
         /** Enforce camelcase naming convention
          @see https://eslint.org/docs/latest/rules/camelcase */

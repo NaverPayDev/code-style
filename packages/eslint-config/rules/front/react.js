@@ -1,4 +1,9 @@
-module.exports = {
+import react from 'eslint-plugin-react'
+
+export default {
+    plugins: {
+        react,
+    },
     rules: {
         /** Disallow missing displayName in a React component definition
          @see https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/display-name.md */

@@ -1,7 +1,15 @@
-module.exports = {
-    extends: [
-        'plugin:react/recommended', // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/configs/recommended.js (React specific linting rules for eslint)
-        'plugin:react/jsx-runtime', // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/configs/jsx-runtime.js (Disable new JSX transform from React 17 relevant rules)
-        'plugin:react-hooks/recommended', // https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/src/index.js#L14-L21 (enforces the Rules of Hooks)
-    ],
-}
+import {FlatCompat} from '@eslint/eslintrc'
+import path from 'path'
+import {fileURLToPath} from 'url'
+
+// mimic CommonJS variables -- not needed if using CommonJS
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+const compat = new FlatCompat({
+    baseDirectory: __dirname,
+})
+
+export default [
+    ...compat.extends('plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended'),
+]
