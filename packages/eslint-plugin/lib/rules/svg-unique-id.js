@@ -98,9 +98,7 @@ export default {
         ],
     },
     create: function (context) {
-        const rawFileName = context.getFilename()
-        const cwd = context.getCwd()
-        const filename = rawFileName.replace(cwd, '')
+        const filename = context.filename.replace(context.cwd, '')
         const {
             options: [config],
         } = context

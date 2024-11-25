@@ -88,6 +88,9 @@ const fixDefaultToNamedImport = ({fixer, memberName, importDefaultSpecifier, imp
     return fixed
 }
 
+/**
+ * @type {import('eslint').Rule.RuleModule}
+ */
 export default {
     meta: {
         type: 'problem',
