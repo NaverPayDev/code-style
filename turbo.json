@@ -1,6 +1,7 @@
 {
     "$schema": "https://turborepo.org/schema.json",
     "pipeline": {
-        "test": {"cache": false}
+        "test": {"cache": false},
+        "test:watch": {"cache": false}
     }
 }

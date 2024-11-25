@@ -16,6 +16,7 @@
         "markdownlint": "markdownlint '**/*.md' '#.changeset' '#**/CHANGELOG.md'",
         "markdownlint:fix": "markdownlint --fix '**/*.md' '#.changeset' '#**/CHANGELOG.md'",
         "test": "turbo run test",
+        "test:watch": "turbo run test:watch",
         "release": "changeset publish"
     },
     "lint-staged": {
