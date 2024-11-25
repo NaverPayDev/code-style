@@ -122,9 +122,7 @@ export default {
         ],
     },
     create: function (context) {
-        const rawFilename = context.getFilename()
-        const cwd = context.getCwd()
-        const filenameWithPath = rawFilename.replace(cwd, '')
+        const filenameWithPath = context.filename.replace(context.cwd, '')
 
         const [filename] = filenameWithPath.split('/').reverse()
 

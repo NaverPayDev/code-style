@@ -1,6 +1,9 @@
 import {getExportDefaultDeclaration} from '@naverpay/ast-parser'
 import {minimatch} from 'minimatch'
 
+/**
+ * @type {import('eslint').Rule.RuleModule}
+ */
 export default {
     meta: {
         type: 'suggestion',
@@ -20,9 +23,7 @@ export default {
         ],
     },
     create: function (context) {
-        const rawFilename = context.getFilename()
-        const cwd = context.getCwd()
-        const filename = rawFilename.replace(cwd, '')
+        const filename = context.filename.replace(context.cwd, '')
 
         const isMatched = context.options[0].path.some((pattern) => minimatch(filename, pattern))
 
