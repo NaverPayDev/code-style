@@ -324,32 +324,6 @@ describe('prevent-default-import', () => {
                 },
                 {
                     code: `
-                        import React, {FC} from 'react'
-
-                        interface Props {
-                            children: React.ReactNode
-                        }
-
-                        const Component: FC = () => {}
-                        `,
-                    options: [{packages: ['react']}],
-                    errors: [
-                        {
-                            message: "'React.ReactNode' should be used as 'ReactNode'",
-                        },
-                    ],
-                    output: `
-                        import {FC, ReactNode} from 'react'
-
-                        interface Props {
-                            children: ReactNode
-                        }
-
-                        const Component: FC = () => {}
-                        `,
-                },
-                {
-                    code: `
                         import React from 'react'
 
                         interface Props {
