@@ -2,10 +2,13 @@ import {RuleTester} from 'eslint'
 import {describe, it} from 'vitest'
 import rule from './prevent-default-import'
 
+import typescriptParser from '@typescript-eslint/parser'
+import babelParser from '@babel/eslint-parser'
+
 describe('prevent-default-import', () => {
     it('validates javascript imports', () => {
         const tester = new RuleTester({
-            parserOptions: {
+            languageOptions: {
                 ecmaVersion: 'latest',
                 sourceType: 'module',
             },
@@ -248,24 +251,23 @@ describe('prevent-default-import', () => {
 
     it('validates typescript imports', () => {
         const tester = new RuleTester({
-            parser: require.resolve('@typescript-eslint/parser'),
+            languageOptions: {
+                parser: typescriptParser,
+            },
         })
 
         tester.run('typescript/prevent-default-import', rule, {
             valid: [
                 `
                 import {ReactNode} from 'react'
-
                 interface ComponentProps {
                     children: ReactNode
                 }
-
                 const Component = (props: ComponentProps) => {}
                 `,
             ],
             invalid: [
                 {
-                    // [1]
                     code: `
                         import React, {FC} from 'react'
 
@@ -292,7 +294,6 @@ describe('prevent-default-import', () => {
                         `,
                 },
                 {
-                    // [2]
                     code: `
                         import React from 'react'
 
@@ -322,7 +323,6 @@ describe('prevent-default-import', () => {
                         `,
                 },
                 {
-                    // [3]
                     code: `
                         import React, {FC} from 'react'
 
@@ -349,7 +349,6 @@ describe('prevent-default-import', () => {
                         `,
                 },
                 {
-                    // [4]
                     code: `
                         import React from 'react'
 
@@ -461,17 +460,19 @@ describe('prevent-default-import', () => {
 
     it('validates JSX imports', () => {
         const tester = new RuleTester({
-            parser: require.resolve('@babel/eslint-parser'),
-            parserOptions: {
-                requireConfigFile: false,
-                babelOptions: {
-                    presets: ['@babel/preset-react'],
+            languageOptions: {
+                parser: babelParser,
+                parserOptions: {
+                    requireConfigFile: false,
+                    babelOptions: {
+                        presets: ['@babel/preset-react'],
+                    },
+                    ecmaFeatures: {
+                        jsx: true,
+                    },
+                    ecmaVersion: 'latest',
+                    sourceType: 'module',
                 },
-                ecmaFeatures: {
-                    jsx: true,
-                },
-                ecmaVersion: 'latest',
-                sourceType: 'module',
             },
         })
 
@@ -739,17 +740,19 @@ describe('prevent-default-import', () => {
 
     it('validates combined cases', () => {
         const tester = new RuleTester({
-            parser: require.resolve('@typescript-eslint/parser'),
-            parserOptions: {
-                requireConfigFile: false,
-                babelOptions: {
-                    presets: ['@babel/preset-react'],
+            languageOptions: {
+                parser: typescriptParser,
+                parserOptions: {
+                    requireConfigFile: false,
+                    babelOptions: {
+                        presets: ['@babel/preset-react'],
+                    },
+                    ecmaFeatures: {
+                        jsx: true,
+                    },
+                    ecmaVersion: 'latest',
+                    sourceType: 'module',
                 },
-                ecmaFeatures: {
-                    jsx: true,
-                },
-                ecmaVersion: 'latest',
-                sourceType: 'module',
             },
         })
 
