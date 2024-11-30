@@ -9,6 +9,7 @@
     "description": "code-style for naverpay",
     "scripts": {
         "prepare": "husky install",
+        "build": "turbo build",
         "lint": "eslint",
         "lint:fix": "pnpm run lint --fix",
         "prettier": "prettier --check '**/*.{json,yaml,md,ts,tsx,js,jsx}'",
