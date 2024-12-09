@@ -1,16 +1,13 @@
 import globals from 'globals'
 import babelParser from '@babel/eslint-parser'
 
-import recommends from '../recommends/index.js'
-import node from '../rules/node/index.js'
+import rules from './rules/index.js'
+import configs from './configs.js'
 
 export default [
-    ...node,
-    ...recommends,
+    ...configs,
+    ...rules,
     {
-        rules: {
-            'no-unused-vars': 'warn',
-        },
         languageOptions: {
             parser: babelParser,
             parserOptions: {
