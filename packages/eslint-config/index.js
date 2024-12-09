@@ -1,7 +1,6 @@
-import node from './configs/node.js'
-import front from './configs/front.js'
-import typescript from './configs/typescript.js'
-
+import react from './react/index.js'
+import node from './node/index.js'
+import typescript from './typescript/index.js'
 import pkg from './package.json'
 
 export default {
@@ -11,7 +10,7 @@ export default {
     },
     configs: {
         node,
-        front,
+        react,
         typescript,
     },
 }

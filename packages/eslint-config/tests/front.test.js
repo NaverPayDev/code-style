@@ -1,5 +1,5 @@
 import {describe, test, expect} from 'vitest'
-import config from '../configs/front.js'
+import config from '../react/index.js'
 import {checkErrorRule, createLinter} from './utils/index.js'
 
 describe('front', () => {

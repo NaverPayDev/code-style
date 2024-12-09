@@ -1,5 +1,5 @@
 import {describe, test, expect} from 'vitest'
-import config from '../configs/node'
+import config from '../node/index.js'
 import {checkErrorRule, createLinter} from './utils/index.js'
 
 describe('node', () => {

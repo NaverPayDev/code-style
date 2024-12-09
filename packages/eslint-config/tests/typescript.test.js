@@ -1,5 +1,5 @@
 import {describe, test, expect} from 'vitest'
-import config from '../configs/typescript.js'
+import config from '../typescript/index.js'
 import {checkErrorRule, createLinter} from './utils/index.js'
 
 describe('typescript', () => {
