@@ -17,14 +17,5 @@ export default {
          * @see https://eslint.org/docs/latest/rules/no-use-before-define
          */
         'no-use-before-define': ['error', {functions: false, classes: true, variables: true}],
-
-        /**
-         * Disallow unused variables
-         * @see https://eslint.org/docs/latest/rules/no-unused-vars
-         */
-        'no-unused-vars': [
-            'error',
-            {ignoreRestSiblings: true, argsIgnorePattern: '^_', varsIgnorePattern: '(React|^_)'},
-        ],
     },
 }
