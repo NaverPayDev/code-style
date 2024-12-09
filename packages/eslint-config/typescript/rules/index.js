@@ -90,14 +90,12 @@ export default [
 
             /**
              * Disallow unused variables
-             * @see https://eslint.org/docs/latest/rules/no-unused-vars
              * @see https://typescript-eslint.io/rules/no-unused-vars
-             * @todo remove React
              */
             'no-unused-vars': 'off',
             '@typescript-eslint/no-unused-vars': [
                 'error',
-                {ignoreRestSiblings: true, argsIgnorePattern: '^_', varsIgnorePattern: '(React|^_)'},
+                {ignoreRestSiblings: true, argsIgnorePattern: '^_', varsIgnorePattern: '^_'},
             ],
 
             /**
