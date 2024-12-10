@@ -43,8 +43,8 @@ package.json에 스크립트를 추가하여 lint 검사를 할 수 있습니다
 // package.json
 {
     "scripts": {
-        "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
-        "lint:fix": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
+        "lint": "eslint '**/*.{js,jsx,ts,tsx,yaml,yml}'",
+        "lint:fix": "eslint '**/*.{js,jsx,ts,tsx,yaml,yml}' --fix",
     }
 }
 ```
