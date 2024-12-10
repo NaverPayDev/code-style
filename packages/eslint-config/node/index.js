@@ -1,4 +1,3 @@
-import babelParser from '@babel/eslint-parser'
 import globals from 'globals'
 
 import configs from './configs.js'
@@ -9,10 +8,6 @@ export default [
     ...rules,
     {
         languageOptions: {
-            parser: babelParser,
-            parserOptions: {
-                requireConfigFile: false,
-            },
             globals: {
                 ...globals.commonjs,
                 ...globals.node,
