@@ -18,6 +18,8 @@ npm install @naverpay/eslint-config -D
   - TS로 작성된 환경에서 사용합니다.
 - **react**
   - TS로 작성된 react17+ 환경에서 사용합니다.
+- **strict**
+  - [eslint-plugin-unicorn](https://www.npmjs.com/package/eslint-plugin-unicorn), [eslint-config-sonarjs](https://www.npmjs.com/package/eslint-plugin-sonarjs) 등을 적용해 보다 엄격한 룰을 원하는 환경에서 사용합니다.
 
 ```js
 // eslint.config.js
@@ -29,6 +31,7 @@ export default [
     },
     ...naverpay.configs.node,
     ...naverpay.configs.typescript,
+    ...naverpay.configs.strict,
 ]
 ```
 
