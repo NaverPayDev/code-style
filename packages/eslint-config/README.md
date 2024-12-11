@@ -71,6 +71,16 @@ package.json에 스크립트를 추가하여 lint 검사를 할 수 있습니다
 }
 ```
 
+#### Typescript
+
+만약 typescript 를 사용 중이라면 아래의 설정을 활성화해주세요.
+
+```json
+{
+    "typescript.preferences.preferTypeOnlyAutoImports": true
+}
+```
+
 ### WebStorm
 
 Settings > Language > JavaScript > Code Quality > ESLint > Automatic ESLint configuration 을 설정합니다.

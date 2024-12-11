@@ -117,6 +117,12 @@ export default [
                     },
                 ],
             }),
+
+            /**
+             * Enforce consistent usage of type imports
+             * @see https://typescript-eslint.io/rules/consistent-type-imports/
+             */
+            '@typescript-eslint/consistent-type-imports': ['error'],
         },
     },
 ]
