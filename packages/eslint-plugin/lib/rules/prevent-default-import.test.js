@@ -1,9 +1,9 @@
+import babelParser from '@babel/eslint-parser'
+import typescriptParser from '@typescript-eslint/parser'
 import {RuleTester} from 'eslint'
 import {describe, it} from 'vitest'
-import rule from './prevent-default-import'
 
-import typescriptParser from '@typescript-eslint/parser'
-import babelParser from '@babel/eslint-parser'
+import rule from './prevent-default-import'
 
 describe('prevent-default-import', () => {
     it('validates javascript imports', () => {

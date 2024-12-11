@@ -1,5 +1,5 @@
-import {describe, test, expect} from 'vitest'
 import {extractComponentProps, parseToAST} from '@naverpay/ast-parser'
+import {describe, test, expect} from 'vitest'
 
 import {
     메모이제이션_컴포넌트,

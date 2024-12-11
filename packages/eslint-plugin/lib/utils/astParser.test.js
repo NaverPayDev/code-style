@@ -1,5 +1,5 @@
-import {describe, test, expect} from 'vitest'
 import {parseToAST} from '@naverpay/ast-parser'
+import {describe, test, expect} from 'vitest'
 
 import {getJSXReturnStatement} from './astParser'
 

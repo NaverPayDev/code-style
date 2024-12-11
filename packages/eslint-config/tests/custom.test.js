@@ -1,5 +1,6 @@
-import {describe, test, expect} from 'vitest'
 import importPlugin from 'eslint-plugin-import'
+import {describe, test, expect} from 'vitest'
+
 import {importOrder} from '../custom/index.js'
 import {checkErrorRule, createLinter} from './utils/index.js'
 

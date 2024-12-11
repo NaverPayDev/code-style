@@ -1,8 +1,8 @@
-import globals from 'globals'
 import babelParser from '@babel/eslint-parser'
+import globals from 'globals'
 
-import rules from './rules/index.js'
 import configs from './configs.js'
+import rules from './rules/index.js'
 
 export default [
     ...configs,

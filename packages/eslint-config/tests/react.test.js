@@ -1,4 +1,5 @@
 import {describe, test, expect} from 'vitest'
+
 import config from '../react/index.js'
 import {checkErrorRule, createLinter} from './utils/index.js'
 

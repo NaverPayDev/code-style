@@ -1,6 +1,7 @@
-import {FlatCompat} from '@eslint/eslintrc'
 import path from 'path'
 import {fileURLToPath} from 'url'
+
+import {FlatCompat} from '@eslint/eslintrc'
 
 import rules from './rules/index.js'
 
