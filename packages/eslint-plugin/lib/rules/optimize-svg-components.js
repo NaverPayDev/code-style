@@ -2,8 +2,8 @@ import {getJSXElement, getImportDeclarations, extractComponentProps} from '@nave
 import {minimatch} from 'minimatch'
 
 import {SVG_OPTIMIZED_COMMENT_CONTENT} from '../constants/index.js'
-import {isEmpty} from '../utils/index.js'
 import {findSpecificImportDeclaration, hasSpecificReturnStatement, getAllComments} from '../utils/astParser.js'
+import {isEmpty} from '../utils/index.js'
 import {
     insertCustomImport,
     svgoOptimize,
