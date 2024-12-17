@@ -1,11 +1,11 @@
-import typescriptPlugin from '@typescript-eslint/eslint-plugin'
+import tseslint from 'typescript-eslint'
 
 import {typescriptNamingConvention} from '../../custom/index.js'
 
 export default [
     {
         plugins: {
-            '@typescript-eslint': typescriptPlugin,
+            '@typescript-eslint': tseslint.plugin,
         },
         rules: {
             /**
