@@ -1,4 +1,5 @@
 import {getReactComponentDeclaration} from '@naverpay/ast-parser'
+
 import {ReactComponentDeclarationType, VariableDeclaratorType} from '../astParser.js'
 import {isStringObject} from '../string.js'
 

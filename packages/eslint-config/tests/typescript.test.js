@@ -1,4 +1,5 @@
 import {describe, test, expect} from 'vitest'
+
 import config from '../typescript/index.js'
 import {checkErrorRule, createLinter} from './utils/index.js'
 
@@ -318,6 +319,29 @@ describe('typescript', () => {
                 React.useEffect(() => {
 
                 }, [])
+            `)
+
+            expect(checkErrorRule(result, ruleId)).toBe(true)
+        })
+    })
+    describe('@typescript-eslint/consistent-type-imports', function () {
+        const ruleId = '@typescript-eslint/consistent-type-imports'
+        const {lintText} = createLinter({ruleId, config})
+
+        test('right', async () => {
+            const result = await lintText(`
+                import type {ReactNode} from 'react'
+
+                const node: ReactNode | null = null
+            `)
+
+            expect(result).toHaveLength(0)
+        })
+        test('wrong', async () => {
+            const result = await lintText(`
+                import {ReactNode} from 'react'
+
+                const node: ReactNode | null = null
             `)
 
             expect(checkErrorRule(result, ruleId)).toBe(true)

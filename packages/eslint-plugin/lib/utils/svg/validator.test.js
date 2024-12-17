@@ -1,5 +1,5 @@
-import {describe, test, expect} from 'vitest'
 import {extractComponentProps, parseToAST, getImportDeclarations} from '@naverpay/ast-parser'
+import {describe, test, expect} from 'vitest'
 
 import {isEmpty} from '..'
 import {SVG_OPTIMIZED_COMMENT_CONTENT} from '../../constants'

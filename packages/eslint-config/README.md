@@ -18,6 +18,8 @@ npm install @naverpay/eslint-config -D
   - TS로 작성된 환경에서 사용합니다.
 - **react**
   - TS로 작성된 react17+ 환경에서 사용합니다.
+- **strict**
+  - [eslint-plugin-unicorn](https://www.npmjs.com/package/eslint-plugin-unicorn), [eslint-config-sonarjs](https://www.npmjs.com/package/eslint-plugin-sonarjs) 등을 적용해 보다 엄격한 룰을 원하는 환경에서 사용합니다.
 
 ```js
 // eslint.config.js
@@ -29,6 +31,7 @@ export default [
     },
     ...naverpay.configs.node,
     ...naverpay.configs.typescript,
+    ...naverpay.configs.strict,
 ]
 ```
 
@@ -40,8 +43,8 @@ package.json에 스크립트를 추가하여 lint 검사를 할 수 있습니다
 // package.json
 {
     "scripts": {
-        "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
-        "lint:fix": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
+        "lint": "eslint '**/*.{js,jsx,ts,tsx,yaml,yml}'",
+        "lint:fix": "eslint '**/*.{js,jsx,ts,tsx,yaml,yml}' --fix",
     }
 }
 ```
@@ -65,6 +68,16 @@ package.json에 스크립트를 추가하여 lint 검사를 할 수 있습니다
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit"
     },
+}
+```
+
+#### Typescript
+
+만약 typescript 를 사용 중이라면 아래의 설정을 활성화해주세요.
+
+```json
+{
+    "typescript.preferences.preferTypeOnlyAutoImports": true
 }
 ```
 

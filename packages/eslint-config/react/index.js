@@ -1,12 +1,12 @@
 import globals from 'globals'
 
+import configs from './configs.js'
 import rules from './rules/index.js'
 import typescript from '../typescript/index.js'
-import configs from './configs.js'
 
 export default [
-    ...configs,
     ...typescript,
+    ...configs,
     ...rules,
     {
         languageOptions: {
@@ -18,13 +18,6 @@ export default [
         },
         linterOptions: {
             reportUnusedDisableDirectives: true,
-        },
-        settings: {
-            'import/resolver': {
-                node: {
-                    moduleDirectory: ['node_modules', 'src'],
-                },
-            },
         },
     },
 ]

@@ -1,7 +1,8 @@
-import path from 'path'
 import fs from 'fs'
-import builtins from 'builtin-modules'
+import path from 'path'
+
 import json from '@rollup/plugin-json'
+import builtins from 'builtin-modules'
 
 /**
  * @type {import('rollup').RollupOptions}
