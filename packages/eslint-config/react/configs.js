@@ -1,6 +1,9 @@
 import {FlatCompat} from '@eslint/eslintrc'
 import path from 'path'
 import {fileURLToPath} from 'url'
+import js from '@eslint/js'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import neostandard from 'neostandard'
 
 // mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url)
@@ -11,5 +14,8 @@ const compat = new FlatCompat({
 })
 
 export default [
+    js.configs.recommended,
+    ...neostandard({noStyle: true}),
+    eslintConfigPrettier,
     ...compat.extends('plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:react-hooks/recommended'),
 ]
