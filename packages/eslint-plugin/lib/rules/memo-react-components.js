@@ -1,7 +1,10 @@
-const {getExportDefaultDeclaration} = require('@naverpay/ast-parser')
-const {minimatch} = require('minimatch')
+import {getExportDefaultDeclaration} from '@naverpay/ast-parser'
+import {minimatch} from 'minimatch'
 
-module.exports = {
+/**
+ * @type {import('eslint').Rule.RuleModule}
+ */
+export default {
     meta: {
         type: 'suggestion',
         docs: {
@@ -20,9 +23,7 @@ module.exports = {
         ],
     },
     create: function (context) {
-        const rawFilename = context.getFilename()
-        const cwd = context.getCwd()
-        const filename = rawFilename.replace(cwd, '')
+        const filename = context.filename.replace(context.cwd, '')
 
         const isMatched = context.options[0].path.some((pattern) => minimatch(filename, pattern))
 

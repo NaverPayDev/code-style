@@ -1,5 +1,6 @@
-const config = require('../node')
-const {checkErrorRule, createLinter} = require('./utils')
+import {describe, test, expect} from 'vitest'
+import config from '../configs/node'
+import {checkErrorRule, createLinter} from './utils/index.js'
 
 describe('node', () => {
     describe('object-curly-spacing', function () {

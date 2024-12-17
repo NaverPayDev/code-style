@@ -1,12 +1,23 @@
-'use strict'
+import memoReactComponents from './rules/memo-react-components.js'
+import optimizeSvgComponents from './rules/optimize-svg-components.js'
+import preventDefaultImport from './rules/prevent-default-import.js'
+import sortExports from './rules/sort-exports.js'
+import svgUniqueId from './rules/svg-unique-id.js'
 
-// import all rules in lib/rules
-module.exports.rules = {
-    'memo-react-components': require('./rules/memo-react-components'),
-    'optimize-svg-components': require('./rules/optimize-svg-components'),
-    'prevent-default-import': require('./rules/prevent-default-import'),
-    /** @deprecated */
-    'typescript/prevent-default-import': require('./rules/typescript/prevent-default-import'),
-    'sort-exports': require('./rules/sort-exports'),
-    'svg-unique-id': require('./rules/svg-unique-id'),
+import pkg from '../package.json'
+
+const plugin = {
+    meta: {
+        name: pkg.name,
+        version: pkg.version,
+    },
+    rules: {
+        'memo-react-components': memoReactComponents,
+        'optimize-svg-components': optimizeSvgComponents,
+        'prevent-default-import': preventDefaultImport,
+        'sort-exports': sortExports,
+        'svg-unique-id': svgUniqueId,
+    },
 }
+
+export default plugin

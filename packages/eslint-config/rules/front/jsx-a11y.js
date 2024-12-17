@@ -1,5 +1,7 @@
-module.exports = {
-    plugins: ['jsx-a11y'],
+import jsxA11ly from 'eslint-plugin-jsx-a11y'
+
+export default {
+    plugins: {'jsx-a11y': jsxA11ly},
     rules: {
         /** Enforce that all elements that require alternative text have meaningful information to relay back to the end user
          @see https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/alt-text.md */

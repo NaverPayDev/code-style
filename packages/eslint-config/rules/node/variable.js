@@ -1,5 +1,9 @@
-module.exports = {
-    plugins: ['@naverpay/eslint-plugin'],
+import naverpay from '@naverpay/eslint-plugin'
+
+export default {
+    plugins: {
+        naverpay,
+    },
     rules: {
         /** Enforce camelcase naming convention
          @see https://eslint.org/docs/latest/rules/camelcase */
@@ -17,12 +21,12 @@ module.exports = {
             {ignoreRestSiblings: true, argsIgnorePattern: '^_', varsIgnorePattern: '(React|^_)'},
         ],
 
-        /**
-         * @see https://github.com/NaverPayDev/code-style/blob/main/packages/eslint-plugin/docs/prevent-default-import.md */
-        '@naverpay/prevent-default-import': ['error', {packages: ['react']}],
-
         /** Disallow the use of undeclared variables unless mentioned in global comments
          @see https://eslint.org/docs/latest/rules/no-undef */
         'no-undef': ['error'],
+
+        /**
+         * @see https://github.com/NaverPayDev/code-style/blob/main/packages/eslint-plugin/docs/prevent-default-import.md */
+        'naverpay/prevent-default-import': ['error', {packages: ['react']}],
     },
 }

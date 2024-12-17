@@ -1,15 +1,15 @@
-const {getJSXElement, getImportDeclarations, extractComponentProps} = require('@naverpay/ast-parser')
-const {minimatch} = require('minimatch')
+import {getJSXElement, getImportDeclarations, extractComponentProps} from '@naverpay/ast-parser'
+import {minimatch} from 'minimatch'
 
-const {SVG_OPTIMIZED_COMMENT_CONTENT} = require('../constants')
-const {isEmpty} = require('../utils')
-const {findSpecificImportDeclaration, hasSpecificReturnStatement, getAllComments} = require('../utils/astParser')
-const {
+import {SVG_OPTIMIZED_COMMENT_CONTENT} from '../constants/index.js'
+import {isEmpty} from '../utils/index.js'
+import {findSpecificImportDeclaration, hasSpecificReturnStatement, getAllComments} from '../utils/astParser.js'
+import {
     insertCustomImport,
     svgoOptimize,
     replacePropsTypeDeclaration,
     parseSvgComponent,
-} = require('../utils/svg/transform')
+} from '../utils/svg/transform.js'
 
 /**
  *
@@ -97,7 +97,7 @@ const properties = {
 /**
  * @type {import('eslint').Rule.RuleModule}
  */
-module.exports = {
+export default {
     meta: {
         type: 'suggestion',
         docs: {
@@ -122,9 +122,7 @@ module.exports = {
         ],
     },
     create: function (context) {
-        const rawFilename = context.getFilename()
-        const cwd = context.getCwd()
-        const filenameWithPath = rawFilename.replace(cwd, '')
+        const filenameWithPath = context.filename.replace(context.cwd, '')
 
         const [filename] = filenameWithPath.split('/').reverse()
 

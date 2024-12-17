@@ -1,5 +1,6 @@
-const config = require('../typescript')
-const {checkErrorRule, createLinter} = require('./utils')
+import {describe, test, expect} from 'vitest'
+import config from '../configs/typescript.js'
+import {checkErrorRule, createLinter} from './utils/index.js'
 
 describe('typescript', () => {
     describe('@typescript-eslint/naming-convention', function () {

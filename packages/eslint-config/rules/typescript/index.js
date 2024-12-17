@@ -1,7 +1,10 @@
-const {typescriptNamingConvention} = require('../../custom')
+import typescriptPlugin from '@typescript-eslint/eslint-plugin'
+import {typescriptNamingConvention} from '../../custom/index.js'
 
-module.exports = {
-    plugins: ['@naverpay/eslint-plugin'],
+export default {
+    plugins: {
+        '@typescript-eslint': typescriptPlugin,
+    },
     rules: {
         /** Require let or const instead of var
          @see https://eslint.org/docs/latest/rules/no-var */

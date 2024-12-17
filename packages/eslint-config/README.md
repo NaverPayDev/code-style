@@ -18,8 +18,6 @@ npm install @naverpay/eslint-config -D
   - JS로 작성된 node 환경에서 사용합니다.
 - **@naverpay/eslint-config/typescript**
   - TS로 작성된 react17+ 환경에서 사용합니다.
-- **@naverpay/eslint-config/typescript/next**
-  - TS로 작성된 Next12+ 환경에서 사용합니다.
 
 ```jsonc
 // .eslintrc
