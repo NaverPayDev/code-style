@@ -6,7 +6,7 @@
 
 ## 설명
 
-서버에서만 이용되는 파일에 대해서 `server-only` 패키지를 필수적으로 포함하도록 강제합니다. 
+서버에서만 이용되는 파일에 대해서 `server-only` 패키지를 필수적으로 포함하도록 강제합니다.
 
 ### This will be reported
 
@@ -41,7 +41,6 @@ server-only 패키지를 포함되지 않아도 되는 경로
     "exclude": ["app/server/exclude/**/*.ts"]
 }
 ```
-
 
 ## 예시
 
