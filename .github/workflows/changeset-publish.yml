@@ -1,0 +1,42 @@
+name: changeset-publish
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                  token: ${{ secrets.ACTION_TOKEN }}
+                  fetch-depth: 0
+
+            - name: Setup node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '22'
+                  cache: 'pnpm'
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - uses: NaverPayDev/changeset-actions/publish@main
+              with:
+                  github_token: ${{ secrets.ACTION_TOKEN }}
+                  npm_token: ${{ secrets.NPM_TOKEN }}
+                  publish_script: pnpm release
+                  git_username: npay-fe-bot
+                  git_email: npay.fe.bot@navercorp.com
+                  pr_title: 🚀 version changed packages
+                  commit_message: 📦 bump changed packages version
+                  create_github_release_tag: true
+                  formatting_script: pnpm markdownlint:fix
