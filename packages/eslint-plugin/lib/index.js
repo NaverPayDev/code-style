@@ -9,4 +9,5 @@ module.exports.rules = {
     'typescript/prevent-default-import': require('./rules/typescript/prevent-default-import'),
     'sort-exports': require('./rules/sort-exports'),
     'svg-unique-id': require('./rules/svg-unique-id'),
+    'import-server-only': require('./rules/import-server-only'),
 }
