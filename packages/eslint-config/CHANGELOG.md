@@ -1,6 +1,6 @@
 # @naverpay/eslint-config
 
-## 2.0.0
+## 1.0.8
 
 ### Patch Changes
 
