@@ -38,7 +38,7 @@ package.json에 스크립트를 추가하여 format 검사를 할 수 있습니�
 }
 ```
 
-> [husky](https://github.com/typicode/husky) & [lint-staged](https://github.com/lint-staged/lint-staged)를 사용해서 commit 또는 push 전에 스타일 확인을 자동화할 것을 권장합니다.
+> [lefthook](https://github.com/evilmartians/lefthook)을 사용해서 commit 또는 push 전에 스타일 확인을 자동화할 것을 권장합니다.
 
 ## Integrating with IDE
 

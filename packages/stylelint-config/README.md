@@ -7,7 +7,7 @@
 **stylelint**, **@naverpay/stylelint-config** 패키지를 설치합니다.
 
 ```bash
-$npm install --save-dev stylelint@^14.2.0 @naverpay/stylelint-config
+npm install -D stylelint@^14.2.0 @naverpay/stylelint-config
 ```
 
 ## Configure
@@ -21,40 +21,27 @@ $npm install --save-dev stylelint@^14.2.0 @naverpay/stylelint-config
 }
 ```
 
-### Autofix
+## CLI
 
-#### husky + lint-staged
+package.json에 스크립트를 추가하여 format 검사를 할 수 있습니다.
 
-`huksy + lint-staged` 가 적용된 프로젝트는 commit 시 `stylelint --fix` 를 자동으로 실행할 수 있습니다.
-
-> 자동 수정을 비활성화 하는 경우 `--fix` 옵션 제거 가능
-
-```json
+```jsonc
 // package.json
 {
-    "lint-staged": {
-        "**/*.css": [
-            "stylelint --fix"
-        ]
+    "scripts": {
+        "stylelint": "stylelint '**/*.{css,scss}'",
+        "stylelint:fix": "stylelint --fix '**/*.{css,scss}'",
     },
-    "lint-staged": {
-        "**/*.scss": [
-            "stylelint --fix"
-        ]
-    },
-    "lint-staged": {
-        "**/*.{css,scss}": [
-            "stylelint --fix"
-        ]
-    }
 }
 ```
 
-이제 Commit 시 `staged` 된 `*.{css,scss}` 파일에 대해 `stylelint --fix` 를 자동으로 실행합니다.
+> [lefthook](https://github.com/evilmartians/lefthook)을 사용해서 commit 또는 push 전에 스타일 확인을 자동화할 것을 권장합니다.
 
-#### VSCode stylelint
+## Integrating with IDE
 
-VSCode 에디터를 사용하고 있다면 [Stylelint 확장 프로그램][Stylelint]을 통해 파일 저장 시 일부 속성에 대해 자동으로 수정할 수 있습니다.
+### VSCode
+
+[Stylelint 확장 프로그램][Stylelint]을 통해 파일 저장 시 일부 속성에 대해 자동으로 수정할 수 있습니다.
 
 > 스타일린트가 적용되지 않은 프로젝트에서 자동 수정이 되는 것을 방지하기 위해 프로젝트 루트 폴더에 `.vscode/settings.json` 생성
 

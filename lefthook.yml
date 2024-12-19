@@ -1,0 +1,23 @@
+# Configure lefthook
+# @see https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+
+# Note: commit-msg hook takes a single parameter,
+#       the name of the file that holds the proposed commit log message.
+# @see https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md#git-arguments
+commit-msg:
+    commands:
+        commit-helper:
+            run: 'npx --yes @naverpay/commit-helper {1}'
+
+pre-commit:
+    parallel: true
+    commands:
+        lint:
+            glob: '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,yaml,yml}'
+            run: pnpm eslint {staged_files}
+        prettier:
+            glob: '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json,yaml,yml}'
+            run: pnpm prettier --check {staged_files}
+        markdownlit:
+            glob: '*.md'
+            run: pnpm markdownlint {staged_files}
