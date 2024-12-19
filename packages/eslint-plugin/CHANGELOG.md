@@ -1,5 +1,11 @@
 # @naverpay/eslint-plugin
 
+## 1.3.0
+
+### Minor Changes
+
+- 0dfb8c9: ✨ eslint-plugin > import-server-only 추가
+
 ## 1.2.1
 
 ### Patch Changes
