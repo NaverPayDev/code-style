@@ -8,11 +8,11 @@
     },
     "description": "code-style for naverpay",
     "scripts": {
-        "prepare": "husky install",
+        "postinstall": "lefthook install",
         "build": "turbo build",
         "prelint": "pnpm run build",
         "lint": "eslint",
-        "lint:fix": "pnpm run lint --fix",
+        "lint:fix": "eslint --fix",
         "prettier": "prettier --check '**/*.{json,yaml,yml,md,ts,tsx,js,jsx}'",
         "prettier:fix": "prettier --write '**/*.{json,yaml,yml,md,ts,tsx,js,jsx}'",
         "markdownlint": "markdownlint '**/*.md' '#.changeset' '#**/CHANGELOG.md'",
@@ -20,11 +20,6 @@
         "test": "turbo test",
         "test:watch": "turbo test:watch",
         "release": "changeset publish"
-    },
-    "lint-staged": {
-        "**/*.{json,yaml,yml,md,ts,tsx,js,jsx}": "prettier --check",
-        "**/*.{ts,tsx,js,jsx,yaml,yml}": "eslint",
-        "**/*.{css,scss}": "stylelint"
     },
     "devDependencies": {
         "@babel/preset-react": "^7.24.7",
@@ -34,8 +29,7 @@
         "@naverpay/prettier-config": "workspace:*",
         "@naverpay/stylelint-config": "workspace:*",
         "glob": "^9.3.4",
-        "husky": "^8.0.3",
-        "lint-staged": "^15.0.1",
+        "lefthook": "^1.9.3",
         "prettier": "^3.2.5",
         "turbo": "^1.10.16",
         "typescript": "^5.2.2"
