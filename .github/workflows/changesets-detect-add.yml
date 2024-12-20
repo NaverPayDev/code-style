@@ -1,0 +1,39 @@
+name: changeset-detect-add
+on:
+    pull_request:
+        branches:
+            - '**'
+        types: [opened, reopened, synchronize]
+
+jobs:
+    detect-add:
+        runs-on: ubuntu-latest
+        env:
+            GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                  token: ${{ secrets.ACTION_TOKEN }}
+                  fetch-depth: 0
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+
+            - name: Setup node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '22'
+                  cache: 'pnpm'
+
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Detect Changed Packages
+              uses: NaverPayDev/changeset-actions/detect-add@main
+              with:
+                  github_token: ${{ secrets.ACTION_TOKEN }}
+                  packages_dir: packages
+                  skip_label: skip-detect-change
+                  skip_branches: main
+                  formatting_script: pnpm markdownlint:fix

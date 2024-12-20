@@ -43,3 +43,4 @@ export default [
 | [prevent-default-import](docs/prevent-default-import.md)                       | 패키지 목록을 받아, 해당 패키지 default import를 금지합니다.                      | 🔧  |
 | [sort-exports](docs/sort-exports.md)                       | 파일에 있는 모든 export 문을 정렬합니다.                      | 🔧  |
 | [svg-unique-id](docs/svg-unique-id.md)                       | 주어진 경로의 SVG 컴포넌트들에 고유한 id를 부여하는 HOC를 추가합니다.                     | 🔧  |
+| [import-server-only](docs/import-server-only.md)                       | 주어진 경로의 파일에 server-only 패키지를 포함하도록 강제합니다.                     | 🔧  |

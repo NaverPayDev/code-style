@@ -1,4 +1,5 @@
 import pkg from '../package.json'
+import importServerOnly from './rules/import-server-only'
 import memoReactComponents from './rules/memo-react-components.js'
 import optimizeSvgComponents from './rules/optimize-svg-components.js'
 import preventDefaultImport from './rules/prevent-default-import.js'
@@ -16,6 +17,7 @@ const plugin = {
         'prevent-default-import': preventDefaultImport,
         'sort-exports': sortExports,
         'svg-unique-id': svgUniqueId,
+        'import-server-only': importServerOnly,
     },
 }
 
