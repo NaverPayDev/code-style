@@ -1,8 +1,8 @@
-const path = require('path')
+import path from 'path'
 
-const micromatch = require('micromatch')
+import micromatch from 'micromatch'
 
-module.exports = {
+export default {
     meta: {
         type: 'problem',
         docs: {
