@@ -26,6 +26,7 @@
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.25.9",
+        "@babel/preset-react": "^7.24.7",
         "@rollup/plugin-json": "^6.1.0",
         "@typescript-eslint/parser": "^8.15.0",
         "builtin-modules": "^4.0.0",
