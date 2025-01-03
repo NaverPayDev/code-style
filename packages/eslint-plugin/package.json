@@ -34,7 +34,7 @@
     "keywords": [
         "naverpay",
         "eslint",
-        "plugin",
+        "eslintplugin",
         "eslint-plugin"
     ],
     "license": "MIT",
