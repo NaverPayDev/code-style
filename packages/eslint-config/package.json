@@ -24,11 +24,23 @@
         "version": "pnpm version",
         "deploy": "pnpm publish"
     },
-    "peerDependencies": {
+    "author": "@NaverPayDev/frontend",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/eslint-config"
+    },
+    "homepage": "https://github.com/NaverPayDev/code-style",
+    "keywords": [
+        "naverpay",
+        "eslint",
+        "eslintconfig"
+    ],
+    "license": "MIT",
+    "dependencies": {
         "@eslint/eslintrc": "^3.2.0",
         "@eslint/js": "^9.15.0",
         "@naverpay/eslint-plugin": "workspace:*",
-        "eslint": ">=9",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-import": ">=2.31.0",
         "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -43,23 +55,14 @@
         "neostandard": "^0.11.9",
         "typescript-eslint": "^8.18.0"
     },
-    "author": "@NaverPayDev/frontend",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/NaverPayDev/code-style.git",
-        "directory": "packages/eslint-config"
-    },
-    "homepage": "https://github.com/NaverPayDev/code-style",
-    "keywords": [
-        "naverpay",
-        "eslint",
-        "eslintconfig"
-    ],
-    "license": "MIT",
     "devDependencies": {
         "@rollup/plugin-json": "^6.1.0",
         "builtin-modules": "^4.0.0",
+        "eslint": "^9.17.0",
         "rollup": "^4.27.4",
         "vitest": "^2.1.5"
+    },
+    "peerDependencies": {
+        "eslint": ">=9"
     }
 }
