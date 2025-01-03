@@ -19,7 +19,8 @@
         "markdownlint:fix": "markdownlint --fix '**/*.md' '#.changeset' '#**/CHANGELOG.md'",
         "test": "turbo test",
         "test:watch": "turbo test:watch",
-        "release": "pnpm build && changeset publish"
+        "release": "pnpm build && changeset publish",
+        "release:canary": "pnpm build && changeset publish --tag canary"
     },
     "devDependencies": {
         "@changesets/cli": "^2.26.2",
