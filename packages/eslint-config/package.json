@@ -20,9 +20,7 @@
         "prebuild": "pnpm run clean",
         "build": "rollup -c",
         "test": "vitest run",
-        "test:watch": "vitest watch",
-        "version": "pnpm version",
-        "deploy": "pnpm publish"
+        "test:watch": "vitest watch"
     },
     "author": "@NaverPayDev/frontend",
     "repository": {
