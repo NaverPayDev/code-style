@@ -19,16 +19,15 @@
         "markdownlint:fix": "markdownlint --fix '**/*.md' '#.changeset' '#**/CHANGELOG.md'",
         "test": "turbo test",
         "test:watch": "turbo test:watch",
-        "release": "changeset publish"
+        "release": "pnpm build && changeset publish",
+        "release:canary": "pnpm build && changeset publish --tag canary"
     },
     "devDependencies": {
-        "@babel/preset-react": "^7.24.7",
         "@changesets/cli": "^2.26.2",
         "@naverpay/eslint-config": "workspace:*",
         "@naverpay/markdown-lint": "workspace:*",
         "@naverpay/prettier-config": "workspace:*",
         "@naverpay/stylelint-config": "workspace:*",
-        "glob": "^9.3.4",
         "lefthook": "^1.9.3",
         "prettier": "^3.2.5",
         "turbo": "^2.3.3",

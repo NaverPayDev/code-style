@@ -2,27 +2,23 @@
 
 네이버페이 스타일 가이드에 맞게 lint rule을 커스텀하여 제공합니다.
 
-## 설치 방법
+## 사용 방법
 
 ```bash
 npm install @naverpay/eslint-config -D
 ```
 
-## 사용 방법
-
 프로젝트 환경에 알맞는 config를 import해 사용합니다.
 
-- **node**
-  - JS로 작성된 node 환경에서 사용합니다.
-- **typescript**
-  - TS로 작성된 환경에서 사용합니다.
-- **react**
-  - TS로 작성된 react17+ 환경에서 사용합니다.
-- **strict**
-  - [eslint-plugin-unicorn](https://www.npmjs.com/package/eslint-plugin-unicorn), [eslint-config-sonarjs](https://www.npmjs.com/package/eslint-plugin-sonarjs) 등을 적용해 보다 엄격한 룰을 원하는 환경에서 사용합니다.
+- `node` - JS로 작성된 node 환경에서 사용
+- `typescript` - TS로 작성된 환경에서 사용  
+    [Note: `@typescript-eslint` 룰 중 일부는 `yaml`룰과 충돌할 수 있으니 유의하시기 바랍니다.](https://github.com/NaverPayDev/code-style/commit/948890376bb250d975e50d5f82e418a3eb50bb7c#diff-d6e0200228324b775c1bd5390161c9d64f8a4581b542d5e93463abe457cd73caR6-R15)
+- `react` - TS로 작성된 react17+ 환경에서 사용
+- `strict` - 보다 엄격한 룰을 원하는 환경에서 위 config와 함께 사용
+
+예시 `eslint.config.js`
 
 ```js
-// eslint.config.js
 import naverpay from '@naverpay/eslint-config'
 
 export default [

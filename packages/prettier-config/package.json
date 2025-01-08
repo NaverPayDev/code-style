@@ -3,10 +3,7 @@
     "version": "1.0.0",
     "description": "prettier config for naverpay",
     "main": "index.json",
-    "scripts": {
-        "version": "pnpm version",
-        "deploy": "pnpm publish"
-    },
+    "scripts": {},
     "peerDependencies": {
         "prettier": "^2.8.8 || ^3.0.0"
     },

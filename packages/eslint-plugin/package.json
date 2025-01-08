@@ -20,26 +20,7 @@
         "prebuild": "pnpm run clean",
         "build": "rollup -c",
         "test": "vitest run",
-        "test:watch": "vitest watch",
-        "version": "pnpm version",
-        "deploy": "pnpm publish"
-    },
-    "devDependencies": {
-        "@babel/eslint-parser": "^7.25.9",
-        "@rollup/plugin-json": "^6.1.0",
-        "@typescript-eslint/parser": "^8.15.0",
-        "builtin-modules": "^4.0.0",
-        "rollup": "^4.27.4",
-        "vitest": "^2.1.5"
-    },
-    "peerDependencies": {
-        "eslint": ">=9"
-    },
-    "dependencies": {
-        "@naverpay/ast-parser": "^0.0.2",
-        "micromatch": "^4.0.8",
-        "minimatch": "^9.0.4",
-        "svgo": "^3.3.2"
+        "test:watch": "vitest watch"
     },
     "author": "@NaverPayDev/frontend",
     "repository": {
@@ -51,8 +32,26 @@
     "keywords": [
         "naverpay",
         "eslint",
-        "plugin",
+        "eslintplugin",
         "eslint-plugin"
     ],
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "@naverpay/ast-parser": "^0.0.2",
+        "micromatch": "^4.0.8",
+        "minimatch": "^9.0.4",
+        "svgo": "^3.3.2"
+    },
+    "devDependencies": {
+        "@babel/eslint-parser": "^7.25.9",
+        "@babel/preset-react": "^7.24.7",
+        "@rollup/plugin-json": "^6.1.0",
+        "@typescript-eslint/parser": "^8.15.0",
+        "builtin-modules": "^4.0.0",
+        "rollup": "^4.27.4",
+        "vitest": "^2.1.5"
+    },
+    "peerDependencies": {
+        "eslint": ">=8.57.0"
+    }
 }

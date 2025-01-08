@@ -12,8 +12,6 @@
         ".markdownlint.jsonc"
     ],
     "scripts": {
-        "version": "pnpm version",
-        "deploy": "pnpm publish",
         "postinstall": "node postInstall/index.js",
         "test": "jest --config jest.config.js"
     },
