@@ -1,5 +1,24 @@
 # @naverpay/eslint-config
 
+## 2.0.0
+
+### Major Changes
+
+- 8277a65: - Support ESLint 9 and Flat Config
+  - **Config Changes**:
+    - Renamed `front` to `react`
+    - Removed `typescript/next` config
+    - Added `strict` config that extends `unicorn` and `sonarjs`
+    - Added YAML lint in `node` and `react` configs
+    - Disallowed unused imports in `node` and `react` configs
+    - Enforced consistent usage of type imports in `typescript` and `react` configs
+  - <https://github.com/NaverPayDev/code-style/pull/74>
+
+### Patch Changes
+
+- Updated dependencies [8277a65]
+  - @naverpay/eslint-plugin@2.0.0
+
 ## 1.0.8
 
 ### Patch Changes
