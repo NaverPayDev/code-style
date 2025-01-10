@@ -1,5 +1,12 @@
 # @naverpay/eslint-plugin
 
+## 2.0.0
+
+### Major Changes
+
+- 8277a65: - Support ESLint 9 and Flat Config
+  - <https://github.com/NaverPayDev/code-style/pull/74>
+
 ## 1.3.0
 
 ### Minor Changes
