@@ -1,23 +1,5 @@
-module.exports = {
-    extends: [
-        '../recommends',
-        '../recommends/react',
-        '../recommends/typescript',
-        '../rules/front',
-        '../rules/typescript',
-    ].map(require.resolve),
-    env: {
-        node: true,
-        browser: true,
-        jest: true,
-    },
-    overrides: [
-        {
-            files: ['*.js', '*.jsx'],
-            rules: {
-                'no-undef': 'error',
-            },
-        },
-    ],
-    reportUnusedDisableDirectives: true,
-}
+import tseslint from 'typescript-eslint'
+
+import rules from './rules/index.js'
+
+export default tseslint.config(rules, tseslint.configs.recommended, tseslint.configs.stylistic)

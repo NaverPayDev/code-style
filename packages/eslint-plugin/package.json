@@ -2,23 +2,25 @@
     "name": "@naverpay/eslint-plugin",
     "version": "1.3.0",
     "description": "eslint plugin for naverpay",
-    "main": "./lib/index.js",
+    "type": "module",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.mjs",
+    "exports": {
+        ".": {
+            "import": "./dist/esm/index.mjs",
+            "require": "./dist/cjs/index.js",
+            "default": "./dist/cjs/index.js"
+        }
+    },
+    "files": [
+        "dist"
+    ],
     "scripts": {
-        "test": "jest --config ./jest.config.js",
-        "version": "pnpm version",
-        "deploy": "pnpm publish"
-    },
-    "devDependencies": {
-        "@babel/eslint-parser": "^7.24.7",
-        "@typescript-eslint/parser": "^7.9.0"
-    },
-    "peerDependencies": {
-        "eslint": "^8"
-    },
-    "dependencies": {
-        "@naverpay/ast-parser": "^0.0.2",
-        "minimatch": "^9.0.4",
-        "svgo": "^3.3.2"
+        "clean": "rm -rf dist",
+        "prebuild": "pnpm run clean",
+        "build": "rollup -c",
+        "test": "vitest run",
+        "test:watch": "vitest watch"
     },
     "author": "@NaverPayDev/frontend",
     "repository": {
@@ -30,8 +32,26 @@
     "keywords": [
         "naverpay",
         "eslint",
-        "plugin",
+        "eslintplugin",
         "eslint-plugin"
     ],
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "@naverpay/ast-parser": "^0.0.2",
+        "micromatch": "^4.0.8",
+        "minimatch": "^9.0.4",
+        "svgo": "^3.3.2"
+    },
+    "devDependencies": {
+        "@babel/eslint-parser": "^7.25.9",
+        "@babel/preset-react": "^7.24.7",
+        "@rollup/plugin-json": "^6.1.0",
+        "@typescript-eslint/parser": "^8.15.0",
+        "builtin-modules": "^4.0.0",
+        "rollup": "^4.27.4",
+        "vitest": "^2.1.5"
+    },
+    "peerDependencies": {
+        "eslint": ">=8.57.0"
+    }
 }

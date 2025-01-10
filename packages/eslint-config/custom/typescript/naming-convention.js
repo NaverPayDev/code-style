@@ -1,5 +1,6 @@
-const commonExcludes = ['_*', '__html', 'Component']
-const commonBaseRules = [
+export const commonExcludes = ['_*', '__html', 'Component']
+
+export const commonBaseRules = [
     {
         selector: 'default',
         format: ['camelCase'],
@@ -66,8 +67,3 @@ const commonBaseRules = [
         modifiers: ['requiresQuotes'],
     },
 ]
-
-module.exports = {
-    commonExcludes,
-    commonBaseRules,
-}

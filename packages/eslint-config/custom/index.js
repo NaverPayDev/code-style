@@ -1,4 +1,6 @@
-const importOrder = ({ruleSeverities = 'error', pathGroups = []} = {}) => [
+import {commonBaseRules, commonExcludes} from './typescript/naming-convention.js'
+
+export const importOrder = ({ruleSeverities = 'error', pathGroups = []} = {}) => [
     ruleSeverities,
     {
         groups: ['builtin', 'external', 'internal', ['parent', 'sibling'], 'index', 'type'], //  그룹간 require/import 순서
@@ -24,8 +26,7 @@ const importOrder = ({ruleSeverities = 'error', pathGroups = []} = {}) => [
     },
 ]
 
-const {commonBaseRules, commonExcludes} = require('./typescript/naming-convention')
-const typescriptNamingConvention = ({
+export const typescriptNamingConvention = ({
     ruleSeverities = 'warn',
     customRules = [],
     baseRules = commonBaseRules,
@@ -51,9 +52,4 @@ const typescriptNamingConvention = ({
     }
 
     return [ruleSeverities, ...rules]
-}
-
-module.exports = {
-    importOrder,
-    typescriptNamingConvention,
 }

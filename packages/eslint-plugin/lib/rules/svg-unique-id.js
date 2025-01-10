@@ -1,10 +1,10 @@
-const {extractComponentProps, getImportDeclarations} = require('@naverpay/ast-parser')
-const {minimatch} = require('minimatch')
+import {extractComponentProps, getImportDeclarations} from '@naverpay/ast-parser'
+import {minimatch} from 'minimatch'
 
-const {FIRST_RANGE} = require('../constants')
-const {findSpecificImportDeclaration, getJSXReturnStatement} = require('../utils/astParser')
-const {isEmptyObject, has} = require('../utils/object')
-const {getLatestRangeOfProps} = require('../utils/svg/props')
+import {FIRST_RANGE} from '../constants/index.js'
+import {findSpecificImportDeclaration, getJSXReturnStatement} from '../utils/astParser.js'
+import {isEmptyObject, has} from '../utils/object.js'
+import {getLatestRangeOfProps} from '../utils/svg/props.js'
 
 function insertCustomImport({fixer, scope}) {
     const result = []
@@ -75,7 +75,7 @@ function insertIdProps(props, globalScope, fixer) {
 /**
  * @type {import('eslint').Rule.RuleModule}
  */
-module.exports = {
+export default {
     meta: {
         type: 'suggestion',
 
@@ -98,9 +98,7 @@ module.exports = {
         ],
     },
     create: function (context) {
-        const rawFileName = context.getFilename()
-        const cwd = context.getCwd()
-        const filename = rawFileName.replace(cwd, '')
+        const filename = context.filename.replace(context.cwd, '')
         const {
             options: [config],
         } = context

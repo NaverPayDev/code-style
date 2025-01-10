@@ -1,5 +1,7 @@
-const config = require('../node')
-const {checkErrorRule, createLinter} = require('./utils')
+import {describe, test, expect} from 'vitest'
+
+import config from '../node/index.js'
+import {checkErrorRule, createLinter} from './utils/index.js'
 
 describe('node', () => {
     describe('object-curly-spacing', function () {
@@ -119,6 +121,30 @@ describe('node', () => {
                 React.useEffect(() => {
 
                 }, [])
+            `)
+
+            expect(checkErrorRule(result, ruleId)).toBe(true)
+        })
+    })
+
+    describe('unused-imports/no-unused-importst', function () {
+        const ruleId = 'unused-imports/no-unused-importst'
+        const {lintText} = createLinter({ruleId, config})
+
+        test('right', async () => {
+            const result = await lintText(`
+                import {useEffect} from 'react'
+
+                useEffect(() => {
+
+                }, [])
+            `)
+
+            expect(result).toHaveLength(0)
+        })
+        test('wrong', async () => {
+            const result = await lintText(`
+                import {useEffect} from 'react'
             `)
 
             expect(checkErrorRule(result, ruleId)).toBe(true)

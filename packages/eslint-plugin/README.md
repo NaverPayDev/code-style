@@ -10,24 +10,26 @@ npm install @naverpay/eslint-plugin -D
 
 ## 사용 방법
 
-사용하고 싶은 plugin이 있다면 eslint config 파일에서 `@naverpay/eslint-plugin`을 `plugins`에 추가하세요.
+사용하고 싶은 rule이 있다면 eslint.config.js에 아래와 같이 설정해주세요:
 
-```jsonc
-// .eslintrc
-{
-  "plugins": ["@naverpay/eslint-plugin"]
-}
-```
+1. plugins에 @naverpay/eslint-plugin을 추가합니다.
+2. rules에 사용하고 싶은 규칙을 설정합니다.
 
-사용하고 싶은 plugin은 rules에 적용해주세요.
+```js
+// eslint.config.js
+import naverpay from "@naverpay/eslint-plugin";
 
-```jsonc
-// .eslintrc
-{
-  "rules": {
-    "@naverpay/prevent-default-import": ["error", {"packages": ["react"]}],
-  }
-}
+export default [
+    {
+        plugins: {
+            naverpay
+        },
+        rules: {
+            // react 패키지에 대해 default import를 금지하는 규칙
+            "naverpay/prevent-default-import": ["error", {"packages": ["react"]}]
+        }
+    }
+];
 ```
 
 ## 규칙

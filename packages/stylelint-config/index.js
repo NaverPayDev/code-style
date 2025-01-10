@@ -2,8 +2,8 @@ const postcss = require('postcss')
 const postcssScss = require('postcss-scss')
 
 const stylelintRule = require('./src/rules/stylelint')
-const stylelintRuleSCSS = require('./src/rules/stylelint-scss')
 const stylelintRuleOrder = require('./src/rules/stylelint-order')
+const stylelintRuleSCSS = require('./src/rules/stylelint-scss')
 
 module.exports = {
     overrides: [

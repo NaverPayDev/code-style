@@ -2,30 +2,33 @@
 
 네이버페이 스타일 가이드에 맞게 lint rule을 커스텀하여 제공합니다.
 
-## 설치 방법
+## 사용 방법
 
 ```bash
 npm install @naverpay/eslint-config -D
 ```
 
-## 사용 방법
+프로젝트 환경에 알맞는 config를 import해 사용합니다.
 
-프로젝트 환경에 알맞는 config를 extend 합니다.
+- `node` - JS로 작성된 node 환경에서 사용
+- `typescript` - TS로 작성된 환경에서 사용  
+    [Note: `@typescript-eslint` 룰 중 일부는 `yaml`룰과 충돌할 수 있으니 유의하시기 바랍니다.](https://github.com/NaverPayDev/code-style/commit/948890376bb250d975e50d5f82e418a3eb50bb7c#diff-d6e0200228324b775c1bd5390161c9d64f8a4581b542d5e93463abe457cd73caR6-R15)
+- `react` - TS로 작성된 react17+ 환경에서 사용
+- `strict` - 보다 엄격한 룰을 원하는 환경에서 위 config와 함께 사용
 
-- **@naverpay/eslint-config/front**
-  - JS로 작성된 react17+ 환경에서 사용합니다.
-- **@naverpay/eslint-config/node**
-  - JS로 작성된 node 환경에서 사용합니다.
-- **@naverpay/eslint-config/typescript**
-  - TS로 작성된 react17+ 환경에서 사용합니다.
-- **@naverpay/eslint-config/typescript/next**
-  - TS로 작성된 Next12+ 환경에서 사용합니다.
+예시 `eslint.config.js`
 
-```jsonc
-// .eslintrc
-{
-    "extends": ["@naverpay/eslint-config/typescript"]
-}
+```js
+import naverpay from '@naverpay/eslint-config'
+
+export default [
+    {
+        ignores: ['**/dist/**'],
+    },
+    ...naverpay.configs.node,
+    ...naverpay.configs.typescript,
+    ...naverpay.configs.strict,
+]
 ```
 
 ## CLI
@@ -36,13 +39,13 @@ package.json에 스크립트를 추가하여 lint 검사를 할 수 있습니다
 // package.json
 {
     "scripts": {
-        "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
-        "lint:fix": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
+        "lint": "eslint '**/*.{js,jsx,ts,tsx,yaml,yml}'",
+        "lint:fix": "eslint '**/*.{js,jsx,ts,tsx,yaml,yml}' --fix",
     }
 }
 ```
 
-> [husky](https://github.com/typicode/husky) & [lint-staged](https://github.com/lint-staged/lint-staged)를 사용해서 commit 또는 push 전에 스타일 확인을 자동화할 것을 권장합니다.
+> [lefthook](https://github.com/evilmartians/lefthook)을 사용해서 commit 또는 push 전에 스타일 확인을 자동화할 것을 권장합니다.
 
 ## Integrating with IDE
 
@@ -61,6 +64,16 @@ package.json에 스크립트를 추가하여 lint 검사를 할 수 있습니다
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit"
     },
+}
+```
+
+#### Typescript
+
+만약 typescript 를 사용 중이라면 아래의 설정을 활성화해주세요.
+
+```json
+{
+    "typescript.preferences.preferTypeOnlyAutoImports": true
 }
 ```
 

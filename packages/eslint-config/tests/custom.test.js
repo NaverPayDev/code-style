@@ -1,10 +1,16 @@
-const {importOrder} = require('../custom')
-const {checkErrorRule, createLinter} = require('./utils')
+import importPlugin from 'eslint-plugin-import'
+import {describe, test, expect} from 'vitest'
+
+import {importOrder} from '../custom/index.js'
+import {checkErrorRule, createLinter} from './utils/index.js'
 
 describe('custom', () => {
     describe('import/order', function () {
         const ruleId = 'import/order'
         const config = {
+            plugins: {
+                import: importPlugin,
+            },
             rules: {
                 'import/order': importOrder({
                     ruleSeverities: 'warn',
