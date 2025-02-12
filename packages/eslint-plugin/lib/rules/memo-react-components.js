@@ -27,7 +27,8 @@ export default {
 
         const isMatched = context.options[0].path.some((pattern) => minimatch(filename, pattern))
 
-        const globalScope = context.getScope()
+        const sourceCode = context.sourceCode ?? context.getSourceCode()
+        const globalScope = sourceCode.getScope ? sourceCode.getScope(node) : context.getScope()
 
         function importReactMemo(fixer) {
             let i = 0

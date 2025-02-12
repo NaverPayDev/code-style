@@ -141,8 +141,9 @@ export default {
             return {}
         }
 
-        const globalScope = context.getScope()
-        const sourceCode = context.getSourceCode()
+        const sourceCode = context.sourceCode ?? context.getSourceCode()
+        const globalScope = sourceCode.getScope ? sourceCode.getScope(node) : context.getScope()
+
         const canOptimize = svgValidator(context)
 
         if (!canOptimize) {

@@ -115,7 +115,8 @@ export default {
             return {}
         }
 
-        const globalScope = context.getScope()
+        const sourceCode = context.sourceCode ?? context.getSourceCode()
+        const globalScope = sourceCode.getScope ? sourceCode.getScope(node) : context.getScope()
 
         const svgElement = getJSXReturnStatement(globalScope)
 
