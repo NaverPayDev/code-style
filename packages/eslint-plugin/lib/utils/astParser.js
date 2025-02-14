@@ -1,4 +1,4 @@
-import {getReactComponentDeclaration, getImportDeclarations} from '@naverpay/ast-parser'
+import {getReactComponentDeclaration} from '@naverpay/ast-parser'
 
 export const ReactComponentDeclarationType = {
     VariableDeclaration: 'VariableDeclaration',
@@ -111,27 +111,6 @@ export function hasSpecificReturnStatement(functionDeclaration, returnType) {
     return functionDeclaration.body.body.some(
         (item) => item.type === 'ReturnStatement' && item.argument.type === returnType,
     )
-}
-
-/**
- *
- * @param {import('eslint').Rule.RuleContext} context
- */
-export const getCommentsBeforeImportDeclaration = (context, {name, from}) => {
-    const globalScope = context.getScope()
-    const importDeclarations = getImportDeclarations(globalScope.block)
-    const styleImportDeclaration = findSpecificImportDeclaration(importDeclarations, {
-        name,
-        from,
-    })
-
-    const sourceCode = context.getSourceCode()
-
-    if (styleImportDeclaration) {
-        return sourceCode.getCommentsBefore(styleImportDeclaration)
-    } else {
-        sourceCode.getAllComments()
-    }
 }
 
 /**
