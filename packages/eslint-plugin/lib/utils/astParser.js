@@ -139,7 +139,7 @@ export const getCommentsBeforeImportDeclaration = (context, {name, from}) => {
  * @param {import('eslint').Rule.RuleContext} context
  */
 export const getAllComments = (context) => {
-    const sourceCode = context.getSourceCode()
+    const sourceCode = context.sourceCode ?? context.getSourceCode()
     return sourceCode.getAllComments()
 }
 
