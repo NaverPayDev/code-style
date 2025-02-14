@@ -24,10 +24,19 @@ export default {
     },
     create: function (context) {
         const filename = context.filename.replace(context.cwd, '')
+        const isFileInPath = context.options[0].path.some((pattern) => minimatch(filename, pattern))
+        if (!isFileInPath) {
+            return {}
+        }
 
-        const isMatched = context.options[0].path.some((pattern) => minimatch(filename, pattern))
+        let isAlreadyMemoized = false
 
-        const globalScope = context.getScope()
+        const sourceCode = context.sourceCode ?? context.getSourceCode()
+
+        /**
+         * @type {import('eslint').Scope.Scope | undefined}
+         */
+        let globalScope
 
         function importReactMemo(fixer) {
             let i = 0
@@ -77,18 +86,22 @@ export default {
             return result
         }
 
-        if (!isMatched) {
-            return {}
-        }
-
-        const exportDefaultDeclaration = getExportDefaultDeclaration(globalScope.block).declaration
-        if (exportDefaultDeclaration.type === 'CallExpression' && exportDefaultDeclaration.callee.name === 'memo') {
-            return {}
-        }
-
         return {
+            Program: function (node) {
+                globalScope = sourceCode.getScope ? sourceCode.getScope(node) : context.getScope()
+
+                const exportDefaultDeclaration = getExportDefaultDeclaration(globalScope.block).declaration
+                if (
+                    exportDefaultDeclaration.type === 'CallExpression' &&
+                    exportDefaultDeclaration.callee.name === 'memo'
+                ) {
+                    isAlreadyMemoized = true
+                }
+            },
             // const res = function getAssets({width, height, color}) ... 에 대응
             FunctionExpression: function (node) {
+                if (isAlreadyMemoized) return
+
                 const hasJSXBody = node.body.body.some(
                     (item) => item.type === 'ReturnStatement' && item.argument.type === 'JSXElement',
                 )
@@ -114,6 +127,8 @@ export default {
             },
             // function getAssets({width, height, color}) ... 에 대응
             FunctionDeclaration: function (node) {
+                if (isAlreadyMemoized) return
+
                 // JSX를 리턴하는 함수인지 체크
                 const hasJSXBody = node.body.body.some(
                     (item) => item.type === 'ReturnStatement' && item.argument.type === 'JSXElement',
@@ -159,6 +174,8 @@ export default {
             },
             // const getAssets = ({width, height, color}) => ... 에 대응
             VariableDeclaration: function (node) {
+                if (isAlreadyMemoized) return
+
                 if (node.declarations.length === 1) {
                     const nodeDeclaration = node.declarations[0]
 

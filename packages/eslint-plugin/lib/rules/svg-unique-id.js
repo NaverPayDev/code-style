@@ -42,7 +42,6 @@ function insertCustomImport({fixer, scope}) {
 }
 
 /**
- *
  * @param {ReturnType<import ('@pie/ast-parser').extractComponentProps>} props
  */
 function getIdProps(props) {
@@ -73,12 +72,17 @@ function insertIdProps(props, globalScope, fixer) {
 }
 
 /**
+ * @param {JSXElement|undefined} node
+ */
+function isSvgElement(node) {
+    return node && node.openingElement.name.type === 'JSXIdentifier' && node.openingElement.name.name === 'svg'
+}
+/**
  * @type {import('eslint').Rule.RuleModule}
  */
 export default {
     meta: {
         type: 'suggestion',
-
         docs: {
             description: 'set a unique id to svg component',
             recommended: true,
@@ -86,14 +90,13 @@ export default {
         fixable: 'code',
         schema: [
             {
-                properties: [
-                    {
-                        paths: {
-                            type: 'array',
-                            items: [{type: 'string'}],
-                        },
+                type: 'object',
+                properties: {
+                    paths: {
+                        type: 'array',
+                        items: {type: 'string'},
                     },
-                ],
+                },
             },
         ],
     },
@@ -115,26 +118,24 @@ export default {
             return {}
         }
 
-        const globalScope = context.getScope()
-
-        const svgElement = getJSXReturnStatement(globalScope)
-
-        if (
-            !svgElement ||
-            svgElement.openingElement.name.type !== 'JSXIdentifier' ||
-            svgElement.openingElement.name.name !== 'svg'
-        ) {
-            return {}
-        }
-
-        const props = extractComponentProps(globalScope.block)
-
-        const idPropsValue = getIdProps(props)
-
-        const propsDefinition = idPropsValue ? ` id={${idPropsValue}}` : ''
+        /**
+         * @type {import('eslint').Scope.Scope | undefined}
+         */
+        let globalScope
+        const sourceCode = context.sourceCode ?? context.getSourceCode()
 
         return {
+            Program: function (node) {
+                globalScope = sourceCode.getScope ? sourceCode.getScope(node) : context.getScope()
+            },
             onCodePathEnd: function (_, code) {
+                const svgElement = getJSXReturnStatement(globalScope)
+                if (!isSvgElement(svgElement)) return
+
+                const props = extractComponentProps(globalScope.block)
+                const idPropsValue = getIdProps(props)
+                const propsDefinition = idPropsValue ? ` id={${idPropsValue}}` : ''
+
                 try {
                     context.report({
                         node: code,

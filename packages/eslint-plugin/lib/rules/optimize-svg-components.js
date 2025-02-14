@@ -14,10 +14,10 @@ import {
 /**
  *
  * @param {import('eslint').Rule.RuleContext} context
+ * @param {import('eslint').Scope.Scope} globalScope
  * @returns {boolean}
  */
-const svgValidator = (context) => {
-    const globalScope = context.getScope()
+const svgValidator = (context, globalScope) => {
     const importDeclarations = getImportDeclarations(globalScope.block)
     const hasClassNames =
         findSpecificImportDeclaration(importDeclarations, {
@@ -141,16 +141,22 @@ export default {
             return {}
         }
 
-        const globalScope = context.getScope()
-        const sourceCode = context.getSourceCode()
-        const canOptimize = svgValidator(context)
+        const sourceCode = context.sourceCode ?? context.getSourceCode()
 
-        if (!canOptimize) {
-            return {}
-        }
+        /**
+         * @type {import('eslint').Scope.Scope | undefined}
+         */
+        let globalScope
+        let canOptimize
 
         return {
-            onCodePathEnd: function (codePath, code) {
+            Program: function (node) {
+                globalScope = sourceCode.getScope ? sourceCode.getScope(node) : context.getScope()
+                canOptimize = svgValidator(context, globalScope)
+            },
+            onCodePathEnd: function (_, code) {
+                if (!canOptimize) return
+
                 try {
                     // 변수타입, 함수타입 모두 GET
                     const node = getTargetNode(code)
