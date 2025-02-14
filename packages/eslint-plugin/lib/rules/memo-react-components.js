@@ -24,7 +24,11 @@ export default {
     },
     create: function (context) {
         const filename = context.filename.replace(context.cwd, '')
-        const isMatched = context.options[0].path.some((pattern) => minimatch(filename, pattern))
+        const isFileInPath = context.options[0].path.some((pattern) => minimatch(filename, pattern))
+        if (!isFileInPath) {
+            return {}
+        }
+
         let isAlreadyMemoized = false
 
         const sourceCode = context.sourceCode ?? context.getSourceCode()
@@ -80,10 +84,6 @@ export default {
             }
 
             return result
-        }
-
-        if (!isMatched) {
-            return {}
         }
 
         return {
