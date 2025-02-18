@@ -1,7 +1,5 @@
 import tseslint from 'typescript-eslint'
 
-import {typescriptNamingConvention} from '../../custom/index.js'
-
 export default [
     {
         plugins: {
@@ -103,20 +101,6 @@ export default [
              * @see https://eslint.org/docs/latest/rules/no-undef
              */
             'no-undef': 'off',
-
-            /**
-             * Enforce naming conventions for everything across a codebase
-             * @see https://typescript-eslint.io/rules/naming-convention
-             */
-            '@typescript-eslint/naming-convention': typescriptNamingConvention({
-                customRules: [
-                    {
-                        selector: 'parameter',
-                        format: ['camelCase', 'PascalCase', 'snake_case'],
-                        leadingUnderscore: 'allow',
-                    },
-                ],
-            }),
 
             /**
              * Enforce consistent usage of type imports
