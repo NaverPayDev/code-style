@@ -1,5 +1,13 @@
 # @naverpay/eslint-plugin
 
+## 2.0.1
+
+### Patch Changes
+
+- d4022dc: Support eslint 9 for eslint-plugin
+
+  PR: [Support eslint 9 for eslint-plugin](https://github.com/NaverPayDev/code-style/pull/79)
+
 ## 2.0.0
 
 ### Major Changes

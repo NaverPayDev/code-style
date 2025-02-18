@@ -1,5 +1,18 @@
 # @naverpay/eslint-config
 
+## 2.1.0
+
+### Minor Changes
+
+- 3583e33: 🔥 naming-convention 룰 제거
+
+  PR: [🔥 naming-convention 룰 제거](https://github.com/NaverPayDev/code-style/pull/81)
+
+### Patch Changes
+
+- Updated dependencies [d4022dc]
+  - @naverpay/eslint-plugin@2.0.1
+
 ## 2.0.0
 
 ### Major Changes
