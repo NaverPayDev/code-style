@@ -46,7 +46,8 @@ export default {
                     (statement) => statement.type === 'ImportDeclaration' && statement.source.value === 'server-only',
                 )
 
-                const sourceCode = context.getSourceCode()
+                const sourceCode = context.sourceCode ?? context.getSourceCode()
+
                 if (!hasServerOnlyImport) {
                     context.report({
                         node,
