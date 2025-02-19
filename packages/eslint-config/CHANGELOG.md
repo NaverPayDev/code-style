@@ -1,5 +1,13 @@
 # @naverpay/eslint-config
 
+## 2.2.0
+
+### Minor Changes
+
+- 230bb8f: 📦 add eslint-plugin-package-json plugin for default setting
+
+  PR: [📦 add eslint-plugin-package-json plugin for default setting](https://github.com/NaverPayDev/code-style/pull/85)
+
 ## 2.1.0
 
 ### Minor Changes
