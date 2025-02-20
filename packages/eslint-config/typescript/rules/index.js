@@ -107,6 +107,8 @@ export default [
              * @see https://typescript-eslint.io/rules/consistent-type-imports/
              */
             '@typescript-eslint/consistent-type-imports': ['error'],
+
+            '@typescript-eslint/naming-convention': 'off',
         },
     },
 ]
