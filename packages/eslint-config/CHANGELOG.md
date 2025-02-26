@@ -1,5 +1,13 @@
 # @naverpay/eslint-config
 
+## 2.2.1
+
+### Patch Changes
+
+- 5554d66: [#80] 🐛 ignore typescript in package.json options
+
+  PR: [[#80] 🐛 ignore typescript in package.json options](https://github.com/NaverPayDev/code-style/pull/88)
+
 ## 2.2.0
 
 ### Minor Changes
