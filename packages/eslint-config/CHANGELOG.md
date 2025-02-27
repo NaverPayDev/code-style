@@ -1,5 +1,12 @@
 # @naverpay/eslint-config
 
+## 2.2.2
+
+### Patch Changes
+
+- Updated dependencies [5ba84c5]
+  - @naverpay/eslint-plugin@2.1.0
+
 ## 2.2.1
 
 ### Patch Changes
