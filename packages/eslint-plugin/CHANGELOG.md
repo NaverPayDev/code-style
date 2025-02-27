@@ -1,5 +1,13 @@
 # @naverpay/eslint-plugin
 
+## 2.1.0
+
+### Minor Changes
+
+- 5ba84c5: Add ESLint rule ensuring peerDependencies are also declared in devDependencies
+
+  PR: [Add ESLint rule ensuring peerDependencies are also declared in devDependencies](https://github.com/NaverPayDev/code-style/pull/90)
+
 ## 2.0.1
 
 ### Patch Changes
