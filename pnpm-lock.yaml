@@ -132,18 +132,12 @@ importers:
       '@babel/preset-react':
         specifier: ^7.24.7
         version: 7.26.3(@babel/core@7.26.0)
-      '@rollup/plugin-json':
-        specifier: ^6.1.0
-        version: 6.1.0(rollup@4.27.4)
       '@typescript-eslint/parser':
         specifier: ^8.15.0
         version: 8.18.0(eslint@9.17.0)(typescript@5.3.3)
       builtin-modules:
         specifier: ^4.0.0
         version: 4.0.0
-      rollup:
-        specifier: ^4.27.4
-        version: 4.27.4
       vitest:
         specifier: ^2.1.5
         version: 2.1.5(sass-embedded@1.85.1)(terser@5.36.0)
@@ -1400,15 +1394,6 @@ packages:
     peerDependenciesMeta:
       '@types/babel__core':
         optional: true
-      rollup:
-        optional: true
-
-  '@rollup/plugin-json@6.1.0':
-    resolution: {integrity: sha512-EGI2te5ENk1coGeADSIwZ7G2Q8CJS2sF120T7jLw4xFw9n7wIOXHo+kIYRAoVpJAN+kmqZSoO3Fp4JtoNF4ReA==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
-    peerDependenciesMeta:
       rollup:
         optional: true
 
@@ -6430,20 +6415,6 @@ snapshots:
       rollup: 4.34.8
     transitivePeerDependencies:
       - supports-color
-
-  '@rollup/plugin-json@6.1.0(rollup@4.27.4)':
-    dependencies:
-      '@rollup/pluginutils': 5.1.3(rollup@4.27.4)
-    optionalDependencies:
-      rollup: 4.27.4
-
-  '@rollup/pluginutils@5.1.3(rollup@4.27.4)':
-    dependencies:
-      '@types/estree': 1.0.6
-      estree-walker: 2.0.2
-      picomatch: 4.0.2
-    optionalDependencies:
-      rollup: 4.27.4
 
   '@rollup/pluginutils@5.1.3(rollup@4.34.8)':
     dependencies:
