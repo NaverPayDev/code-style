@@ -15,6 +15,7 @@ npm install @naverpay/eslint-config -D
     [Note: `@typescript-eslint` 룰 중 일부는 `yaml`룰과 충돌할 수 있으니 유의하시기 바랍니다.](https://github.com/NaverPayDev/code-style/commit/948890376bb250d975e50d5f82e418a3eb50bb7c#diff-d6e0200228324b775c1bd5390161c9d64f8a4581b542d5e93463abe457cd73caR6-R15)
 - `react` - TS로 작성된 react17+ 환경에서 사용
 - `strict` - 보다 엄격한 룰을 원하는 환경에서 위 config와 함께 사용
+- `packageJson` - package.json 파일에서 사용하는 룰을 추가
 
 예시 `eslint.config.js`
 
@@ -28,6 +29,7 @@ export default [
     ...naverpay.configs.node,
     ...naverpay.configs.typescript,
     ...naverpay.configs.strict,
+    ...naverpay.configs.packageJson
 ]
 ```
 
