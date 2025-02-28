@@ -2,7 +2,6 @@
     "name": "@naverpay/eslint-config",
     "version": "2.2.2",
     "description": "eslint config for naverpay",
-    "type": "module",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.mjs",
     "exports": {
@@ -10,15 +9,17 @@
             "import": "./dist/esm/index.mjs",
             "require": "./dist/cjs/index.js",
             "default": "./dist/cjs/index.js"
-        }
+        },
+        "./package.json": "./package.json"
     },
+    "sideEffects": false,
     "files": [
         "dist"
     ],
     "scripts": {
         "clean": "rm -rf dist",
         "prebuild": "pnpm run clean",
-        "build": "rollup -c",
+        "build": "vite build",
         "test": "vitest run",
         "test:watch": "vitest watch"
     },
@@ -56,10 +57,8 @@
         "typescript-eslint": "^8.18.0"
     },
     "devDependencies": {
-        "@rollup/plugin-json": "^6.1.0",
         "builtin-modules": "^4.0.0",
         "eslint": "^9.17.0",
-        "rollup": "^4.27.4",
         "vitest": "^2.1.5"
     },
     "peerDependencies": {
