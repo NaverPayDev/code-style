@@ -1,5 +1,13 @@
 # @naverpay/eslint-plugin
 
+## 2.1.1
+
+### Patch Changes
+
+- c43a164: code-style을 pite로 빌드합니다
+
+  PR: [code-style을 pite로 빌드합니다](https://github.com/NaverPayDev/code-style/pull/96)
+
 ## 2.1.0
 
 ### Minor Changes
