@@ -1,26 +1,27 @@
 {
     "name": "@naverpay/code-style",
+    "version": "0.0.1",
     "private": true,
-    "author": "@NaverPayDev/frontend",
+    "description": "code-style for naverpay",
     "repository": {
         "type": "git",
         "url": "https://github.com/NaverPayDev/code-style.git"
     },
-    "description": "code-style for naverpay",
+    "author": "@NaverPayDev/frontend",
     "scripts": {
-        "postinstall": "lefthook install",
         "build": "turbo build",
         "prelint": "pnpm run build",
         "lint": "eslint",
         "lint:fix": "eslint --fix",
-        "prettier": "prettier --check '**/*.{json,yaml,yml,md,ts,tsx,js,jsx}'",
-        "prettier:fix": "prettier --write '**/*.{json,yaml,yml,md,ts,tsx,js,jsx}'",
         "markdownlint": "markdownlint '**/*.md' '#.changeset' '#**/CHANGELOG.md'",
         "markdownlint:fix": "markdownlint --fix '**/*.md' '#.changeset' '#**/CHANGELOG.md'",
-        "test": "turbo test",
-        "test:watch": "turbo test:watch",
+        "postinstall": "lefthook install",
+        "prettier": "prettier --check '**/*.{json,yaml,yml,md,ts,tsx,js,jsx}'",
+        "prettier:fix": "prettier --write '**/*.{json,yaml,yml,md,ts,tsx,js,jsx}'",
         "release": "pnpm build && changeset publish",
-        "release:canary": "pnpm build && changeset publish --tag canary"
+        "release:canary": "pnpm build && changeset publish --tag canary",
+        "test": "turbo test",
+        "test:watch": "turbo test:watch"
     },
     "devDependencies": {
         "@changesets/cli": "^2.26.2",
