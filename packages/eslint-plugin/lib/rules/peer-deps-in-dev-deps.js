@@ -39,12 +39,20 @@ export default {
                 const peerDeps = json.peerDependencies || {}
                 const devDeps = json.devDependencies || {}
 
+                const peerDepsNode = sourceCode.ast.body[0].expression.properties.find(
+                    (property) => property.key.value === 'peerDependencies',
+                )
+                const devDepsNode = sourceCode.ast.body[0].expression.properties.find(
+                    (property) => property.key.value === 'devDependencies',
+                )
+
                 for (const [depName] of Object.entries(peerDeps)) {
                     if (!Object.prototype.hasOwnProperty.call(devDeps, depName)) {
                         context.report({
                             node,
                             messageId: 'missingInDevDeps',
                             data: {packageName: depName},
+                            loc: devDepsNode?.loc || peerDepsNode?.loc,
                         })
                     }
                 }
