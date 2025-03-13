@@ -1,5 +1,8 @@
 import path from 'path'
 
+/**
+ * @type {import('eslint').Rule.RuleModule}
+ */
 export default {
     meta: {
         type: 'problem',
@@ -22,11 +25,11 @@ export default {
                     return
                 }
 
-                const sourceCode = context.getSourceCode().getText()
+                const sourceCode = context.sourceCode ?? context.getSourceCode()
                 let json
 
                 try {
-                    json = JSON.parse(sourceCode)
+                    json = JSON.parse(sourceCode.getText())
                 } catch (error) {
                     // eslint-disable-next-line no-console
                     console.error('Failed to parse package.json:', error)
