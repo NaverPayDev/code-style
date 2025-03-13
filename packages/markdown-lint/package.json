@@ -2,6 +2,18 @@
     "name": "@naverpay/markdown-lint",
     "version": "0.0.3",
     "description": "lint for markdown",
+    "keywords": [
+        "naverpay",
+        "markdownlint"
+    ],
+    "homepage": "https://github.com/NaverPayDev/code-style",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/markdown-lint"
+    },
+    "license": "MIT",
+    "author": "@NaverPayDev/frontend",
     "main": ".markdownlint.jsonc",
     "bin": {
         "markdownlint": "cli.js"
@@ -22,17 +34,5 @@
         "jest": "^29.5.0",
         "jsonc-parser": "^3.2.1",
         "markdownlint": "^0.32.1"
-    },
-    "author": "@NaverPayDev/frontend",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/NaverPayDev/code-style.git",
-        "directory": "packages/markdown-lint"
-    },
-    "homepage": "https://github.com/NaverPayDev/code-style",
-    "keywords": [
-        "naverpay",
-        "markdownlint"
-    ],
-    "license": "MIT"
+    }
 }

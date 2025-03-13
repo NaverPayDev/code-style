@@ -2,22 +2,21 @@
     "name": "@naverpay/prettier-config",
     "version": "1.0.0",
     "description": "prettier config for naverpay",
-    "main": "index.json",
-    "scripts": {},
-    "peerDependencies": {
-        "prettier": "^2.8.8 || ^3.0.0"
-    },
-    "author": "@NaverPayDev/frontend",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/NaverPayDev/code-style.git",
-        "directory": "packages/prettier-config"
-    },
-    "homepage": "https://github.com/NaverPayDev/code-style",
     "keywords": [
         "naverpay",
         "prettier",
         "prettier-config"
     ],
-    "license": "MIT"
+    "homepage": "https://github.com/NaverPayDev/code-style",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/prettier-config"
+    },
+    "license": "MIT",
+    "author": "@NaverPayDev/frontend",
+    "main": "index.json",
+    "peerDependencies": {
+        "prettier": "^2.8.8 || ^3.0.0"
+    }
 }

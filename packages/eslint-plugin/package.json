@@ -2,8 +2,20 @@
     "name": "@naverpay/eslint-plugin",
     "version": "2.1.1",
     "description": "eslint plugin for naverpay",
-    "main": "./dist/cjs/lib/index.js",
-    "module": "./dist/esm/lib/index.mjs",
+    "keywords": [
+        "naverpay",
+        "eslint",
+        "eslintplugin",
+        "eslint-plugin"
+    ],
+    "homepage": "https://github.com/NaverPayDev/code-style",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/eslint-plugin"
+    },
+    "license": "MIT",
+    "author": "@NaverPayDev/frontend",
     "sideEffects": false,
     "exports": {
         ".": {
@@ -13,30 +25,18 @@
         },
         "./package.json": "./package.json"
     },
+    "main": "./dist/cjs/lib/index.js",
+    "module": "./dist/esm/lib/index.mjs",
     "files": [
         "dist"
     ],
     "scripts": {
-        "clean": "rm -rf dist",
         "prebuild": "pnpm run clean",
         "build": "vite build",
+        "clean": "rm -rf dist",
         "test": "vitest run",
         "test:watch": "vitest watch"
     },
-    "author": "@NaverPayDev/frontend",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/NaverPayDev/code-style.git",
-        "directory": "packages/eslint-plugin"
-    },
-    "homepage": "https://github.com/NaverPayDev/code-style",
-    "keywords": [
-        "naverpay",
-        "eslint",
-        "eslintplugin",
-        "eslint-plugin"
-    ],
-    "license": "MIT",
     "dependencies": {
         "@naverpay/ast-parser": "^0.0.2",
         "micromatch": "^4.0.8",
