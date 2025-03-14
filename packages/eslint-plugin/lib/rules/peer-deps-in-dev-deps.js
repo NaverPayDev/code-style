@@ -10,7 +10,7 @@ export default {
             description: 'Ensure that all peerDependencies are also declared in devDependencies.',
             recommended: false,
         },
-        fixable: null,
+        fixable: 'code',
         schema: [],
         messages: {
             missingInDevDeps: "'{{packageName}}' is declared in peerDependencies but not in devDependencies.",
@@ -53,6 +53,23 @@ export default {
                             messageId: 'missingInDevDeps',
                             data: {packageName: depName},
                             loc: devDepsNode?.loc || peerDepsNode?.loc,
+                            fix(fixer) {
+                                const peerDepsRange = peerDeps[depName]
+                                const newDevDep = `"${depName}": "${peerDepsRange}"`
+
+                                if (devDepsNode) {
+                                    if (devDepsNode.value.properties.length > 0) {
+                                        const lastDevDep =
+                                            devDepsNode.value.properties[devDepsNode.value.properties.length - 1]
+
+                                        return fixer.insertTextAfter(lastDevDep, `,${newDevDep}`)
+                                    } else {
+                                        return fixer.replaceText(devDepsNode, `"devDependencies": {${newDevDep}}`)
+                                    }
+                                } else {
+                                    return fixer.insertTextBefore(peerDepsNode, `"devDependencies": {${newDevDep}},`)
+                                }
+                            },
                         })
                     }
                 }
