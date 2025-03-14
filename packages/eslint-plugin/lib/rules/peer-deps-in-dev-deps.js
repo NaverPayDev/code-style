@@ -1,5 +1,7 @@
 import path from 'path'
 
+import {getIndentationLength} from '../utils/getIndentationLength.js'
+
 /**
  * @type {import('eslint').Rule.RuleModule}
  */
@@ -10,7 +12,7 @@ export default {
             description: 'Ensure that all peerDependencies are also declared in devDependencies.',
             recommended: false,
         },
-        fixable: null,
+        fixable: 'code',
         schema: [],
         messages: {
             missingInDevDeps: "'{{packageName}}' is declared in peerDependencies but not in devDependencies.",
@@ -46,13 +48,37 @@ export default {
                     (property) => property.key.value === 'devDependencies',
                 )
 
-                for (const [depName] of Object.entries(peerDeps)) {
+                for (const [depName, depVersion] of Object.entries(peerDeps)) {
                     if (!Object.prototype.hasOwnProperty.call(devDeps, depName)) {
                         context.report({
                             node,
                             messageId: 'missingInDevDeps',
                             data: {packageName: depName},
                             loc: devDepsNode?.loc || peerDepsNode?.loc,
+                            fix(fixer) {
+                                const s = ' '.repeat(getIndentationLength(sourceCode.getText()))
+                                const ss = s.repeat(2)
+                                const newDevDep = `"${depName}": "${depVersion}"`
+
+                                if (devDepsNode) {
+                                    if (devDepsNode.value.properties.length > 0) {
+                                        const lastDevDep =
+                                            devDepsNode.value.properties[devDepsNode.value.properties.length - 1]
+
+                                        return fixer.insertTextAfter(lastDevDep, `,\n${ss}${newDevDep}`)
+                                    } else {
+                                        return fixer.replaceText(
+                                            devDepsNode,
+                                            `"devDependencies": {\n${ss}${newDevDep}\n${s}}`,
+                                        )
+                                    }
+                                } else {
+                                    return fixer.insertTextBefore(
+                                        peerDepsNode,
+                                        `"devDependencies": {\n${ss}${newDevDep}\n${s}},\n${s}`,
+                                    )
+                                }
+                            },
                         })
                     }
                 }
