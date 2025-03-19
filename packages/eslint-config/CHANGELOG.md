@@ -1,5 +1,13 @@
 # @naverpay/eslint-config
 
+## 2.2.4
+
+### Patch Changes
+
+- 9a3ef5e: [eslint-config] resolve breaking change in eslint-plugin-package-json
+
+  PR: [[eslint-config] resolve breaking change in eslint-plugin-package-json](https://github.com/NaverPayDev/code-style/pull/105)
+
 ## 2.2.3
 
 ### Patch Changes
