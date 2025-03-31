@@ -16,6 +16,9 @@
     "license": "MIT",
     "author": "@NaverPayDev/frontend",
     "main": "index.json",
+    "devDependencies": {
+        "prettier": "^3.5.3"
+    },
     "peerDependencies": {
         "prettier": "^2.8.8 || ^3.0.0"
     }
