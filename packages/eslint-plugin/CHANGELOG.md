@@ -1,5 +1,23 @@
 # @naverpay/eslint-plugin
 
+## 2.2.0
+
+### Minor Changes
+
+- 2023190: auto fix peer-deps-in-dev-deps
+
+  PR: [auto fix peer-deps-in-dev-deps](https://github.com/NaverPayDev/code-style/pull/103)
+
+### Patch Changes
+
+- ed4e86a: improve report location in peer-deps-in-dev-deps
+
+  PR: [[eslint-plugin] peer-deps-in-dev-deps](https://github.com/NaverPayDev/code-style/pull/102)
+
+- fc870d3: Add dependency in peerDependencies into devDependencies
+
+  PR: [[eslint-plugin] peer-deps-in-dev-deps](https://github.com/NaverPayDev/code-style/pull/102)
+
 ## 2.1.1
 
 ### Patch Changes
