@@ -1,5 +1,15 @@
 # @naverpay/eslint-config
 
+## 2.2.5
+
+### Patch Changes
+
+- d37db0a: support for custom subpath
+- Updated dependencies [ed4e86a]
+- Updated dependencies [fc870d3]
+- Updated dependencies [2023190]
+  - @naverpay/eslint-plugin@2.2.0
+
 ## 2.2.4
 
 ### Patch Changes

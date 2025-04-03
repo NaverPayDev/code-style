@@ -1,5 +1,13 @@
 # @naverpay/prettier-config
 
+## 1.0.1
+
+### Patch Changes
+
+- fc870d3: Add dependency in peerDependencies into devDependencies
+
+  PR: [[eslint-plugin] peer-deps-in-dev-deps](https://github.com/NaverPayDev/code-style/pull/102)
+
 ## 1.0.0
 
 ### Major Changes
