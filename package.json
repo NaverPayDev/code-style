@@ -40,5 +40,10 @@
     "engines": {
         "node": ">=20.13.1",
         "pnpm": ">=9.1.3"
+    },
+    "pnpm": {
+        "overrides": {
+            "@changesets/cli>@changesets/assemble-release-plan": "github:NaverPayDev/changesets-assemble-release-plan"
+        }
     }
 }
