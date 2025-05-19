@@ -1,5 +1,5 @@
 # Adjust according to your needs
-name: Release Canary
+name: Release RC
 
 on:
     issue_comment:
@@ -8,10 +8,15 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+permissions:
+    contents: write # to create release
+
 jobs:
     canary:
-        if: ${{ github.event.issue.pull_request && (github.event.comment.body == 'canary-publish' || github.event.comment.body == '/canary-publish')}}
+        if: ${{ github.event.issue.pull_request && (github.event.comment.body == 'rc-publish' || github.event.comment.body == '/rc-publish')}}
         runs-on: ubuntu-latest
+        env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         steps:
             - name: Get PR branch name
               id: get_branch
@@ -22,6 +27,7 @@ jobs:
             - uses: actions/checkout@v4
               with:
                   ref: ${{ steps.get_branch.outputs.branch }}
+                  fetch-depth: 0
             - uses: pnpm/action-setup@v4
             - uses: actions/setup-node@v4
               with:
@@ -31,13 +37,14 @@ jobs:
             - name: Install Dependencies
               run: pnpm install --frozen-lockfile
 
-            - name: Canary Publish
+            - name: RC Publish
               uses: NaverPayDev/changeset-actions/canary-publish@main
               with:
                   github_token: ${{ secrets.ACTION_TOKEN }} # Add user PAT if necessary
-                  npm_tag: canary # Specify the npm tag to use for deployment
+                  npm_tag: rc # Specify the npm tag to use for deployment
                   npm_token: ${{ secrets.NPM_TOKEN }} # Provide the token required for npm publishing
                   publish_script: pnpm run release:canary # Script to execute Canary deployment
                   packages_dir: packages # Directory of packages to detect changes (default: packages,share)
                   excludes: '.turbo,.github' # Files or directories to exclude from change detection
-                  version_template: '{VERSION}-canary.{DATE}-{COMMITID7}'
+                  version_template: '{VERSION}-rc.{DATE}-{COMMITID7}'
+                  create_release: true
