@@ -18,8 +18,8 @@
         "postinstall": "lefthook install",
         "prettier": "prettier --check '**/*.{json,yaml,yml,md,ts,tsx,js,jsx}'",
         "prettier:fix": "prettier --write '**/*.{json,yaml,yml,md,ts,tsx,js,jsx}'",
-        "release": "pnpm build && changeset publish",
-        "release:canary": "pnpm build && changeset publish --tag canary",
+        "release": "pnpm run build && changeset publish --directory dist",
+        "release:canary": "pnpm run build && changeset publish --no-git-tag --directory dist",
         "test": "turbo test",
         "test:watch": "turbo test:watch"
     },
