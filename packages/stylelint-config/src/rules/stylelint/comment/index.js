@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     'comment-no-empty': true,
     'comment-empty-line-before': [
         'always',

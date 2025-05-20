@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     'no-duplicate-selectors': true,
     'no-empty-source': true,
     indentation: 4,

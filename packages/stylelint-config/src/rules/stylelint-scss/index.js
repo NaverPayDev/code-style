@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     'scss/at-rule-no-unknown': true,
     'scss/at-mixin-parentheses-space-before': 'never',
     'scss/dollar-variable-colon-space-after': 'always',

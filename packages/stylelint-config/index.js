@@ -1,11 +1,11 @@
-const postcss = require('postcss')
-const postcssScss = require('postcss-scss')
+import postcss from 'postcss'
+import postcssScss from 'postcss-scss'
 
-const stylelintRule = require('./src/rules/stylelint')
-const stylelintRuleOrder = require('./src/rules/stylelint-order')
-const stylelintRuleSCSS = require('./src/rules/stylelint-scss')
+import stylelintRule from './src/rules/stylelint'
+import stylelintRuleOrder from './src/rules/stylelint-order'
+import stylelintRuleSCSS from './src/rules/stylelint-scss'
 
-module.exports = {
+export default {
     overrides: [
         {
             files: ['**/*.css'],

@@ -16,7 +16,7 @@ const string = require('./string')
 const unit = require('./unit')
 const value = require('./value')
 
-module.exports = {
+export default {
     ...general,
     ...color,
     ...font,

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     'order/order': [
         'custom-properties',
         'dollar-variables',

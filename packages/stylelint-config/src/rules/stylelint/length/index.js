@@ -1,3 +1,3 @@
-module.exports = {
+export default {
     'length-zero-no-unit': true,
 }

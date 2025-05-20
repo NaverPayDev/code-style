@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     'rule-empty-line-before': [
         'always',
         {

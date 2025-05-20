@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     'at-rule-no-unknown': null,
     'at-rule-empty-line-before': [
         'always',

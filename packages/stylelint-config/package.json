@@ -17,6 +17,7 @@
     },
     "license": "MIT",
     "author": "@NaverPayDev/frontend",
+    "type": "module",
     "main": "index.js",
     "dependencies": {
         "stylelint": "^16.19.1",

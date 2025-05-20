@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     'media-feature-name-no-unknown': true,
     'media-feature-colon-space-after': 'always',
     'media-feature-colon-space-before': 'never',

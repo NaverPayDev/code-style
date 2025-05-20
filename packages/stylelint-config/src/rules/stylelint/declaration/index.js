@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     'declaration-block-no-duplicate-custom-properties': true,
     'declaration-block-no-duplicate-properties': [
         true,

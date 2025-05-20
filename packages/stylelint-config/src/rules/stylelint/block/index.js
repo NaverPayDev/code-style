@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     'block-no-empty': [true],
     'block-closing-brace-empty-line-before': 'never',
     'block-closing-brace-newline-after': [

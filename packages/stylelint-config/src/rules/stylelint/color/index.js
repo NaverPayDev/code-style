@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     'alpha-value-notation': 'number',
     'color-no-invalid-hex': true,
     'color-function-notation': 'legacy',
