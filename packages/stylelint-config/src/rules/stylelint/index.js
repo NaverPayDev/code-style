@@ -16,7 +16,7 @@ import string from './string/index.js'
 import unit from './unit/index.js'
 import value from './value/index.js'
 
-export default {
+export const stylelintRule = {
     ...general,
     ...color,
     ...font,

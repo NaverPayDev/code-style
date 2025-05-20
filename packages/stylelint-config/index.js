@@ -1,9 +1,9 @@
 import postcss from 'postcss'
 import postcssScss from 'postcss-scss'
 
-import stylelintRule from './src/rules/stylelint'
-import stylelintRuleOrder from './src/rules/stylelint-order'
-import stylelintRuleSCSS from './src/rules/stylelint-scss'
+import {stylelintRule} from './src/rules/stylelint/index.js'
+import {stylelintRuleOrder} from './src/rules/stylelint-order/index.js'
+import {stylelintRuleSCSS} from './src/rules/stylelint-scss/index.js'
 
 export default {
     overrides: [
@@ -22,8 +22,8 @@ export default {
     plugins: ['stylelint-scss', 'stylelint-order'],
     rules: {
         ...stylelintRule,
-        ...stylelintRuleSCSS,
         ...stylelintRuleOrder,
+        ...stylelintRuleSCSS,
     },
     defaultSeverity: 'warning',
 }

@@ -1,4 +1,4 @@
-export default {
+export const stylelintRuleOrder = {
     'order/order': [
         'custom-properties',
         'dollar-variables',
