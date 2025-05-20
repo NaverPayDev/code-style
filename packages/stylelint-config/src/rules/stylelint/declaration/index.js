@@ -9,7 +9,7 @@ export const declaration = {
     'declaration-block-no-redundant-longhand-properties': [
         true,
         {
-            ignoreShorthands: ['font'],
+            ignoreShorthands: ['font', 'inset', 'background', 'overflow'],
         },
     ],
     'declaration-block-single-line-max-declarations': 1,
