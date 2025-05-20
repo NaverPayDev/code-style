@@ -13,7 +13,6 @@ import {rule} from './rule/index.js'
 import {selector} from './selector/index.js'
 import {string} from './string/index.js'
 import {unit} from './unit/index.js'
-import {value} from './value/index.js'
 
 export const stylelintRule = {
     ...general,
@@ -24,7 +23,6 @@ export const stylelintRule = {
     ...string,
     ...declaration,
     ...property,
-    ...value,
     ...functionRules,
     ...selector,
     ...atRule,
