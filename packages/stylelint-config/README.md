@@ -12,13 +12,17 @@ npm install -D stylelint@^14.2.0 @naverpay/stylelint-config
 
 ## Configure
 
-`.stylelintrc` 파일을 생성합니다. `defaultSeverity` 의 default 값은 `warning` 입니다.
+`stylelint.config.mjs` 파일을 생성합니다. `defaultSeverity` 의 default 값은 `warning` 입니다.
 
-```json
-{
-    "extends": ["@naverpay/stylelint-config"],
-    "defaultSeverity": "error"
+```js
+/** @type {import('stylelint').Config} */
+const config = {
+  extends: ['@naverpay/stylelint-config'],
+  defaultSeverity: 'error',
+  rules: {},
 }
+
+export default config
 ```
 
 ## CLI
@@ -35,7 +39,8 @@ package.json에 스크립트를 추가하여 format 검사를 할 수 있습니�
 }
 ```
 
-> [lefthook](https://github.com/evilmartians/lefthook)을 사용해서 commit 또는 push 전에 스타일 확인을 자동화할 것을 권장합니다.
+> - `styelint@15.x` 버전 부터 prettier 가 할 수 있는 일을 prettier 에 위임 했기 때문에, stylelint 가 검사하는 파일은 반드시 `prettier`도 실행해야 합니다. <https://github.com/stylelint/stylelint/blob/1c17fb87a2f16f041632e380dd0d600cb3532337/docs/migration-guide/to-15.md>
+> - [lefthook](https://github.com/evilmartians/lefthook)을 사용해서 commit 또는 push 전에 스타일 확인을 자동화할 것을 권장합니다.
 
 ## Integrating with IDE
 
@@ -84,12 +89,9 @@ package.json에 스크립트를 추가하여 format 검사를 할 수 있습니�
 - [general](./src/rules/stylelint/general/README.md)
 - [length](./src/rules/stylelint/length/README.md)
 - [media-feature](./src/rules/stylelint/media-feature/README.md)
-- [number](./src/rules/stylelint/number/README.md)
 - [property](./src/rules/stylelint/property/README.md)
 - [rule](./src/rules/stylelint/rule/README.md)
 - [selector](./src/rules/stylelint/selector/README.md)
-- [string](./src/rules/stylelint/string/README.md)
 - [unit](./src/rules/stylelint/unit/README.md)
-- [value](./src/rules/stylelint/value/README.md)
 - [stylelint-order](./src/rules/stylelint-order/README.md)
 - [stylelint-scss](./src/rules/stylelint-scss/README.md)
