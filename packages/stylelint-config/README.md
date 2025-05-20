@@ -7,7 +7,7 @@
 **stylelint**, **@naverpay/stylelint-config** 패키지를 설치합니다.
 
 ```bash
-npm install -D stylelint@^14.2.0 @naverpay/stylelint-config
+npm install -D stylelint@^16 @naverpay/stylelint-config
 ```
 
 ## Configure
