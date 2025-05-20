@@ -5,7 +5,9 @@
     "keywords": [
         "naverpay",
         "stylelint",
-        "stylelint-config"
+        "stylelint-config",
+        "postcss",
+        "postcss-scss"
     ],
     "homepage": "https://github.com/NaverPayDev/code-style",
     "repository": {
