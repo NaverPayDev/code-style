@@ -11,7 +11,6 @@ import {mediaFeature} from './media-feature/index.js'
 import {property} from './property/index.js'
 import {rule} from './rule/index.js'
 import {selector} from './selector/index.js'
-import {string} from './string/index.js'
 import {unit} from './unit/index.js'
 
 export const stylelintRule = {
@@ -20,7 +19,6 @@ export const stylelintRule = {
     ...font,
     ...length,
     ...unit,
-    ...string,
     ...declaration,
     ...property,
     ...functionRules,
