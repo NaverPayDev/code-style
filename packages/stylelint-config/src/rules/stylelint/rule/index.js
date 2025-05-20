@@ -1,4 +1,4 @@
-export default {
+export const rule = {
     'rule-empty-line-before': [
         'always',
         {

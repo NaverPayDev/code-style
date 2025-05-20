@@ -1,4 +1,4 @@
-export default {
+export const color = {
     'alpha-value-notation': 'number',
     'color-no-invalid-hex': true,
     'color-function-notation': 'legacy',

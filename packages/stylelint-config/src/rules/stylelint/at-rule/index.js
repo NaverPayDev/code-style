@@ -1,4 +1,4 @@
-export default {
+export const atRule = {
     'at-rule-no-unknown': null,
     'at-rule-empty-line-before': [
         'always',

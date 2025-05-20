@@ -1,4 +1,4 @@
-export default {
+export const selector = {
     'selector-attribute-brackets-space-inside': 'never',
     'selector-attribute-operator-space-after': 'never',
     'selector-attribute-operator-space-before': 'never',

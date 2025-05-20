@@ -1,4 +1,4 @@
-export default {
+export const block = {
     'block-no-empty': [true],
     'block-closing-brace-empty-line-before': 'never',
     'block-closing-brace-newline-after': [

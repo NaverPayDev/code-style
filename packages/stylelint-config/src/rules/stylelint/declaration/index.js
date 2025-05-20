@@ -1,4 +1,4 @@
-export default {
+export const declaration = {
     'declaration-block-no-duplicate-custom-properties': true,
     'declaration-block-no-duplicate-properties': [
         true,
