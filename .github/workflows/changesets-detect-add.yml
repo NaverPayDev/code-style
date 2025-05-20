@@ -1,39 +1,40 @@
-name: changeset-detect-add
+name: detect changed packages
+
 on:
     pull_request:
-        branches:
-            - '**'
-        types: [opened, reopened, synchronize, labeled, unlabeled]
+        branches: ['**']
+        types: [opened, reopened, labeled, unlabeled, synchronize]
+
+concurrency:
+    group: detect-${{ github.event.pull_request.number }}
+    cancel-in-progress: true
 
 jobs:
-    detect-add:
+    detect:
         runs-on: ubuntu-latest
         env:
             GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
         steps:
-            - name: Checkout
+            - name: Checkout Repo
               uses: actions/checkout@v3
               with:
                   token: ${{ secrets.ACTION_TOKEN }}
                   fetch-depth: 0
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v4
-
-            - name: Setup node
+            - uses: pnpm/action-setup@v4
+            - name: Use Node.js
               uses: actions/setup-node@v4
               with:
                   node-version: '22'
                   cache: 'pnpm'
-
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
-            - name: Detect Changed Packages
+            - name: 'detect changed packages'
               uses: NaverPayDev/changeset-actions/detect-add@main
               with:
                   github_token: ${{ secrets.ACTION_TOKEN }}
                   packages_dir: packages
                   skip_label: skip-detect-change
                   skip_branches: main
-                  formatting_script: pnpm markdownlint:fix
+                  formatting_script: pnpm run markdownlint:fix

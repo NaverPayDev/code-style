@@ -16,18 +16,17 @@
     "license": "MIT",
     "author": "@NaverPayDev/frontend",
     "main": "index.js",
+    "dependencies": {
+        "stylelint": "^16.19.1",
+        "stylelint-order": "^7.0.0",
+        "stylelint-scss": "^6.12.0"
+    },
     "devDependencies": {
-        "postcss": "^8.4.8",
-        "postcss-scss": "^4.0.3",
-        "stylelint": "^14.2.0",
-        "stylelint-order": "^5.0.0",
-        "stylelint-scss": "^4.1.0"
+        "postcss": "^8.5.3",
+        "postcss-scss": "^4.0.9"
     },
     "peerDependencies": {
-        "postcss": "^8.4.8",
-        "postcss-scss": "^4.0.3",
-        "stylelint": "^14.2.0",
-        "stylelint-order": "^5.0.0",
-        "stylelint-scss": "^4.1.0"
+        "postcss": "^8.5.3",
+        "postcss-scss": "^4.0.9"
     }
 }
