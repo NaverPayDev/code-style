@@ -8,7 +8,4 @@ export const atRule = {
             ignoreAtRules: ['if', 'else'],
         },
     ],
-    'at-rule-name-case': 'lower',
-    'at-rule-name-space-after': 'always',
-    'at-rule-semicolon-space-before': 'never',
 }

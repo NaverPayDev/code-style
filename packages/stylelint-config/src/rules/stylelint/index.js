@@ -8,7 +8,6 @@ import {functionRules} from './function/index.js'
 import {general} from './general/index.js'
 import {length} from './length/index.js'
 import {mediaFeature} from './media-feature/index.js'
-import {number} from './number/index.js'
 import {property} from './property/index.js'
 import {rule} from './rule/index.js'
 import {selector} from './selector/index.js'
@@ -20,7 +19,6 @@ export const stylelintRule = {
     ...general,
     ...color,
     ...font,
-    ...number,
     ...length,
     ...unit,
     ...string,
