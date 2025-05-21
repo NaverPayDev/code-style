@@ -1,5 +1,17 @@
 # @naverpay/stylelint-config
 
+## 1.0.0
+
+### Major Changes
+
+- 40b3a76: update @naverpay/stylelint-config dependencies
+
+  PR: [new canary workflow & stylelint-config](https://github.com/NaverPayDev/code-style/pull/111)
+
+- 098e2aa: new canary workflow & stylelint-config version up
+
+  PR: [new canary workflow & stylelint-config](https://github.com/NaverPayDev/code-style/pull/111)
+
 ## 0.0.4
 
 ### Patch Changes
