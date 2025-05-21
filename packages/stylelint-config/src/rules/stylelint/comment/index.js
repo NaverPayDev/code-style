@@ -1,4 +1,4 @@
-module.exports = {
+export const comment = {
     'comment-no-empty': true,
     'comment-empty-line-before': [
         'always',

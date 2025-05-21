@@ -1,10 +1,10 @@
 # @naverpay/stylelint-config
 
-This package provides a stylelint-config compliant with the Naver Pay style guide.
+네이버페이 스타일 가이드에 맞게 stylelint-config 패키지를 제공합니다.
 
 ## Install
 
-Install the **stylelint** and **@naverpay/stylelint-config** packages.
+**stylelint**, **@naverpay/stylelint-config** 패키지를 설치합니다.
 
 ```bash
 npm install -D stylelint@^16 @naverpay/stylelint-config
@@ -12,7 +12,7 @@ npm install -D stylelint@^16 @naverpay/stylelint-config
 
 ## Configure
 
-Create a `stylelint.config.mjs` file. The default value for `defaultSeverity` is `warning`.
+`stylelint.config.mjs` 파일을 생성합니다. `defaultSeverity` 의 default 값은 `warning` 입니다.
 
 ```js
 /** @type {import('stylelint').Config} */
@@ -25,11 +25,11 @@ const config = {
 export default config
 ```
 
-> Only pure ESM is supported. Please create the file with an `.mjs` extension or add `"type": "module"` to your `package.json`.
+> pure esm 만을 지원합니다. `.mjs`로 파일을 만드시거나, `type: "module"`을 추가해주세요.
 
 ## CLI
 
-You can add scripts to your `package.json` to perform format checks.
+package.json에 스크립트를 추가하여 format 검사를 할 수 있습니다.
 
 ```jsonc
 // package.json
@@ -41,18 +41,18 @@ You can add scripts to your `package.json` to perform format checks.
 }
 ```
 
-> - Since `stylelint@15.x`, formatting rules that Prettier can handle have been delegated to Prettier. Therefore, files linted by Stylelint must also be processed by Prettier. [https://github.com/stylelint/stylelint/blob/1c17fb87a2f16f041632e380dd0d600cb3532337/docs/migration-guide/to-15.md](https://github.com/stylelint/stylelint/blob/1c17fb87a2f16f041632e380dd0d600cb3532337/docs/migration-guide/to-15.md)
-> - It is recommended to automate style checks before commits or pushes using [lefthook](https://github.com/evilmartians/lefthook).
+> - `styelint@15.x` 버전 부터 prettier 가 할 수 있는 일을 prettier 에 위임 했기 때문에, stylelint 가 검사하는 파일은 반드시 `prettier`도 실행해야 합니다. <https://github.com/stylelint/stylelint/blob/1c17fb87a2f16f041632e380dd0d600cb3532337/docs/migration-guide/to-15.md>
+> - [lefthook](https://github.com/evilmartians/lefthook)을 사용해서 commit 또는 push 전에 스타일 확인을 자동화할 것을 권장합니다.
 
 ## Integrating with IDE
 
 ### VSCode
 
-With the [Stylelint extension][Stylelint], some properties can be automatically fixed on file save.
+[Stylelint 확장 프로그램][Stylelint]을 통해 파일 저장 시 일부 속성에 대해 자동으로 수정할 수 있습니다.
 
-> To prevent auto-fixing in projects not using Stylelint, create a `.vscode/settings.json` file in your project's root folder.
+> 스타일린트가 적용되지 않은 프로젝트에서 자동 수정이 되는 것을 방지하기 위해 프로젝트 루트 폴더에 `.vscode/settings.json` 생성합니다.
 
-After installing the [Stylelint extension][Stylelint], create a `.vscode/settings.json` file in your project's root folder.
+[Stylelint 확장 프로그램][Stylelint]설치 후 프로젝트 루트 폴더에 `.vscode/settings.json` 을 생성합니다.
 
 ```json
 {
@@ -75,9 +75,9 @@ After installing the [Stylelint extension][Stylelint], create a `.vscode/setting
 }
 ```
 
-Now, `stylelint --fix` will run automatically when you save `*.{css,scss}` files.
+이제 `*.{css,scss}` 파일 저장 시 `stylelint --fix`를 자동으로 실행합니다.
 
-[stylelint]: https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint
+[Stylelint]: https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint
 
 ## Rules
 

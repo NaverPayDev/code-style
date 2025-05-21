@@ -1,4 +1,4 @@
-module.exports = {
+export const rule = {
     'rule-empty-line-before': [
         'always',
         {

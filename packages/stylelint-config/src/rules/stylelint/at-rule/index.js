@@ -1,4 +1,4 @@
-module.exports = {
+export const atRule = {
     'at-rule-no-unknown': null,
     'at-rule-empty-line-before': [
         'always',
@@ -8,7 +8,4 @@ module.exports = {
             ignoreAtRules: ['if', 'else'],
         },
     ],
-    'at-rule-name-case': 'lower',
-    'at-rule-name-space-after': 'always',
-    'at-rule-semicolon-space-before': 'never',
 }

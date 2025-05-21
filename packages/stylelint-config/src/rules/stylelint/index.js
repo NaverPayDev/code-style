@@ -1,32 +1,26 @@
-const atRule = require('./at-rule')
-const block = require('./block')
-const color = require('./color')
-const comment = require('./comment')
-const declaration = require('./declaration')
-const font = require('./font')
-const functionRules = require('./function')
-const general = require('./general')
-const length = require('./length')
-const mediaFeature = require('./media-feature')
-const number = require('./number')
-const property = require('./property')
-const rule = require('./rule')
-const selector = require('./selector')
-const string = require('./string')
-const unit = require('./unit')
-const value = require('./value')
+import {atRule} from './at-rule/index.js'
+import {block} from './block/index.js'
+import {color} from './color/index.js'
+import {comment} from './comment/index.js'
+import {declaration} from './declaration/index.js'
+import {font} from './font/index.js'
+import {functionRules} from './function/index.js'
+import {general} from './general/index.js'
+import {length} from './length/index.js'
+import {mediaFeature} from './media-feature/index.js'
+import {property} from './property/index.js'
+import {rule} from './rule/index.js'
+import {selector} from './selector/index.js'
+import {unit} from './unit/index.js'
 
-module.exports = {
+export const stylelintRule = {
     ...general,
     ...color,
     ...font,
-    ...number,
     ...length,
     ...unit,
-    ...string,
     ...declaration,
     ...property,
-    ...value,
     ...functionRules,
     ...selector,
     ...atRule,
