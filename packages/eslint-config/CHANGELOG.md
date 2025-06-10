@@ -1,5 +1,13 @@
 # @naverpay/eslint-config
 
+## 2.3.0
+
+### Minor Changes
+
+- dfbf68b: 🔧 update dependencies in eslint-config package
+
+  PR: [🔧 update dependencies in eslint-config package](https://github.com/NaverPayDev/code-style/pull/117)
+
 ## 2.2.5
 
 ### Patch Changes
