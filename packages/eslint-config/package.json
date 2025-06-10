@@ -1,6 +1,6 @@
 {
     "name": "@naverpay/eslint-config",
-    "version": "2.2.5",
+    "version": "2.3.0",
     "description": "eslint config for naverpay",
     "keywords": [
         "naverpay",
