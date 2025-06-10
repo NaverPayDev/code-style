@@ -2,7 +2,6 @@
     "name": "@naverpay/markdown-lint",
     "version": "0.0.3",
     "description": "lint for markdown",
-    "type": "commonjs",
     "keywords": [
         "naverpay",
         "markdownlint"
@@ -15,6 +14,7 @@
     },
     "license": "MIT",
     "author": "@NaverPayDev/frontend",
+    "type": "commonjs",
     "main": ".markdownlint.jsonc",
     "bin": {
         "markdownlint": "cli.js"

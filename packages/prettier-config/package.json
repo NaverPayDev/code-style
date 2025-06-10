@@ -15,6 +15,7 @@
     },
     "license": "MIT",
     "author": "@NaverPayDev/frontend",
+    "type": "commonjs",
     "main": "index.json",
     "devDependencies": {
         "prettier": "^3.5.3"
