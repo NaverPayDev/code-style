@@ -2,6 +2,7 @@
     "name": "@naverpay/markdown-lint",
     "version": "0.0.3",
     "description": "lint for markdown",
+    "type": "commonjs",
     "keywords": [
         "naverpay",
         "markdownlint"

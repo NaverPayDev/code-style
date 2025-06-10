@@ -17,6 +17,7 @@
     "license": "MIT",
     "author": "@NaverPayDev/frontend",
     "sideEffects": false,
+    "type": "commonjs",
     "exports": {
         ".": {
             "import": "./dist/esm/index.mjs",
