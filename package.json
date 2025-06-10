@@ -8,6 +8,7 @@
         "url": "https://github.com/NaverPayDev/code-style.git"
     },
     "author": "@NaverPayDev/frontend",
+    "type": "commonjs",
     "scripts": {
         "build": "turbo build",
         "prelint": "pnpm run build",
