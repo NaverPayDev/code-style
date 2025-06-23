@@ -1,5 +1,11 @@
 # @naverpay/markdown-lint
 
+## 1.0.0
+
+### Major Changes
+
+- bdcd680: Create major version
+
 ## 0.0.3
 
 ### Patch Changes
