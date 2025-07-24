@@ -1,6 +1,6 @@
 {
     "name": "@naverpay/markdown-lint",
-    "version": "0.0.3",
+    "version": "1.0.0",
     "description": "lint for markdown",
     "keywords": [
         "naverpay",
