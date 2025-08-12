@@ -1,9 +1,8 @@
-import {getJSXElement, getImportDeclarations, extractComponentProps} from '@naverpay/ast-parser'
+import {getJSXElement, getImportDeclarations} from '@naverpay/ast-parser'
 import {minimatch} from 'minimatch'
 
 import {SVG_OPTIMIZED_COMMENT_CONTENT} from '../constants/index.js'
 import {findSpecificImportDeclaration, hasSpecificReturnStatement, getAllComments} from '../utils/astParser.js'
-import {isEmpty} from '../utils/index.js'
 import {
     insertCustomImport,
     svgoOptimize,
@@ -26,12 +25,11 @@ const svgValidator = (context, globalScope) => {
         findSpecificImportDeclaration(importDeclarations, {
             from: 'styled-components',
         })
-    const props = hasClassNames ? null : extractComponentProps(globalScope.block)
     const comments = getAllComments(context)
 
     const isOptimizedAlready = comments.some(({value}) => value.includes(SVG_OPTIMIZED_COMMENT_CONTENT))
 
-    return !isEmpty(props) && !hasClassNames && !isOptimizedAlready
+    return !hasClassNames && !isOptimizedAlready
 }
 
 const includeHangul = (sourceCode, node) => {

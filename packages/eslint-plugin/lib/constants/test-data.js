@@ -956,3 +956,89 @@ export const EXPORT_DEFAULT_함수형_컴포넌트 = {
     />
 </svg>`,
 }
+
+export const EMPTY_PROPS_COMPONENT = {
+    컴포넌트_코드: `
+    import {memo} from 'react';
+
+    const IconNPayTextShadow = ({}) => (
+        <svg width={width} height={height} viewBox={viewBox} style={style}>
+            <g filter={\`url(#\${id})\`} fillRule="evenodd" clipRule="evenodd" fill="#fff">
+                <path d="M24.612 7.554v2.97h1.632c1.079 0 1.734-.35 1.734-1.44v-.233c0-1.024-.655-1.297-1.593-1.297h-1.773zm-1.644-1.388h3.494c2.223 0 3.173 1.142 3.173 2.672v.272c0 1.518-1.027 2.814-3.173 2.814h-1.85v3.593h-1.644v-9.35zm11.7 6.278h-1.58c-.848 0-1.143.35-1.143.907v.156c0 .467.334.74.963.74.681 0 1.131-.143 1.465-.48.296-.286.296-.597.296-1.129v-.194zm-4.29 1.18v-.415c0-1.167.68-2.036 2.671-2.036h1.619V10.9c0-.882-.385-1.245-1.259-1.245-.758 0-1.413.246-2.004.713l-.797-1.193c.72-.506 1.606-.96 2.814-.96 1.657 0 2.852.843 2.852 2.283v5.018h-1.452l-.026-.881c-.27.635-1.271.985-2.017.985-1.516 0-2.402-.739-2.402-1.997zm10.01.025-1.606-5.278h-1.799l2.518 7.236-.912 2.348 1.516.531L43.78 8.371h-1.722l-1.619 5.278h-.051zM18.85 19H3V3h15.85v16zm-6.398-4h2.436V7h-2.552v4.282L9.398 7H6.963v8h2.551v-4.282L12.452 15z" />
+            </g>
+            <defs>
+                <filter
+                    id={id}
+                    x="1"
+                    y="1"
+                    width="44.779"
+                    height="20"
+                    filterUnits="userSpaceOnUse"
+                    colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="1" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" />
+                    <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_461_21739" />
+                    <feBlend in="SourceGraphic" in2="effect1_dropShadow_461_21739" result="shape" />
+                </filter>
+            </defs>
+        </svg>
+    );
+
+    export default memo(IconNPayTextShadow);
+    `,
+    PROPS_없는_SVG_코드: `
+    <svg width="width" height="height" viewBox="viewBox" style="style">
+        <g filter="url(#id)" fillRule="evenodd" clipRule="evenodd" fill="#fff">
+            <path d="M24.612 7.554v2.97h1.632c1.079 0 1.734-.35 1.734-1.44v-.233c0-1.024-.655-1.297-1.593-1.297h-1.773zm-1.644-1.388h3.494c2.223 0 3.173 1.142 3.173 2.672v.272c0 1.518-1.027 2.814-3.173 2.814h-1.85v3.593h-1.644v-9.35zm11.7 6.278h-1.58c-.848 0-1.143.35-1.143.907v.156c0 .467.334.74.963.74.681 0 1.131-.143 1.465-.48.296-.286.296-.597.296-1.129v-.194zm-4.29 1.18v-.415c0-1.167.68-2.036 2.671-2.036h1.619V10.9c0-.882-.385-1.245-1.259-1.245-.758 0-1.413.246-2.004.713l-.797-1.193c.72-.506 1.606-.96 2.814-.96 1.657 0 2.852.843 2.852 2.283v5.018h-1.452l-.026-.881c-.27.635-1.271.985-2.017.985-1.516 0-2.402-.739-2.402-1.997zm10.01.025-1.606-5.278h-1.799l2.518 7.236-.912 2.348 1.516.531L43.78 8.371h-1.722l-1.619 5.278h-.051zM18.85 19H3V3h15.85v16zm-6.398-4h2.436V7h-2.552v4.282L9.398 7H6.963v8h2.551v-4.282L12.452 15z" />
+        </g>
+        <defs>
+            <filter
+                id="id"
+                x="1"
+                y="1"
+                width="44.779"
+                height="20"
+                filterUnits="userSpaceOnUse"
+                colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                <feOffset />
+                <feGaussianBlur stdDeviation="1" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" />
+                <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_461_21739" />
+                <feBlend in="SourceGraphic" in2="effect1_dropShadow_461_21739" result="shape" />
+            </filter>
+        </defs>
+    </svg>`,
+    PROPS: {},
+    완료된_SVG_코드: `
+    <svg width={width} height={height} viewBox={viewBox} style={style}>
+        <g filter={\`url(#\${id})\`} fillRule="evenodd" clipRule="evenodd" fill="#fff">
+            <path d="M24.612 7.554v2.97h1.632c1.079 0 1.734-.35 1.734-1.44v-.233c0-1.024-.655-1.297-1.593-1.297h-1.773zm-1.644-1.388h3.494c2.223 0 3.173 1.142 3.173 2.672v.272c0 1.518-1.027 2.814-3.173 2.814h-1.85v3.593h-1.644v-9.35zm11.7 6.278h-1.58c-.848 0-1.143.35-1.143.907v.156c0 .467.334.74.963.74.681 0 1.131-.143 1.465-.48.296-.286.296-.597.296-1.129v-.194zm-4.29 1.18v-.415c0-1.167.68-2.036 2.671-2.036h1.619V10.9c0-.882-.385-1.245-1.259-1.245-.758 0-1.413.246-2.004.713l-.797-1.193c.72-.506 1.606-.96 2.814-.96 1.657 0 2.852.843 2.852 2.283v5.018h-1.452l-.026-.881c-.27.635-1.271.985-2.017.985-1.516 0-2.402-.739-2.402-1.997zm10.01.025-1.606-5.278h-1.799l2.518 7.236-.912 2.348 1.516.531L43.78 8.371h-1.722l-1.619 5.278h-.051zM18.85 19H3V3h15.85v16zm-6.398-4h2.436V7h-2.552v4.282L9.398 7H6.963v8h2.551v-4.282L12.452 15z" />
+        </g>
+        <defs>
+            <filter
+                id={id}
+                x="1"
+                y="1"
+                width="44.779"
+                height="20"
+                filterUnits="userSpaceOnUse"
+                colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                <feOffset />
+                <feGaussianBlur stdDeviation="1" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" />
+                <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_461_21739" />
+                <feBlend in="SourceGraphic" in2="effect1_dropShadow_461_21739" result="shape" />
+            </filter>
+        </defs>
+    </svg>`,
+}
