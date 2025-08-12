@@ -1,7 +1,6 @@
-import {extractComponentProps, parseToAST, getImportDeclarations} from '@naverpay/ast-parser'
+import {parseToAST, getImportDeclarations} from '@naverpay/ast-parser'
 import {describe, test, expect} from 'vitest'
 
-import {isEmpty} from '..'
 import {SVG_OPTIMIZED_COMMENT_CONTENT} from '../../constants'
 import {findSpecificImportDeclaration} from '../astParser'
 
@@ -34,13 +33,12 @@ const svgValidator = (globalScope) => {
         findSpecificImportDeclaration(importDeclarations, {
             from: 'styled-components',
         })
-    const props = hasClassNames ? null : extractComponentProps(globalScope.block)
 
     const comments = globalScope.comments
 
     const isOptimizedAlready = comments.some(({value}) => value.includes(SVG_OPTIMIZED_COMMENT_CONTENT))
 
-    return !isEmpty(props) && !hasClassNames && !isOptimizedAlready
+    return !hasClassNames && !isOptimizedAlready
 }
 
 describe('svgValidator', () => {
