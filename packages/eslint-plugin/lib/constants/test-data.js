@@ -956,3 +956,105 @@ export const EXPORT_DEFAULT_함수형_컴포넌트 = {
     />
 </svg>`,
 }
+
+export const EMPTY_PROPS_COMPONENT = {
+    컴포넌트_코드: `import React from 'react'
+    import * as CSS from 'csstype'
+
+    export default function IconExample() {
+        return (
+            <svg width="100%" height="100%" viewBox="0 0 9 18" style="">
+                <path
+                    fill="none"
+                    fillRule="evenodd"
+                    stroke="#000"
+                    strokeLinejoin="round"
+                    d="M8.521 0L0.5 8.021 8.521 16"
+                    transform="translate(0 1)"
+                />
+            </svg>
+        )
+    }`,
+    PROPS: {},
+    PROPS_없는_SVG_코드: `<svg width="100%" height="100%" viewBox="0 0 9 18" style="">
+        <path
+            fill="none"
+            fillRule="evenodd"
+            stroke="#000"
+            strokeLinejoin="round"
+            d="M8.521 0L0.5 8.021 8.521 16"
+            transform="translate(0 1)"
+        />
+    </svg>`,
+    /**
+     * props가 없는 경우 동적으로 변경되는 값이 없으므로 그대로 유지
+     */
+    완료된_SVG_코드: `<svg width="100%" height="100%" viewBox="0 0 9 18">
+        <path
+            fill="none"
+            fillRule="evenodd"
+            stroke="#000"
+            strokeLinejoin="round"
+            d="M8.521 0L0.5 8.021 8.521 16"
+            transform="translate(0 1)"
+        />
+    </svg>`,
+}
+
+export const EMPTY_CONTAINER_COMPONENT = {
+    컴포넌트_코드: `import React from 'react'
+    import * as CSS from 'csstype'
+
+    export default function IconExample() {
+        return (
+            <svg width="100%" height="100%" viewBox="0 0 9 18" style="">
+                <g>
+                    <g>
+                        <path
+                            fill="none"
+                            fillRule="evenodd"
+                            stroke="#000"
+                            strokeLinejoin="round"
+                            d="M8.521 0L0.5 8.021 8.521 16"
+                            transform="translate(0 1)"
+                        />
+                    </g>
+                </g>
+                <path />
+                <path />
+                <path />
+            </svg>
+        )
+    }`,
+    PROPS: {},
+    PROPS_없는_SVG_코드: `<svg width="100%" height="100%" viewBox="0 0 9 18" style="">
+        <g>
+            <g>
+                <path
+                    fill="none"
+                    fillRule="evenodd"
+                    stroke="#000"
+                    strokeLinejoin="round"
+                    d="M8.521 0L0.5 8.021 8.521 16"
+                    transform="translate(0 1)"
+                />
+            </g>
+        </g>
+        <path />
+        <path />
+        <path />
+    </svg>`,
+    /**
+     * props가 없는 경우 동적으로 변경되는 값이 없으므로 그대로 유지
+     */
+    완료된_SVG_코드: `<svg width="100%" height="100%" viewBox="0 0 9 18">
+        <path
+            fill="none"
+            fillRule="evenodd"
+            stroke="#000"
+            strokeLinejoin="round"
+            d="M8.521 0L0.5 8.021 8.521 16"
+            transform="translate(0 1)"
+        />
+    </svg>`,
+}

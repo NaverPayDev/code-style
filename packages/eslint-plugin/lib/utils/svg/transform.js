@@ -135,6 +135,32 @@ export function insertCustomImport({fixer, scope, context}) {
 }
 
 /**
+ * @description
+ *
+ * svgo 플러그인 중, path 요소를 제어하는 플러그인은 과한 최적화 진행하므로 본 플러그인의 의도와 불일치
+ *
+ * (사전 테스트에서 svg 이모지의 형상이 달라지는 현상 발생)
+ *
+ * 따라서 path 요소를 제거하는 플러그인을 추가하여, d 속성이 없는 path 요소만을 제거
+ */
+const removeEmptyPaths = {
+    name: 'removeEmptyPaths',
+    fn: () => {
+        return {
+            element: {
+                enter: (node, parentNode) => {
+                    // path 요소이면서 d 속성이 없거나 빈 경우
+                    if (node.name === 'path' && (!node.attributes.d || node.attributes.d.trim() === '')) {
+                        // 부모에서 이 노드를 제거
+                        parentNode.children = parentNode.children.filter((child) => child !== node)
+                    }
+                },
+            },
+        }
+    },
+}
+
+/**
  * @typedef NextSvgContent
  * @type {object}
  * @property {string} svgCode
@@ -161,6 +187,10 @@ export const svgoOptimize = ({svgCode, props, exceptAttr}) => {
                 },
             },
             {
+                name: 'removeEmptyAttrs',
+                active: true,
+            },
+            {
                 name: 'collapseGroups',
                 active: true,
             },
@@ -172,6 +202,7 @@ export const svgoOptimize = ({svgCode, props, exceptAttr}) => {
                 name: 'mergePaths',
                 active: true,
             },
+            removeEmptyPaths,
         ],
         multipass: false,
     })

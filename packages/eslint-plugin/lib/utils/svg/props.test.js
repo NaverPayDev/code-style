@@ -11,6 +11,8 @@ import {
     STYLE_OBJECT를_포함한_컴포넌트,
     함수형_컴포넌트,
     EXPORT_DEFAULT_함수형_컴포넌트,
+    EMPTY_PROPS_COMPONENT,
+    EMPTY_CONTAINER_COMPONENT,
 } from '../../constants/test-data'
 import {trimAll} from '../string'
 import {extractPropsFromLiteralCode} from './props'
@@ -35,6 +37,8 @@ describe('extractComponentProps', () => {
         [STYLE_OBJECT를_포함한_컴포넌트.컴포넌트_코드, STYLE_OBJECT를_포함한_컴포넌트.PROPS],
         [함수형_컴포넌트.컴포넌트_코드, 함수형_컴포넌트.PROPS],
         [EXPORT_DEFAULT_함수형_컴포넌트.컴포넌트_코드, EXPORT_DEFAULT_함수형_컴포넌트.PROPS],
+        [EMPTY_PROPS_COMPONENT.컴포넌트_코드, EMPTY_PROPS_COMPONENT.PROPS],
+        [EMPTY_CONTAINER_COMPONENT.컴포넌트_코드, EMPTY_CONTAINER_COMPONENT.PROPS],
     ])('ast tree에서 props를 추출한다.', (code, expectedProps) => {
         const scope = parseCode(code)
 

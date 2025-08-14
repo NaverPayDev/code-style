@@ -9,6 +9,8 @@ import {
     PROPS_변수_컴포넌트,
     함수형_컴포넌트,
     EXPORT_DEFAULT_함수형_컴포넌트,
+    EMPTY_PROPS_COMPONENT,
+    EMPTY_CONTAINER_COMPONENT,
 } from '../../constants/test-data'
 import {trimAll} from '../string'
 import {svgoOptimize} from './transform'
@@ -93,6 +95,20 @@ describe('transform', () => {
             EXPORT_DEFAULT_함수형_컴포넌트.PROPS_없는_SVG_코드,
             EXPORT_DEFAULT_함수형_컴포넌트.PROPS,
             EXPORT_DEFAULT_함수형_컴포넌트.완료된_SVG_코드,
+            undefined,
+        ],
+        [
+            'EMPTY_PROPS_COMPONENT',
+            EMPTY_PROPS_COMPONENT.PROPS_없는_SVG_코드,
+            EMPTY_PROPS_COMPONENT.PROPS,
+            EMPTY_PROPS_COMPONENT.완료된_SVG_코드,
+            undefined,
+        ],
+        [
+            'EMPTY_CONTAINER_COMPONENT',
+            EMPTY_CONTAINER_COMPONENT.PROPS_없는_SVG_코드,
+            EMPTY_CONTAINER_COMPONENT.PROPS,
+            EMPTY_CONTAINER_COMPONENT.완료된_SVG_코드,
             undefined,
         ],
     ])('[%s] 정상적으로 svg transformation을 수행한다.', (_, svgCode, props, result, exceptAttr) => {
