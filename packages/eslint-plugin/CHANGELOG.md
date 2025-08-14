@@ -1,5 +1,13 @@
 # @naverpay/eslint-plugin
 
+## 2.2.1
+
+### Patch Changes
+
+- 93d42c3: [eslint-plugins] Remove empty props check
+
+  PR: [[eslint-plugins] Remove empty props check](https://github.com/NaverPayDev/code-style/pull/124)
+
 ## 2.2.0
 
 ### Minor Changes
