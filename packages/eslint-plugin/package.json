@@ -1,6 +1,6 @@
 {
     "name": "@naverpay/eslint-plugin",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "description": "eslint plugin for naverpay",
     "keywords": [
         "naverpay",
