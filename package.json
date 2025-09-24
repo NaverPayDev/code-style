@@ -27,6 +27,7 @@
     "devDependencies": {
         "@changesets/cli": "^2.26.2",
         "@naverpay/eslint-config": "workspace:*",
+        "@naverpay/eslint-plugin": "workspace:*",
         "@naverpay/markdown-lint": "workspace:*",
         "@naverpay/pite": "1.1.2",
         "@naverpay/prettier-config": "workspace:*",

@@ -1,3 +1,5 @@
+import path from 'path'
+
 import {getIndentationLength} from '../utils/getIndentationLength.js'
 
 /**
@@ -20,7 +22,8 @@ export default {
     create(context) {
         return {
             Program(node) {
-                const filename = context.filename.replace(context.cwd, '')
+                const filename = path.basename(context.filename)
+
                 if (filename !== 'package.json') {
                     return
                 }
