@@ -1,5 +1,17 @@
 # @naverpay/eslint-plugin
 
+## 2.2.1
+
+### Patch Changes
+
+- 93d42c3: [eslint-plugins] Remove empty props check
+
+  PR: [[eslint-plugins] Remove empty props check](https://github.com/NaverPayDev/code-style/pull/124)
+
+- cab04d7: [eslint-plugin] fix filename bug in `peer-deps-in-dev-deps`
+
+  PR: [[eslint-plugin] fix filename bug in `peer-deps-in-dev-deps`](https://github.com/NaverPayDev/code-style/pull/127)
+
 ## 2.2.0
 
 ### Minor Changes
