@@ -123,7 +123,7 @@ export function insertCustomImport({fixer, scope, context}) {
     if (!targetNode) {
         const latestImportDeclarationRange =
             importDeclarations.length > 0
-                ? importDeclarations[importDeclarations.length - 1].range ?? FIRST_RANGE
+                ? (importDeclarations[importDeclarations.length - 1].range ?? FIRST_RANGE)
                 : FIRST_RANGE
 
         result.push(fixer.insertTextBeforeRange(latestImportDeclarationRange, textToInsert))
