@@ -17,6 +17,9 @@ importers:
       '@naverpay/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
+      '@naverpay/eslint-plugin':
+        specifier: workspace:*
+        version: link:packages/eslint-plugin
       '@naverpay/markdown-lint':
         specifier: workspace:*
         version: link:packages/markdown-lint
