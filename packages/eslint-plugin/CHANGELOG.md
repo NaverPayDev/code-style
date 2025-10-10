@@ -1,5 +1,13 @@
 # @naverpay/eslint-plugin
 
+## 2.3.0
+
+### Minor Changes
+
+- b955392: react@19 지원을 위한 react hooks 버전업
+
+  PR: [react@19 지원을 위한 react hooks 버전업](https://github.com/NaverPayDev/code-style/pull/128)
+
 ## 2.2.1
 
 ### Patch Changes
