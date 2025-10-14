@@ -10,6 +10,7 @@ export default {
         /**
          * Enforce a convention in the order of require() / import statements
          * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md
+         * @deprecated biome organizeImports 로 대체 예정 https://biomejs.dev/assist/actions/organize-imports/
          */
         'import/order': importOrder(),
 
