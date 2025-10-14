@@ -16,9 +16,16 @@ biome.json 파일을 생성하고 `@naverpay/biome-config` 패키지를 추가�
 
 ```json
 {
-  "extends": ["@naverpay/biome-config"]
+  "$schema": "https://biomejs.dev/schemas/2.2.6/schema.json",
+  "extends": ["@naverpay/biome-config"],
+  "files": {
+    "includes": ["**", "!scripts/**", "!apps/web/public/**", "!apps/web/src/assets/lottie/applyCharge.json"]
+  }
 }
+
 ```
+
+> ignore 설정이 없기 때문에, `includes`의 `!`로 무시하고 싶은 파일을 설정해주세요.
 
 ## CLI
 
@@ -28,13 +35,32 @@ package.json에 스크립트를 추가하여 format 검사를 할 수 있습니�
 // package.json
 {
     "scripts": {
-        "format": "biome format .",
-        "format:fix": "biome format --write ."
+        "format": "biome check .",
+        "format:fix": "biome check --write ."
     },
 }
 ```
 
 > [lefthook](https://github.com/evilmartians/lefthook)을 사용해서 commit 또는 push 전에 스타일 확인을 자동화할 것을 권장합니다.
+
+## 차이점
+
+- [biome 에서 제공하는 assist](https://biomejs.dev/assist/javascript/actions/) 가 기본으로 활성화 되어 있습니다. 따라서 prettier 를 대체한다면 jsx elements 의 순서가 정렬되거나, js 객체의 키가 정렬될 수 있습니다. 해당 옵션을 원치 않는다면 반드시 꺼주세요.  
+  - [organizeImports](https://biomejs.dev/assist/actions/organize-imports/) 규칙은 eslint 의  `import/order` 와 충돌하여 기본적으로 꺼져있습니다. 다음 major 버전 때 biome 로 대체될 예정입니다.
+
+```jsonc
+// biome.json
+{
+    "$schema": "https://biomejs.dev/schemas/2.2.6/schema.json",
+    "assist": {
+        "actions": {
+            "source": {
+                "organizeImports": "off"
+            }
+        }
+    }
+}
+```
 
 ## Integrating with IDE
 
@@ -50,7 +76,10 @@ package.json에 스크립트를 추가하여 format 검사를 할 수 있습니�
 ```json
 {
     "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.biome": "explicit"
+    }
 }
 ```
 
