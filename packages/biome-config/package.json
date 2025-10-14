@@ -1,0 +1,33 @@
+{
+    "name": "@naverpay/biome-config",
+    "version": "1.0.0",
+    "description": "Biome configuration for NaverPay projects",
+    "keywords": [
+        "biome",
+        "config",
+        "formatter",
+        "linter",
+        "naverpay"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/biome-config"
+    },
+    "license": "MIT",
+    "author": "NaverPay Frontend",
+    "type": "module",
+    "exports": {
+        ".": "./biome.json"
+    },
+    "main": "biome.json",
+    "files": [
+        "biome.json"
+    ],
+    "devDependencies": {
+        "@biomejs/biome": "^2.0.6"
+    },
+    "peerDependencies": {
+        "@biomejs/biome": "^2.0.6"
+    }
+}
