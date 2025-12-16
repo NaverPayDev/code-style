@@ -87,4 +87,4 @@ package.json에 스크립트를 추가하여 lint 검사를 할 수 있습니다
 
 ### WebStorm
 
-[oxc-intellij-plugin](https://plugins.jetbrains.com/plugin/27061-oxc) (v0.0.21 이상)을 설치하여 사용할 수 있습니다.
+[oxc-intellij-plugin](https://plugins.jetbrains.com/plugin/27061-oxc)을 설치하여 사용할 수 있습니다.
