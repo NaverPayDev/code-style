@@ -69,8 +69,18 @@ package.json에 스크립트를 추가하여 lint 검사를 할 수 있습니다
 
 ```json
 {
+    "oxc.enable": true
+}
+```
+
+#### oxfmt와 함께 사용 시
+
+```json
+{
     "oxc.enable": true,
-    "oxc.configPath": ".oxlintrc.json",
+    "oxc.fmt.experimental": true,
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSave": true,
     "[typescript]": {
         "editor.defaultFormatter": "oxc.oxc-vscode"
     },
@@ -79,11 +89,6 @@ package.json에 스크립트를 추가하여 lint 검사를 할 수 있습니다
     }
 }
 ```
-
-| 설정 | 설명 |
-|------|------|
-| `oxc.enable` | oxc 익스텐션 활성화 |
-| `oxc.configPath` | oxlint 설정 파일 경로 |
 
 ### WebStorm
 
