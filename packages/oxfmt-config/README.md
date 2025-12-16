@@ -15,13 +15,8 @@ npm install @naverpay/oxfmt-config oxfmt -D
 ## 사용 방법
 
 > **Note:** oxfmt는 현재 `extends` 옵션을 지원하지 않습니다. ([관련 이슈](https://github.com/oxc-project/oxc/issues/16394))
-> 따라서 설정 파일을 프로젝트 루트에 복사하여 사용해야 합니다.
 
-`.oxfmtrc.json` 파일을 프로젝트 루트에 복사합니다.
-
-```bash
-cp node_modules/@naverpay/oxfmt-config/.oxfmtrc.json .oxfmtrc.json
-```
+패키지 설치 시 `.oxfmtrc.json` 파일이 프로젝트 루트에 자동으로 생성됩니다. 이미 파일이 존재하면 덮어쓰지 않습니다.
 
 필요에 따라 `ignorePatterns`를 추가합니다.
 

