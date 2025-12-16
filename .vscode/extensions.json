@@ -3,6 +3,7 @@
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
         "editorconfig.editorconfig",
-        "DavidAnson.vscode-markdownlint"
+        "DavidAnson.vscode-markdownlint",
+        "oxc.oxc-vscode"
     ]
 }

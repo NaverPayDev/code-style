@@ -1,0 +1,29 @@
+{
+    "name": "@naverpay/oxfmt-config",
+    "version": "0.0.1",
+    "description": "oxfmt configuration for NaverPay projects",
+    "keywords": [
+        "oxfmt",
+        "oxc",
+        "config",
+        "formatter",
+        "naverpay"
+    ],
+    "homepage": "https://github.com/NaverPayDev/code-style",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/oxfmt-config"
+    },
+    "license": "MIT",
+    "author": "@NaverPayDev/frontend",
+    "files": [
+        ".oxfmtrc.json"
+    ],
+    "devDependencies": {
+        "oxfmt": "^0.16.0"
+    },
+    "peerDependencies": {
+        "oxfmt": ">=0.16.0"
+    }
+}
