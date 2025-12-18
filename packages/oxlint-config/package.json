@@ -17,6 +17,7 @@
     },
     "license": "MIT",
     "author": "@NaverPayDev/frontend",
+    "type": "module",
     "files": [
         "node"
     ],
