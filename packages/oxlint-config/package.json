@@ -1,0 +1,30 @@
+{
+    "name": "@naverpay/oxlint-config",
+    "version": "0.0.1",
+    "description": "oxlint configuration for NaverPay projects",
+    "keywords": [
+        "oxlint",
+        "oxc",
+        "config",
+        "linter",
+        "naverpay"
+    ],
+    "homepage": "https://github.com/NaverPayDev/code-style",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/oxlint-config"
+    },
+    "license": "MIT",
+    "author": "@NaverPayDev/frontend",
+    "type": "module",
+    "files": [
+        "node"
+    ],
+    "devDependencies": {
+        "oxlint": "^1.31.0"
+    },
+    "peerDependencies": {
+        "oxlint": ">=1.0.0"
+    }
+}

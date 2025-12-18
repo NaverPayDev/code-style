@@ -1,0 +1,55 @@
+{
+    "env": {
+        "node": true,
+        "commonjs": true,
+        "es2023": true
+    },
+    "rules": {
+        "eqeqeq": ["error", "smart"],
+        "no-console": "error",
+        "no-param-reassign": "error",
+        "no-unused-vars": ["error", {"ignoreRestSiblings": true, "argsIgnorePattern": "^_", "varsIgnorePattern": "^_"}],
+        "no-undef": "error",
+
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/adjacent-overload-signatures": "error",
+        "@typescript-eslint/array-type": "error",
+        "@typescript-eslint/ban-tslint-comment": "error",
+        "@typescript-eslint/consistent-generic-constructors": "error",
+        "@typescript-eslint/consistent-indexed-object-style": "error",
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/no-confusing-non-null-assertion": "error",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/prefer-for-of": "error",
+        "@typescript-eslint/prefer-function-type": "error"
+    },
+    "overrides": [
+        {
+            "files": ["**/*.{ts,tsx}"],
+            "rules": {
+                "no-unused-vars": "off",
+                "no-unused-expressions": "off",
+                "no-undef": "off",
+
+                "@typescript-eslint/no-unused-vars": [
+                    "error",
+                    {
+                        "ignoreRestSiblings": true,
+                        "argsIgnorePattern": "^_",
+                        "varsIgnorePattern": "^_",
+                        "caughtErrorsIgnorePattern": "^_"
+                    }
+                ],
+                "@typescript-eslint/no-unused-expressions": [
+                    "error",
+                    {
+                        "allowShortCircuit": true,
+                        "allowTernary": true,
+                        "allowTaggedTemplates": true
+                    }
+                ]
+            }
+        }
+    ]
+}
