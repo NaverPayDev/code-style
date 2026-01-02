@@ -3,6 +3,8 @@
 
 import fs from 'fs'
 
+import {checkbox} from '@inquirer/prompts'
+
 // 1. package.json 존재 확인
 if (!fs.existsSync('package.json')) {
     console.error('package.json이 없습니다. 프로젝트 루트에서 실행해주세요.')
@@ -19,6 +21,21 @@ function detectPackageManager() {
 const pm = detectPackageManager()
 console.log(`패키지 매니저: ${pm}`)
 
-// TODO: 패키지 선택 UI
+// 3. 패키지 선택 UI
+const selected = await checkbox({
+    message: '설치할 패키지를 선택하세요',
+    choices: [
+        {name: '@naverpay/eslint-config', value: 'eslint-config'},
+        {name: '@naverpay/prettier-config', value: 'prettier-config'},
+        {name: '@naverpay/stylelint-config', value: 'stylelint-config'},
+        {name: '@naverpay/markdown-lint', value: 'markdown-lint'},
+        {name: '@naverpay/editorconfig', value: 'editorconfig'},
+        {name: '@naverpay/oxlint-config', value: 'oxlint-config'},
+        {name: '@naverpay/biome-config', value: 'biome-config'},
+    ],
+})
+
+console.log('선택된 패키지:', selected)
+
 // TODO: 패키지 설치
 // TODO: 설정 파일 생성
