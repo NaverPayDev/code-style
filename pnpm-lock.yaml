@@ -54,6 +54,8 @@ importers:
         specifier: ^2.0.6
         version: 2.2.6
 
+  packages/code-style-cli: {}
+
   packages/editorconfig: {}
 
   packages/eslint-config:
