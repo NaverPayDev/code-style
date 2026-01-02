@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 
+import {execSync} from 'child_process'
 import fs from 'fs'
 
 import {checkbox} from '@inquirer/prompts'
@@ -37,5 +38,20 @@ const selected = await checkbox({
 
 console.log('선택된 패키지:', selected)
 
-// TODO: 패키지 설치
+// 4. 패키지 설치
+if (selected.length > 0) {
+    const packages = selected.map((pkg) => `@naverpay/${pkg}`).join(' ')
+    const installCmd = {
+        npm: `npm install -D ${packages}`,
+        yarn: `yarn add -D ${packages}`,
+        pnpm: `pnpm add -D ${packages}`,
+    }
+
+    console.log('\n패키지 설치 중...')
+    execSync(installCmd[pm], {stdio: 'inherit'})
+    console.log('패키지 설치 완료!')
+} else {
+    console.log('선택된 패키지가 없습니다.')
+}
+
 // TODO: 설정 파일 생성
