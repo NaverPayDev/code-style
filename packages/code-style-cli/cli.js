@@ -44,8 +44,13 @@ const packagesToInstall = selectedTools.flatMap((tool) => tool.packages)
 
 if (packagesToInstall.length > 0) {
     console.log('\n📥 패키지 설치 중...')
-    execSync(`${INSTALL_CMD[pm]} ${packagesToInstall.join(' ')}`, {stdio: 'inherit'})
-    console.log('✅ 패키지 설치 완료!')
+    try {
+        execSync(`${INSTALL_CMD[pm]} ${packagesToInstall.join(' ')}`, {stdio: 'inherit'})
+        console.log('✅ 패키지 설치 완료!')
+    } catch {
+        console.error('❌ 패키지 설치 실패. 네트워크 연결을 확인하거나 수동으로 설치해주세요.')
+        process.exit(1)
+    }
 }
 
 // 5. 설정 파일 생성
