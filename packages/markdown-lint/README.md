@@ -3,18 +3,24 @@
 markdown 파일 검사용 lint 도구입니다.  
 [DavidAnson/markdownlint](https://github.com/DavidAnson/markdownlint)에서 제공하는 패키지와 규칙을 사용하고 있으며, 몇 가지 rule은 커스텀 되어 있습니다.
 
-## Installation
+## 설치 방법
 
+[`@naverpay/code-style-cli`](../code-style-cli/README.md)를 사용하여 설치하는 것을 권장합니다.
+
+```bash
+npx @naverpay/code-style-cli
 ```
-npm i @naverpay/markdown-lint -D
+
+또는 직접 설치 후 설정 파일을 생성할 수 있습니다.
+
+```bash
+npm install @naverpay/markdown-lint -D
+echo '{"extends": "@naverpay/markdown-lint"}' > .markdownlint.jsonc
 ```
 
 ## Config
 
-`@naverpay/markdown-lint`를 설치하면 `postinstall`을 통해 자동으로 `.markdownlint.json`이 생성됩니다.  
-이미 `.markdownlint.json`이 존재한다면 생성되지 않습니다.
-
-> [markdown-lint config](./.markdownlint.jsonc)는 [jsonc](https://code.visualstudio.com/docs/languages/json#_json-with-comments) 형식으로 작성되어 있어, 주석을 통해 rule에 대한 설명을 확인할 수 있습니다.  
+> [markdown-lint config](./.markdownlint.jsonc)는 [jsonc](https://code.visualstudio.com/docs/languages/json#_json-with-comments) 형식으로 작성되어 있어, 주석을 통해 rule에 대한 설명을 확인할 수 있습니다.
 > 각 규칙의 명세는 [여기](https://github.com/markdownlint/markdownlint/blob/main/docs/RULES.md)서 확인할 수 있습니다.
 
 ## Integrating with IDE
