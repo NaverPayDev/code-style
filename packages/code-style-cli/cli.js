@@ -6,7 +6,7 @@ import fs from 'fs'
 
 import {checkbox} from '@inquirer/prompts'
 
-import {INSTALL_CMD, TOOLS, TOOLS_MAP} from './configs.js'
+import {PACKAGE_MANAGERS, TOOLS, TOOLS_MAP} from './configs.js'
 
 // 1. package.json 존재 확인
 if (!fs.existsSync('package.json')) {
@@ -16,8 +16,9 @@ if (!fs.existsSync('package.json')) {
 
 // 2. 패키지 매니저 감지
 function detectPackageManager() {
-    if (fs.existsSync('pnpm-lock.yaml')) return 'pnpm'
-    if (fs.existsSync('yarn.lock')) return 'yarn'
+    for (const [name, {lockFile}] of Object.entries(PACKAGE_MANAGERS)) {
+        if (fs.existsSync(lockFile)) return name
+    }
     return 'npm'
 }
 
@@ -45,7 +46,7 @@ const packagesToInstall = selectedTools.flatMap((tool) => tool.packages)
 if (packagesToInstall.length > 0) {
     console.log('\n📥 패키지 설치 중...')
     try {
-        execSync(`${INSTALL_CMD[pm]} ${packagesToInstall.join(' ')}`, {stdio: 'inherit'})
+        execSync(`${PACKAGE_MANAGERS[pm].installCmd} ${packagesToInstall.join(' ')}`, {stdio: 'inherit'})
         console.log('✅ 패키지 설치 완료!')
     } catch {
         console.error('❌ 패키지 설치 실패. 네트워크 연결을 확인하거나 수동으로 설치해주세요.')

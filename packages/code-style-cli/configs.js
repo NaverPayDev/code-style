@@ -107,8 +107,8 @@ export const TOOLS = [
 
 export const TOOLS_MAP = Object.fromEntries(TOOLS.map((t) => [t.value, t]))
 
-export const INSTALL_CMD = {
-    npm: 'npm install -D',
-    yarn: 'yarn add -D',
-    pnpm: 'pnpm add -D',
+export const PACKAGE_MANAGERS = {
+    npm: {lockFile: 'package-lock.json', installCmd: 'npm install -D'},
+    yarn: {lockFile: 'yarn.lock', installCmd: 'yarn add -D'},
+    pnpm: {lockFile: 'pnpm-lock.yaml', installCmd: 'pnpm add -D'},
 }
