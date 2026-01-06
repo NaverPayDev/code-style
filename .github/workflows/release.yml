@@ -6,8 +6,8 @@ on:
             - main
 
 permissions:
-    contents: read
     id-token: write
+    contents: write
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -28,6 +28,15 @@ jobs:
               with:
                   node-version: '22'
                   cache: 'pnpm'
+
+            - name: Check and upgrade npm
+              run: |
+                  echo "Current npm version:"
+                  npm --version
+                  npm install -g npm@latest
+                  echo "Upgraded npm version:"
+                  npm --version
+
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
 
@@ -36,7 +45,7 @@ jobs:
 
             - name: Create Release Pull Request
               id: changesets
-              uses: NaverPayDev/changeset-actions/publish@f2c257106137d19d09112998e6c05b5586b3305c
+              uses: NaverPayDev/changeset-actions/publish@main
               with:
                   github_token: ${{ secrets.ACTION_TOKEN }}
                   git_username: npayfebot
@@ -46,6 +55,5 @@ jobs:
                   commit_message: '📦 bump changed packages version'
                   create_github_release_tag: true
                   formatting_script: pnpm run markdownlint:fix
-                  npm_token: ${{ secrets.NPM_TOKEN }}
               env:
                   GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
