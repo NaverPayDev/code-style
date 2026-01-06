@@ -13,8 +13,5 @@
     },
     "license": "MIT",
     "author": "@NaverPayDev/frontend",
-    "type": "commonjs",
-    "scripts": {
-        "postinstall": "node index.js"
-    }
+    "type": "commonjs"
 }
