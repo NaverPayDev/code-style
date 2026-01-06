@@ -1,6 +1,6 @@
 {
     "name": "@naverpay/code-style-cli",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "NaverPay code-style CLI tool",
     "keywords": [
         "code-style",
