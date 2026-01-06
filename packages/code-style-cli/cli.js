@@ -69,6 +69,13 @@ for (const tool of selectedTools) {
         }
         const content = fs.readFileSync(tool.copyFrom, 'utf-8')
         fs.writeFileSync(tool.configFile, content)
+    } else if (tool.getContent) {
+        const content = tool.getContent()
+        if (!content) {
+            console.error(`❌ ${tool.configFile} 생성에 필요한 정보를 찾을 수 없습니다.`)
+            continue
+        }
+        fs.writeFileSync(tool.configFile, content)
     } else if (tool.configContent) {
         fs.writeFileSync(tool.configFile, tool.configContent)
     }

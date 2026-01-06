@@ -1,3 +1,5 @@
+import fs from 'fs'
+
 // 설정 파일 내용
 const PRETTIERRC_CONTENT = '"@naverpay/prettier-config"'
 
@@ -28,14 +30,19 @@ const OXLINTRC_CONTENT = JSON.stringify(
     4,
 )
 
-const BIOME_CONTENT = JSON.stringify(
-    {
-        $schema: 'https://biomejs.dev/schemas/2.2.6/schema.json',
-        extends: ['@naverpay/biome-config'],
-    },
-    null,
-    4,
-)
+function getBiomeContent() {
+    const pkgJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'))
+    const version = pkgJson.devDependencies?.['@biomejs/biome']?.replace(/[\^~]/, '')
+    if (!version) return null
+    return JSON.stringify(
+        {
+            $schema: `https://biomejs.dev/schemas/${version}/schema.json`,
+            extends: ['@naverpay/biome-config'],
+        },
+        null,
+        4,
+    )
+}
 
 const OXFMTRC_CONTENT = JSON.stringify(
     {
@@ -93,7 +100,7 @@ export const TOOLS = [
         value: 'biome-config',
         packages: ['@naverpay/biome-config', '@biomejs/biome'],
         configFile: 'biome.json',
-        configContent: BIOME_CONTENT,
+        getContent: getBiomeContent,
     },
     {value: 'oxfmt', packages: ['oxfmt'], configFile: '.oxfmtrc.json', configContent: OXFMTRC_CONTENT},
 ]
