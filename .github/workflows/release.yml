@@ -6,6 +6,7 @@ on:
             - main
 
 permissions:
+    contents: read
     id-token: write
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
@@ -45,6 +46,5 @@ jobs:
                   commit_message: '📦 bump changed packages version'
                   create_github_release_tag: true
                   formatting_script: pnpm run markdownlint:fix
-                  npm_token: ${{ secrets.NPM_TOKEN }}
               env:
                   GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
