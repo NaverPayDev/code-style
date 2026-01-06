@@ -1,0 +1,25 @@
+{
+    "name": "@naverpay/code-style-cli",
+    "version": "0.0.1",
+    "description": "NaverPay code-style CLI tool",
+    "keywords": [
+        "code-style",
+        "cli",
+        "naverpay"
+    ],
+    "homepage": "https://github.com/NaverPayDev/code-style",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NaverPayDev/code-style.git",
+        "directory": "packages/code-style-cli"
+    },
+    "license": "MIT",
+    "author": "@NaverPayDev/frontend",
+    "type": "module",
+    "bin": {
+        "code-style": "cli.js"
+    },
+    "dependencies": {
+        "@inquirer/prompts": "^8.1.0"
+    }
+}
