@@ -9,6 +9,7 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
+    id-token: write
     contents: write # to create release
 
 jobs:
@@ -34,6 +35,14 @@ jobs:
                   node-version: '22'
                   cache: 'pnpm'
 
+            - name: Check and upgrade npm
+              run: |
+                  echo "Current npm version:"
+                  npm --version
+                  npm install -g npm@latest
+                  echo "Upgraded npm version:"
+                  npm --version
+
             - name: Install Dependencies
               run: pnpm install --frozen-lockfile
 
@@ -45,7 +54,6 @@ jobs:
               with:
                   github_token: ${{ secrets.ACTION_TOKEN }} # Add user PAT if necessary
                   npm_tag: rc # Specify the npm tag to use for deployment
-                  npm_token: ${{ secrets.NPM_TOKEN }} # Provide the token required for npm publishing
                   publish_script: pnpm run release:canary # Script to execute Canary deployment
                   packages_dir: packages # Directory of packages to detect changes (default: packages,share)
                   excludes: '.turbo,.github' # Files or directories to exclude from change detection
