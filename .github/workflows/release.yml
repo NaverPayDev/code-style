@@ -1,9 +1,12 @@
-name: release packages
+name: Publish Package
 
 on:
     push:
         branches:
             - main
+    issue_comment:
+        types:
+            - created
 
 permissions:
     id-token: write
@@ -12,13 +15,32 @@ permissions:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
+    get-branch:
+        if: github.event_name == 'issue_comment' && github.event.issue.pull_request && (github.event.comment.body == 'canary-publish' || github.event.comment.body == '/canary-publish' || github.event.comment.body == 'rc-publish' || github.event.comment.body == '/rc-publish')
+        runs-on: ubuntu-latest
+        outputs:
+            branch: ${{ steps.get_branch.outputs.branch }}
+        steps:
+            - name: Get PR branch name
+              id: get_branch
+              run: |
+                  PR=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" ${{ github.event.issue.pull_request.url }})
+                  branch=$(echo "$PR" | jq -r '.head.ref')
+                  echo "branch=$branch" >> "$GITHUB_OUTPUT"
+
     release:
         name: Release
         runs-on: ubuntu-latest
+        needs: [get-branch]
+        if: |
+            always() &&
+            (github.event_name == 'push' ||
+             (github.event_name == 'issue_comment' && needs.get-branch.result == 'success'))
         steps:
             - name: Checkout Repo
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
               with:
+                  ref: ${{ needs.get-branch.outputs.branch || github.ref }}
                   token: ${{ secrets.ACTION_TOKEN }}
                   fetch-depth: 0
 
@@ -43,7 +65,8 @@ jobs:
             - name: Build
               run: pnpm build
 
-            - name: Create Release Pull Request
+            - name: Publish - Release
+              if: github.event_name == 'push'
               id: changesets
               uses: NaverPayDev/changeset-actions/publish@main
               with:
@@ -57,3 +80,28 @@ jobs:
                   formatting_script: pnpm run markdownlint:fix
               env:
                   GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+
+            - name: Publish - Canary
+              if: github.event_name == 'issue_comment' && (github.event.comment.body == 'canary-publish' || github.event.comment.body == '/canary-publish')
+              uses: NaverPayDev/changeset-actions/canary-publish@main
+              with:
+                  github_token: ${{ secrets.ACTION_TOKEN }}
+                  npm_tag: canary
+                  publish_script: pnpm run release:canary
+                  packages_dir: packages
+                  excludes: '.turbo,.github'
+                  version_template: '{VERSION}-canary.{DATE}-{COMMITID7}'
+
+            - name: Publish - RC
+              if: github.event_name == 'issue_comment' && (github.event.comment.body == 'rc-publish' || github.event.comment.body == '/rc-publish')
+              uses: NaverPayDev/changeset-actions/canary-publish@main
+              with:
+                  github_token: ${{ secrets.ACTION_TOKEN }}
+                  npm_tag: rc
+                  publish_script: pnpm run release:canary
+                  packages_dir: packages
+                  excludes: '.turbo,.github'
+                  version_template: '{VERSION}-rc.{DATE}-{COMMITID7}'
+                  create_release: true
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
