@@ -21,9 +21,11 @@
     },
     "files": [
         "cli.js",
+        "postInstall",
         ".markdownlint.jsonc"
     ],
     "scripts": {
+        "postinstall": "node postInstall/index.js",
         "test": "jest --config jest.config.js"
     },
     "dependencies": {
