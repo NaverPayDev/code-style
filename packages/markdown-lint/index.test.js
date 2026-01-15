@@ -1,10 +1,11 @@
-const path = require('path')
+import path from 'path'
 
-const {parse} = require('jsonc-parser')
-const markdownlint = require('markdownlint')
+import {parse} from 'jsonc-parser'
+import markdownlint from 'markdownlint'
+import {describe, test, expect} from 'vitest'
 
 describe('markdown lint', () => {
-    const config = markdownlint.readConfigSync(path.join(__dirname, '.markdownlint.jsonc'), [parse])
+    const config = markdownlint.readConfigSync(path.join(import.meta.dirname, '.markdownlint.jsonc'), [parse])
 
     test('heading-style', () => {
         const errors = markdownlint.sync({
