@@ -139,7 +139,7 @@ export default {
             return {}
         }
 
-        const sourceCode = context.sourceCode ?? context.getSourceCode()
+        const sourceCode = context.sourceCode
 
         /**
          * @type {import('eslint').Scope.Scope | undefined}
@@ -149,7 +149,7 @@ export default {
 
         return {
             Program: function (node) {
-                globalScope = sourceCode.getScope ? sourceCode.getScope(node) : context.getScope()
+                globalScope = sourceCode.getScope(node)
                 canOptimize = svgValidator(context, globalScope)
             },
             onCodePathEnd: function (_, code) {

@@ -1,8 +1,8 @@
 import {minimatch} from 'minimatch'
 
 function getCommentFromNode(context, node) {
-    const beforeComments = context.getSourceCode().getCommentsBefore(node)
-    const afterComments = context.getSourceCode().getCommentsAfter(node)
+    const beforeComments = context.sourceCode.getCommentsBefore(node)
+    const afterComments = context.sourceCode.getCommentsAfter(node)
     const result = {}
 
     const nodeStartLine = node.loc.start.line
@@ -53,7 +53,7 @@ function getIdentifier(node) {
             exportKind,
         } = node
 
-        let wholeLine = ''
+        let wholeLine
 
         if (specifiers.length === 1) {
             if (specifiers[0].local.name === 'default') {
