@@ -122,11 +122,11 @@ export default {
          * @type {import('eslint').Scope.Scope | undefined}
          */
         let globalScope
-        const sourceCode = context.sourceCode ?? context.getSourceCode()
+        const sourceCode = context.sourceCode
 
         return {
             Program: function (node) {
-                globalScope = sourceCode.getScope ? sourceCode.getScope(node) : context.getScope()
+                globalScope = sourceCode.getScope(node)
             },
             onCodePathEnd: function (_, code) {
                 const svgElement = getJSXReturnStatement(globalScope)

@@ -1,9 +1,4 @@
-import nodePlugin from 'eslint-plugin-n'
-
 export default {
-    plugins: {
-        n: nodePlugin,
-    },
     rules: {
         /**
          * When a function is named cb or callback, then it must be invoked with a first argument that is undefined, null, an Error class, or a subclass or Error

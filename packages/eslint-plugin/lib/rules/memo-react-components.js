@@ -31,7 +31,7 @@ export default {
 
         let isAlreadyMemoized = false
 
-        const sourceCode = context.sourceCode ?? context.getSourceCode()
+        const sourceCode = context.sourceCode
 
         /**
          * @type {import('eslint').Scope.Scope | undefined}
@@ -48,7 +48,7 @@ export default {
 
             const reactImportDeclaration = importDeclarations.find(({source: {value}}) => value === 'react')
 
-            let isDefault = false
+            let isDefault
             let hasImportMemo = false
             let isDefaultOnly = false
             if (reactImportDeclaration) {
@@ -88,7 +88,7 @@ export default {
 
         return {
             Program: function (node) {
-                globalScope = sourceCode.getScope ? sourceCode.getScope(node) : context.getScope()
+                globalScope = sourceCode.getScope(node)
 
                 const exportDefaultDeclaration = getExportDefaultDeclaration(globalScope.block).declaration
                 if (

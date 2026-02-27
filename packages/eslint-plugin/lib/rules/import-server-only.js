@@ -31,7 +31,7 @@ export default {
     },
     create(context) {
         const {include, exclude} = context.options[0] || {}
-        const filePath = path.relative(context.getCwd(), context.getFilename())
+        const filePath = path.relative(context.cwd, context.filename)
 
         const isIncluded = micromatch.isMatch(filePath, include)
         const isExcluded = micromatch.isMatch(filePath, exclude)
@@ -46,7 +46,7 @@ export default {
                     (statement) => statement.type === 'ImportDeclaration' && statement.source.value === 'server-only',
                 )
 
-                const sourceCode = context.sourceCode ?? context.getSourceCode()
+                const sourceCode = context.sourceCode
 
                 if (!hasServerOnlyImport) {
                     context.report({

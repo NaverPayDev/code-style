@@ -1,9 +1,4 @@
-import nodePlugin from 'eslint-plugin-n'
-
 export default {
-    plugins: {
-        n: nodePlugin,
-    },
     rules: {
         /**
          * Require the use of === and !==
