@@ -384,6 +384,50 @@ describe('cognitive-complexity', () => {
         })
     })
 
+    it('hides breakdown by default', () => {
+        tester.run('cognitive-complexity', rule, {
+            valid: [],
+            invalid: [
+                {
+                    code: `function foo(a, b) {
+                        if (a) {
+                            if (b) { return true; }
+                        }
+                    }`,
+                    options: [0],
+                    errors: [
+                        {
+                            messageId: 'complexFunction',
+                            // message should NOT contain '점수 상세:'
+                        },
+                    ],
+                },
+            ],
+        })
+    })
+
+    it('shows breakdown when breakdown option is true', () => {
+        tester.run('cognitive-complexity', rule, {
+            valid: [],
+            invalid: [
+                {
+                    code: `function foo(a, b) {
+                        if (a) {
+                            if (b) { return true; }
+                        }
+                    }`,
+                    options: [0, {breakdown: true}],
+                    errors: [
+                        {
+                            messageId: 'complexFunction',
+                            // message should contain '점수 상세:'
+                        },
+                    ],
+                },
+            ],
+        })
+    })
+
     it('suggests merge-nested-if', () => {
         tester.run('cognitive-complexity', rule, {
             valid: [],

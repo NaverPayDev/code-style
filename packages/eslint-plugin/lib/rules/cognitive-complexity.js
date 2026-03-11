@@ -536,6 +536,10 @@ export default {
             {
                 type: 'object',
                 properties: {
+                    breakdown: {
+                        type: 'boolean',
+                        default: false,
+                    },
                     suggestions: {
                         type: 'boolean',
                         default: false,
@@ -551,6 +555,7 @@ export default {
     },
     create(context) {
         const threshold = context.options[0] ?? 15
+        const showBreakdown = context.options[1]?.breakdown ?? false
         const showSuggestions = context.options[1]?.suggestions ?? false
 
         const checkFunction = (node) => {
@@ -563,7 +568,7 @@ export default {
                 const endLine = node.loc.end.line
                 const lineCount = endLine - startLine + 1
 
-                const breakdownText = getBreakdown(increments)
+                const breakdownText = showBreakdown ? getBreakdown(increments) : ''
                 let suggestionsText = ''
                 if (showSuggestions) {
                     const suggestions = getSuggestions(increments, maxNestingDepth, score, lineCount, threshold, body)

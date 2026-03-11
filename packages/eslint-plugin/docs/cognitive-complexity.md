@@ -99,6 +99,7 @@ function greet(name) {
 
 | 속성 | 타입 | 기본값 | 설명 |
 | :--- | :--- | :--- | :--- |
+| `breakdown` | `boolean` | `false` | 라인별 점수 상세를 에러 메시지에 포함할지 여부 |
 | `suggestions` | `boolean` | `false` | 리팩토링 제안을 에러 메시지에 포함할지 여부 |
 
 ## 설정
@@ -126,6 +127,20 @@ export default [
         plugins: {'@naverpay': naverpayPlugin},
         rules: {
             '@naverpay/cognitive-complexity': ['error', 15, {suggestions: true}],
+        },
+    },
+]
+```
+
+### 점수 상세 비활성화
+
+```js
+export default [
+    {
+        plugins: {'@naverpay': naverpayPlugin},
+        rules: {
+            // 점수 상세 없이 총점만 표시
+            '@naverpay/cognitive-complexity': ['error', 15, {breakdown: false}],
         },
     },
 ]
