@@ -57,40 +57,6 @@ const getKindDescription = (node) => {
     }
 }
 
-const toKorean = (description) => {
-    switch (description) {
-        case 'if':
-            return 'if문'
-        case 'else if':
-            return 'else if문'
-        case 'else':
-            return 'else문'
-        case 'for':
-            return 'for문'
-        case 'for-in':
-            return 'for-in문'
-        case 'for-of':
-            return 'for-of문'
-        case 'while':
-            return 'while문'
-        case 'do-while':
-            return 'do-while문'
-        case 'switch':
-            return 'switch문'
-        case 'catch':
-            return 'catch문'
-        case 'ternary':
-            return '삼항 연산자'
-        case 'break to label':
-            return '라벨 break문'
-        case 'continue to label':
-            return '라벨 continue문'
-        default:
-            if (description.startsWith('logical: ')) return description.slice(9) + ' 연산자'
-            return description
-    }
-}
-
 // ---------------------------------------------------------------------------
 // Complexity calculation (ESTree walker)
 // ---------------------------------------------------------------------------
@@ -319,16 +285,16 @@ const getBreakdown = (increments) => {
         const total = incs.reduce((s, i) => s + i.value, 0)
         const nesting = incs.find((i) => i.type === 'nesting')
         const mains = incs.filter((i) => i.type !== 'nesting')
-        const kind = mains.map((m) => toKorean(m.description)).join(', ')
+        const kind = mains.map((m) => m.description).join(', ')
 
         if (nesting) {
-            parts.push(`+${total} (L${line}) ${kind} (중첩 ${nesting.value}단계에서 +${nesting.value})`)
+            parts.push(`+${total} (L${line}) ${kind} (nesting depth ${nesting.value}, +${nesting.value})`)
         } else {
             parts.push(`+${total} (L${line}) ${kind}`)
         }
     }
 
-    return '\n  점수 상세:\n' + parts.map((p) => `  ${p}`).join('\n')
+    return '\n  Score breakdown:\n' + parts.map((p) => `  ${p}`).join('\n')
 }
 
 // ---------------------------------------------------------------------------

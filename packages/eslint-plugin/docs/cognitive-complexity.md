@@ -13,10 +13,10 @@
 ```js
 // threshold 5 초과 → 에러
 function processOrder(order, user) {
-    if (order.items.length > 0) {                    // +1 if문
-        for (const item of order.items) {            // +2 for-of문 (중첩 1단계에서 +1)
-            if (item.quantity > 0 && item.price) {   // +4 if문 (중첩 2단계에서 +2), && 연산자
-                if (user.isVip) {                    // +4 if문 (중첩 3단계에서 +3)
+    if (order.items.length > 0) {                    // +1 if
+        for (const item of order.items) {            // +2 for-of (nesting depth 1, +1)
+            if (item.quantity > 0 && item.price) {   // +4 if, logical: && (nesting depth 2, +2)
+                if (user.isVip) {                    // +4 if (nesting depth 3, +3)
                     applyDiscount(item)
                 }
             }
@@ -45,22 +45,22 @@ function greet(name) {
 
 ```
 'processOrder'의 Cognitive Complexity가 11입니다 (허용: 5).
-  점수 상세:
-  +1 (L3) if문
-  +2 (L4) for-of문 (중첩 1단계에서 +1)
-  +4 (L5) if문, && 연산자 (중첩 2단계에서 +2)
-  +4 (L6) if문 (중첩 3단계에서 +3)
+  Score breakdown:
+  +1 (L3) if
+  +2 (L4) for-of (nesting depth 1, +1)
+  +4 (L5) if, logical: && (nesting depth 2, +2)
+  +4 (L6) if (nesting depth 3, +3)
 ```
 
 ### `suggestions: true` 옵션 사용 시
 
 ```
 'processOrder'의 Cognitive Complexity가 11입니다 (허용: 5).
-  점수 상세:
-  +1 (L3) if문
-  +2 (L4) for-of문 (중첩 1단계에서 +1)
-  +4 (L5) if문, && 연산자 (중첩 2단계에서 +2)
-  +4 (L6) if문 (중첩 3단계에서 +3)
+  Score breakdown:
+  +1 (L3) if
+  +2 (L4) for-of (nesting depth 1, +1)
+  +4 (L5) if, logical: && (nesting depth 2, +2)
+  +4 (L6) if (nesting depth 3, +3)
   제안:
   - L3의 초기 조건을 반전시키고 조기 반환(guard clause)하세요
   - L6에서 중첩 깊이 3단계. 이 블록을 별도 함수로 추출하세요
