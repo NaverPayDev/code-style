@@ -138,8 +138,8 @@ const calculateComplexity = (bodyNode) => {
                 })
             }
 
-            // else if의 자식 탐색 (nesting 유지)
-            walkIfChildren(node, nestingLevel, true)
+            // else if의 자식 탐색 (else if 자체는 nesting 증가 없지만, body는 한 단계 깊어짐)
+            walkIfChildren(node, nestingLevel + 1)
             return
         }
 
@@ -177,22 +177,22 @@ const calculateComplexity = (bodyNode) => {
         }
     }
 
-    const walkIfChildren = (node, childNesting, isElseIfBranch) => {
+    const walkIfChildren = (node, childNesting) => {
         // then 분기
         walk(node.consequent, childNesting)
 
         // else 분기
         if (node.alternate) {
             if (node.alternate.type === 'IfStatement') {
-                // else if 체인: nesting을 올리지 않음
-                walk(node.alternate, isElseIfBranch ? childNesting : childNesting - 1)
+                // else if 체인: else if 자체의 nesting은 부모와 동일한 레벨
+                walk(node.alternate, childNesting - 1)
             } else {
                 walk(node.alternate, childNesting)
             }
         }
 
         // 조건식 (논리 연산자 포함 가능)
-        walk(node.test, isElseIfBranch ? childNesting : childNesting - 1)
+        walk(node.test, childNesting - 1)
     }
 
     /**
