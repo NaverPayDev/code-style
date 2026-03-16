@@ -1,5 +1,13 @@
 # @naverpay/eslint-plugin
 
+## 2.3.1
+
+### Patch Changes
+
+- 4046028: cognitive-complexity eslint plugin을 추가합니다
+
+  PR: [cognitive-complexity eslint plugin을 추가합니다](https://github.com/NaverPayDev/code-style/pull/154)
+
 ## 2.3.0
 
 ### Minor Changes
