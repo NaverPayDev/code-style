@@ -1,4 +1,5 @@
 import pkg from '../package.json'
+import cognitiveComplexity from './rules/cognitive-complexity.js'
 import importServerOnly from './rules/import-server-only'
 import memoReactComponents from './rules/memo-react-components.js'
 import optimizeSvgComponents from './rules/optimize-svg-components.js'
@@ -13,6 +14,7 @@ const plugin = {
         version: pkg.version,
     },
     rules: {
+        'cognitive-complexity': cognitiveComplexity,
         'memo-react-components': memoReactComponents,
         'optimize-svg-components': optimizeSvgComponents,
         'prevent-default-import': preventDefaultImport,

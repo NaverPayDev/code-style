@@ -45,3 +45,4 @@ export default [
 | [svg-unique-id](docs/svg-unique-id.md)                       | 주어진 경로의 SVG 컴포넌트들에 고유한 id를 부여하는 HOC를 추가합니다.                     | 🔧  |
 | [import-server-only](docs/import-server-only.md)                       | 주어진 경로의 파일에 server-only 패키지를 포함하도록 강제합니다.                     | 🔧  |
 | [peer-deps-in-dev-deps](docs/peer-deps-in-dev-deps.md)                       | `package.json`에서 동작하는 규칙으로, `peerDependencies` 에 있는 패키지가 `devDependencies` 에 선언되어 있지 않다면 에러를 발생시킵니다.                     |   |
+| [cognitive-complexity](docs/cognitive-complexity.md)                       | 함수의 Cognitive Complexity가 임계값을 초과하면 라인별 점수 상세와 리팩토링 제안을 포함하여 보고합니다.                     |   |
