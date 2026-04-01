@@ -1,5 +1,11 @@
 # @naverpay/eslint-config
 
+## 2.4.2
+
+### Patch Changes
+
+- 910fa9d: Update typescript-eslint for TypeScript 6.0 support
+
 ## 2.4.1
 
 ### Patch Changes
