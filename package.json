@@ -35,7 +35,7 @@
         "lefthook": "^1.9.3",
         "prettier": "^3.2.5",
         "turbo": "^2.3.3",
-        "typescript": "^5.2.2",
+        "typescript": "^6.0.0",
         "vite": "^6.3.5"
     },
     "packageManager": "pnpm@9.1.3",
@@ -45,7 +45,13 @@
     },
     "pnpm": {
         "overrides": {
-            "@changesets/cli>@changesets/assemble-release-plan": "github:NaverPayDev/changesets-assemble-release-plan"
+            "@changesets/cli>@changesets/assemble-release-plan": "github:NaverPayDev/changesets-assemble-release-plan",
+            "typescript": "$typescript"
+        },
+        "peerDependencyRules": {
+            "allowedVersions": {
+                "typescript": "6"
+            }
         }
     }
 }
