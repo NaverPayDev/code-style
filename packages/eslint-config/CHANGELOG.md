@@ -1,5 +1,13 @@
 # @naverpay/eslint-config
 
+## 2.4.3
+
+### Patch Changes
+
+- 7d40682: Update typescript-eslint to ^8.61.1
+- Updated dependencies [7d40682]
+  - @naverpay/eslint-plugin@2.3.2
+
 ## 2.4.2
 
 ### Patch Changes
