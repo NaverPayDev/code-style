@@ -35,11 +35,11 @@ export default defineConfig(config)
 
 ```ts
 // oxfmt.config.ts
-import {defineConfig} from 'oxfmt'
+import {defineConfig, type OxfmtConfig} from 'oxfmt'
 import config from '@naverpay/oxfmt-config' with {type: 'json'}
 
 export default defineConfig({
-    ...config,
+    ...(config as OxfmtConfig),
     printWidth: 80,
     ignorePatterns: ['dist', 'node_modules'],
 })
