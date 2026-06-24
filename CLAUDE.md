@@ -12,7 +12,7 @@ and published. There are two kinds of packages:
   dual CJS/ESM bundles under `dist/`. Their `package.json` `exports` point at `./dist/cjs/...`
   and `./dist/esm/...`, so **the package must be built before its exports resolve**.
 - **Config-only packages** (`prettier-config`, `stylelint-config`, `biome-config`,
-  `oxlint-config`, `editorconfig`, `markdown-lint`, `code-style-cli`) — ship raw config files
+  `oxlint-config`, `oxfmt-config`, `editorconfig`, `markdown-lint`, `code-style-cli`) — ship raw config files
   (`.json`/`.js`) referenced directly by `main`/`exports`/`bin`. No build step, no `dist/`.
 
 The repo **dogfoods its own packages**: the root `eslint.config.mjs` consumes
@@ -33,6 +33,7 @@ read the relevant one before working inside a package.
 | `@naverpay/stylelint-config` | config (rule modules) | [packages/stylelint-config/CLAUDE.md](./packages/stylelint-config/CLAUDE.md) |
 | `@naverpay/prettier-config` | config-only | [packages/prettier-config/CLAUDE.md](./packages/prettier-config/CLAUDE.md) |
 | `@naverpay/biome-config` | config-only | [packages/biome-config/CLAUDE.md](./packages/biome-config/CLAUDE.md) |
+| `@naverpay/oxfmt-config` | config-only | [packages/oxfmt-config/CLAUDE.md](./packages/oxfmt-config/CLAUDE.md) |
 | `@naverpay/oxlint-config` | config-only | [packages/oxlint-config/CLAUDE.md](./packages/oxlint-config/CLAUDE.md) |
 | `@naverpay/editorconfig` | config-only (copied) | [packages/editorconfig/CLAUDE.md](./packages/editorconfig/CLAUDE.md) |
 
