@@ -53,7 +53,7 @@ CLI는 기본 설정 파일만 생성합니다. 추가 설정이 필요한 경�
 >
 > **Note:** oxfmt는 현재 **alpha** 단계입니다. VSCode Extension 지원도 experimental 상태입니다.
 
-oxfmt는 현재 `extends` 옵션을 지원하지 않아 별도 config 패키지가 없습니다. CLI에서 네이버페이 권장 설정이 포함된 `.oxfmtrc.json`을 생성합니다.
+CLI에서 네이버페이 권장 설정이 포함된 `.oxfmtrc.json`을 생성합니다.
 
 ### 설정
 
