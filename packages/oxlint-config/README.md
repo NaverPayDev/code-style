@@ -25,6 +25,17 @@ npm install @naverpay/oxlint-config oxlint -D
 }
 ```
 
+### React 프로젝트
+
+`react` 프리셋은 `node` 프리셋을 확장하고 React / JSX 접근성(a11y) 룰을 추가로 활성화합니다.
+
+```json
+{
+    "$schema": "./node_modules/oxlint/configuration_schema.json",
+    "extends": ["./node_modules/@naverpay/oxlint-config/react/.oxlintrc.json"]
+}
+```
+
 필요에 따라 `ignorePatterns`를 추가합니다.
 
 ```json
