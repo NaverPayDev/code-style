@@ -26,6 +26,6 @@ A tool scaffolds its config file via exactly one of three modes:
 ## Adding an installable tool
 
 Append an entry to `TOOLS` in `configs.js` with its npm `packages` and, if it needs a config file,
-one of the three modes above. Note the catalog also offers `oxfmt` (a formatter config scaffold)
-even though there is no `@naverpay/oxfmt` package — `TOOLS` entries are not limited to this repo's
-packages.
+one of the three modes above. `TOOLS` entries are not limited to this repo's packages — `packages`
+may list any npm package (e.g. an entry can install a third-party tool alongside a `@naverpay/*`
+config).

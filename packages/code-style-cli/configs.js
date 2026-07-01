@@ -44,23 +44,11 @@ function getBiomeContent() {
     )
 }
 
-const OXFMTRC_CONTENT = JSON.stringify(
-    {
-        $schema: './node_modules/oxfmt/configuration_schema.json',
-        singleQuote: true,
-        semi: false,
-        useTabs: false,
-        tabWidth: 4,
-        endOfLine: 'lf',
-        bracketSpacing: false,
-        arrowParens: 'always',
-        bracketSameLine: false,
-        printWidth: 120,
-        trailingComma: 'all',
-    },
-    null,
-    4,
-)
+const OXFMT_CONFIG_CONTENT = `import {defineConfig} from 'oxfmt'
+import config from '@naverpay/oxfmt-config' with {type: 'json'}
+
+export default defineConfig(config)
+`
 
 // 패키지 목록
 export const TOOLS = [
@@ -102,7 +90,12 @@ export const TOOLS = [
         configFile: 'biome.json',
         getContent: getBiomeContent,
     },
-    {value: 'oxfmt', packages: ['oxfmt'], configFile: '.oxfmtrc.json', configContent: OXFMTRC_CONTENT},
+    {
+        value: 'oxfmt-config',
+        packages: ['@naverpay/oxfmt-config', 'oxfmt'],
+        configFile: 'oxfmt.config.ts',
+        configContent: OXFMT_CONFIG_CONTENT,
+    },
 ]
 
 export const TOOLS_MAP = Object.fromEntries(TOOLS.map((t) => [t.value, t]))
