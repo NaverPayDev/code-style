@@ -46,6 +46,8 @@ npm install @naverpay/oxlint-config oxlint -D
 }
 ```
 
+> **Note:** oxlint 네이티브에 없는 일부 룰(`unused-imports/no-unused-imports`, `@naverpay/prevent-default-import`)은 `jsPlugins`로 제공되며, 필요한 플러그인은 이 패키지의 의존성으로 함께 설치됩니다. `jsPlugins`는 아직 **experimental** 단계라 lint 실행 시 경고가 출력되고, IDE(oxc language server)에서는 해당 룰이 표시되지 않습니다.
+
 ## CLI
 
 package.json에 스크립트를 추가하여 lint 검사를 할 수 있습니다.
