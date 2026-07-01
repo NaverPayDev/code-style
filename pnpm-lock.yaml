@@ -103,7 +103,7 @@ importers:
         version: 56.0.1(eslint@9.17.0)
       eslint-plugin-unused-imports:
         specifier: ^4.1.4
-        version: 4.1.4(@typescript-eslint/eslint-plugin@8.61.1(@typescript-eslint/parser@8.61.1(eslint@9.17.0)(typescript@6.0.3))(eslint@9.17.0)(typescript@6.0.3))(eslint@9.17.0)
+        version: 4.1.4(@typescript-eslint/eslint-plugin@8.61.1(eslint@9.17.0)(typescript@6.0.3))(eslint@9.17.0)
       eslint-plugin-yml:
         specifier: ^1.16.0
         version: 1.16.0(eslint@9.17.0)
@@ -178,6 +178,13 @@ importers:
         version: 4.0.17(sass-embedded@1.85.1)(terser@5.36.0)
 
   packages/oxlint-config:
+    dependencies:
+      '@naverpay/eslint-plugin':
+        specifier: workspace:*
+        version: link:../eslint-plugin
+      eslint-plugin-unused-imports:
+        specifier: ^4.1.4
+        version: 4.1.4(@typescript-eslint/eslint-plugin@8.61.1(eslint@9.17.0)(typescript@6.0.3))(eslint@9.17.0)
     devDependencies:
       oxlint:
         specifier: ^1.31.0
@@ -7490,7 +7497,7 @@ snapshots:
       semver: 7.7.1
       strip-indent: 3.0.0
 
-  eslint-plugin-unused-imports@4.1.4(@typescript-eslint/eslint-plugin@8.61.1(@typescript-eslint/parser@8.61.1(eslint@9.17.0)(typescript@6.0.3))(eslint@9.17.0)(typescript@6.0.3))(eslint@9.17.0):
+  eslint-plugin-unused-imports@4.1.4(@typescript-eslint/eslint-plugin@8.61.1(eslint@9.17.0)(typescript@6.0.3))(eslint@9.17.0):
     dependencies:
       eslint: 9.17.0
     optionalDependencies:

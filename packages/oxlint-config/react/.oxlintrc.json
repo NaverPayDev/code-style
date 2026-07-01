@@ -4,6 +4,7 @@
         "browser": true
     },
     "plugins": ["react", "jsx-a11y"],
+    "jsPlugins": ["@naverpay/eslint-plugin"],
     "rules": {
         "curly": ["error", "all"],
         "no-restricted-imports": [
@@ -17,6 +18,8 @@
                 ]
             }
         ],
+
+        "@naverpay/prevent-default-import": ["error", {"packages": ["react"]}],
 
         "react/rules-of-hooks": "error",
         "react/exhaustive-deps": "error",
