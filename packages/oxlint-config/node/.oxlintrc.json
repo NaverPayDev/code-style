@@ -4,12 +4,15 @@
         "commonjs": true,
         "es2023": true
     },
+    "jsPlugins": ["eslint-plugin-unused-imports"],
     "rules": {
         "eqeqeq": ["error", "smart"],
         "no-console": "error",
         "no-param-reassign": "error",
         "no-unused-vars": ["error", {"ignoreRestSiblings": true, "argsIgnorePattern": "^_", "varsIgnorePattern": "^_"}],
         "no-undef": "error",
+
+        "unused-imports/no-unused-imports": "error",
 
         "@typescript-eslint/consistent-type-imports": "error",
         "@typescript-eslint/adjacent-overload-signatures": "error",
